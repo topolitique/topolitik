@@ -25,6 +25,7 @@ function topolitik_customize_register( $wp_customize ) {
     	'transport' => 'postMessage',
 	));
 
+	/* Custom controls (shown in admin page's customizer) */
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
 		'label'      => __( 'Couleur de fond', 'topolitik' ),
 		'section'    => 'header_image',
@@ -52,6 +53,7 @@ function topolitik_customize_register( $wp_customize ) {
 			'selector'        => '.site-description',
 			'render_callback' => 'topolitik_customize_partial_blogdescription',
 		) );
+		/* refresh customizer */
 		$wp_customize->selective_refresh->add_partial( 'header_bg', array(
 			'selector'        => '#header-advert',
 			'render_callback' => 'topolitik_customize_partial_header_bg',

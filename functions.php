@@ -44,13 +44,13 @@ if ( ! function_exists( 'topolitik_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'topolitik' ),
+			'menu-1' => esc_html__( 'Primary', 'topolitik' ), // Categories
 		) );
 		register_nav_menus( array(
-			'menu-2' => esc_html__( 'Secondary', 'topolitik' ),
+			'menu-2' => esc_html__( 'Secondary', 'topolitik' ), // Other links
 		) );
 		register_nav_menus( array(
-			'menu-3' => esc_html__( 'Links', 'topolitik' ),
+			'menu-3' => esc_html__( 'Links', 'topolitik' ), // links are directly in the theme (because icons)
 		) );
 
 		/*

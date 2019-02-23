@@ -19,7 +19,7 @@
 			$( '.site-description' ).text( to );
 		} );
 	} );
-
+  // Refresh background
   wp.customize( 'header_bg', function( value ) {
 		value.bind( function( to ) {
 			$( '#header-advert').css( {

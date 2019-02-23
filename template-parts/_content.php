@@ -1,9 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
+ * Not used : instead, text is already in 'single.php'
  * @package topolitik
  */
 
