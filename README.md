@@ -30,7 +30,7 @@ __fonctions__
 * `inc/template-functions.php` : pas utilisé
 * `inc/template-tags.php` : référence pour des balises genre `topolitik_posted_on()` pour afficher la date de l'article
 
-## TODO:
+## TODO:
 * place pour une bannière spéciale ✌️
 * enlever les commentaires ✌️ (on peut les désactiver sur admin?)
 * trouver un moyen d'afficher des liens event et topotv
