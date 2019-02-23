@@ -13,7 +13,35 @@
 function topolitik_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
-	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+
+
+	/* Custom settings */
+	$wp_customize->add_setting( 'header_bg' , array(
+    	'default'   => '#FAFAFA',
+    	'transport' => 'refresh',
+	));
+	$wp_customize->add_setting( 'header_link' , array(
+    	'default'   => 'http://topolitique.ch',
+    	'transport' => 'postMessage',
+	));
+
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
+		'label'      => __( 'Couleur de fond', 'topolitik' ),
+		'section'    => 'header_image',
+		'settings'   => 'header_bg',
+		'priority'   => 2
+	)));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'link_text', array(
+		'label'      => __( 'Lien URL', 'topolitik' ),
+		'section'    => 'header_image',
+		'settings'   => 'header_link',
+		'priority'   => 1
+
+	)));
+	$wp_customize->add_section( 'header_image' , array(
+	    'title'      => __( 'Bannière Spéciale', 'topolitik' ),
+	    'priority'   => 30,
+	));
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
@@ -24,9 +52,13 @@ function topolitik_customize_register( $wp_customize ) {
 			'selector'        => '.site-description',
 			'render_callback' => 'topolitik_customize_partial_blogdescription',
 		) );
+		$wp_customize->selective_refresh->add_partial( 'header_bg', array(
+			'selector'        => '#header-advert',
+			'render_callback' => 'topolitik_customize_partial_header_bg',
+		) );
 	}
 }
-add_action( 'customize_register', 'topolitik_customize_register' );
+add_action( 'customize_register', 'topolitik_customize_register', 99 );
 
 /**
  * Render the site title for the selective refresh partial.

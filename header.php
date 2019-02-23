@@ -27,6 +27,8 @@
 
 <body <?php body_class(); ?>>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'topolitik' ); ?></a>
 	<div class="no-print">
@@ -39,12 +41,10 @@
 			?>
 
 			<ul id="links-menu">
-				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
-				<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-				<li> <a href="https://www.youtube.com/channel/UC6PeO7m3__Qs8qHdctK9OGQ"><i class="fab fa-youtube"></i></a> </li>
-				<li> <a href="http://twitter.com/TOPOlitique"><i class="fab fa-twitter"></i></a> </li>
-				<li> <a href="http://facebook.com/topounige"><i class="fab fa-facebook"></i></a> </li>
-				<li> <a href="http://instagram.com/topo.geneve"><i class="fab fa-instagram"></i></a> </li>
+				<li> <a href="https://www.youtube.com/channel/UC6PeO7m3__Qs8qHdctK9OGQ" target="_blank"><i class="fab fa-youtube"></i></a> </li>
+				<li> <a href="http://twitter.com/TOPOlitique" target="_blank"><i class="fab fa-twitter"></i></a> </li>
+				<li> <a href="http://facebook.com/topounige" target="_blank"><i class="fab fa-facebook"></i></a> </li>
+				<li> <a href="http://instagram.com/topo.geneve" target="_blank"><i class="fab fa-instagram"></i></a> </li>
 
 			</ul>
 
@@ -89,5 +89,16 @@
 			</div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->
+
+
+	<!-- special events header -->
+	<?php if (has_header_image()): ?>
+		<style type="text/css">
+      #header-advert { background-color: <?php echo get_theme_mod('header_bg', '#000000'); ?>; }
+  	</style>
+		<a id="header-advert" href="<?php echo get_theme_mod('header_link', '#'); ?>" target="_blank">
+				<img class="header-image" src="<?php echo get_header_image() ?>">
+		</a>
+	<?php endif ?>
 
 	<div id="content" class="site-content">

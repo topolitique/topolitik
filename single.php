@@ -212,6 +212,7 @@ get_header();
 				}
 
 				?>
+				<!-- authors -->
 				<h2 class="post-references-title">Rédigé par...</h2>
 				<?php
 					// Get authors meta tags
@@ -225,9 +226,8 @@ get_header();
 						$dom->loadXML($l);
 						$o = $dom->getElementsByTagName('img')[0];
 						$src = $o->getAttribute('src');
-						echo '<meta property="article:author:'.$index.':image" content="'.$src.'" >' ;
+						echo '<meta property="article:author:'.$index.':image" content="'.$src.'" >' ; 
 						echo '<meta property="article:author:'.$index.':name" content="'.$coauthor->display_name.'" >' ;
-
 						echo '<a class="author-block" href="'.get_site_url().'/author/'.$coauthor->user_login.'">';
 						echo '<div class="avatar no-print" style="background-image:url('.$src.')"> </div>';
 						echo '<img class="image-avatar just-print" src="'.$src.'"> </img>';
@@ -238,12 +238,14 @@ get_header();
 						echo '</a>';
 					}
 
-				echo '<div class="no-print">';
+
+				// - these are comments
+				/*echo '<div class="no-print">';
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
 					comments_template();
 				endif;
-				echo '</div>';
+				echo '</div>';*/
 
 			endwhile; // End of the loop.
 			?>

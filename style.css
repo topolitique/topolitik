@@ -1843,3 +1843,14 @@ object {
 	border-radius: 3px;
 	overflow: hidden;
 }
+
+
+#header-advert {
+	display: block;
+	background-color:#1e1e1e;
+	max-height:250px;
+}
+.header-image {
+	display: block;
+	margin:0px auto;
+}
