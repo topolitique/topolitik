@@ -99,8 +99,8 @@
 		<style type="text/css">
       #header-advert { background-color: <?php echo get_theme_mod('header_bg', '#000000'); ?>; }
   	</style>
-		<a id="header-advert" href="<?php echo get_theme_mod('header_link', '#'); ?>" target="_blank">
-				<img class="header-image" src="<?php echo get_header_image() ?>">
+		<a id="header-advert no-print" class="" href="<?php echo get_theme_mod('header_link', '#'); ?>" target="_blank">
+				<img class="header-image no-print" src="<?php echo get_header_image() ?>">
 		</a>
 	<?php endif ?>
 

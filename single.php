@@ -84,7 +84,9 @@ get_header();
 						<img class="brand-right" src="<?php echo get_template_directory_uri()?>/images/topo-print-2.png"></img>
 					</div>
 					<div class="article-print">
-						<?php the_title( '<h1 class="title">', '</h1>' ); ?>
+						<div class="title">
+							<?php the_title( '<h1 class="title-text">', '</h1>' ); ?>
+						</div>
 						<div class="info">
 							<?php
 							echo "<div class='authors'>";
@@ -226,7 +228,7 @@ get_header();
 						$dom->loadXML($l);
 						$o = $dom->getElementsByTagName('img')[0];
 						$src = $o->getAttribute('src');
-						echo '<meta property="article:author:'.$index.':image" content="'.$src.'" >' ; 
+						echo '<meta property="article:author:'.$index.':image" content="'.$src.'" >' ;
 						echo '<meta property="article:author:'.$index.':name" content="'.$coauthor->display_name.'" >' ;
 						echo '<a class="author-block" href="'.get_site_url().'/author/'.$coauthor->user_login.'">';
 						echo '<div class="avatar no-print" style="background-image:url('.$src.')"> </div>';

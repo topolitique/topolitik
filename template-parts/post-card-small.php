@@ -53,7 +53,7 @@
 			<div class="post-card-meta">
         <?php
 				coauthors_posts_links();
-        echo ", créé le ";
+        echo ", ";
         topolitik_posted_on()
 				?>
 			</div><!-- .entry-meta -->
