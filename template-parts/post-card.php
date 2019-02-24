@@ -13,7 +13,9 @@
           echo '<img src="'.nl2br($v).'"></img>';
           echo '</a>';
         } else {
+          echo '<a class="post-thumbnail" href="'.esc_url( get_permalink() ).'">';
           topolitik_post_thumbnail();
+          echo '</a>';
         }
       }
     } else {
