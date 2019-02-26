@@ -79,7 +79,9 @@ function topolitik_customize_partial_blogname() {
 function topolitik_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
-
+function topolitik_customize_partial_header_bg() {
+	bloginfo( 'header_bg' );
+}
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */

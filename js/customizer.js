@@ -20,11 +20,11 @@
 		} );
 	} );
   // Refresh background
-  wp.customize( 'header_bg', function( value ) {
+  /*wp.customize( 'header_bg', function( value ) {
 		value.bind( function( to ) {
 			$( '#header-advert').css( {
         'background-color':to
       } );
 		} );
-	} );
+	} );*/
 } )( jQuery );

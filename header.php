@@ -97,9 +97,9 @@
 	<!-- special events header -->
 	<?php if (has_header_image()): ?>
 		<style type="text/css">
-      #header-advert { background-color: <?php echo get_theme_mod('header_bg', '#000000'); ?>; }
+      #header-advert { background-color: <?php echo get_theme_mod('header_bg', '#000000'); ?> !important; }
   	</style>
-		<a id="header-advert no-print" class="" href="<?php echo get_theme_mod('header_link', '#'); ?>" target="_blank">
+		<a id="header-advert" class="no-print" href="<?php echo get_theme_mod('header_link', '#'); ?>" target="_blank">
 				<img class="header-image no-print" src="<?php echo get_header_image() ?>">
 		</a>
 	<?php endif ?>
