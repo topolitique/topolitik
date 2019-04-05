@@ -177,7 +177,6 @@ get_header();
 					<div class="entry-content">
 						<?php
 						the_content();
-						//echo mb_convert_encoding(get_the_content(), 'utf8'); /* replaced from 'the_content' to allow utf-8 encoding*/
 
 						/*wp_link_pages( array(
 							'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'topolitik' ),

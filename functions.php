@@ -192,4 +192,4 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-remove_filter('the_content', 'wptexturize'); // removes weird encoding issues;
+//remove_filter('the_content', 'wptexturize'); // removes weird encoding issues;
