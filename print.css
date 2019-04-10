@@ -5,20 +5,6 @@
   margin-top: 2cm;
   margin-bottom: 1.5cm;
 }
-@page {
-  @top-right {
-    content: 'L';
-  }
-}
-@page :left {
-  margin-left: 3cm;
-  margin-right: 2cm;
-}
-
-@page :right {
-  margin-left: 2cm;
-  margin-right: 3cm;
-}
 .no-print		{ display:none; }
 .just-print {display:block!important;}
 .header {
@@ -30,8 +16,10 @@ p {
   margin:0px !important;
   padding-top:0px !important;
   padding-bottom:6px !important;
-  text-indent: 0.5cm;
   /*page-break-inside: avoid;*/
+}
+p:nth-child(1){
+  text-indent: 0cm;
 }
 blockquote {
   font-size: 12px !important;
@@ -55,20 +43,32 @@ p.has-drop-cap {
 p.has-drop-cap::after {
   display: none;
 }
-h1 {
-  font-size: 24pt;
-  margin-left:0.8cm;
-}
 
-h2, h3, h4 {
+h1, h2, h3, h4 {
   page-break-inside: avoid;
   page-break-after: avoid;
   margin-left:0cm;
-  font-size: 16px !important;
+  font-size: 14px;
   color: #000000 !important;
   margin:0px !important;
-  padding-top: 12px !important;
+  padding-top: 6px !important;
   padding-bottom: 6px !important;
+}
+
+h1 {
+  font-size: 18px !important;
+  line-height: 18px;
+}
+
+h2 {
+  font-size: 14px !important;
+}
+h3 {
+  font-size: 12px !important;
+}
+
+iframe {
+  display: none;
 }
 
 .author-block .image-avatar {
@@ -116,19 +116,22 @@ h2, h3, h4 {
 .print-header {
   column-span:all;
   border-style: solid;
-  border-width: 1pt;
+  border-width: 0.5pt;
   border-color:#C30E00;
   border-radius: 1mm;
   display:flex;
   flex-direction: column;
   align-items: stretch;
+  margin-left:2px;
+  margin-right:2px;
+  margin-bottom:6px;
 }
 .print-header .branding {
   height:1cm;
   flex: 1 1 1cm;
   border-style: solid;
   border-width: 0cm;
-  border-bottom-width: 1pt;
+  border-bottom-width: 0.3pt;
   border-color:#C30E00;
 
 }
@@ -149,14 +152,13 @@ h2, h3, h4 {
 .print-header .article-print .title {
   color:#000000;
   font-weight: bold;
-  font-size: 20pt;
   padding:0mm;
   margin:0cm;
   padding-top:0.2cm;
   padding-bottom:0.6cm;
   border-style: solid;
   border-width: 0cm;
-  border-right-width: 0.5pt;
+  border-right-width: 0.3pt;
   border-color:#C30E00;
 
   flex:5;
@@ -165,13 +167,14 @@ h2, h3, h4 {
   display: inline;
   border-style: solid;
   border-width: 0px;
-  border-bottom-width: 0.5pt;
+  border-bottom-width: 0.3pt;
   border-color:#C30E00;
   margin:0px;
   padding-left:0.5cm;
   box-decoration-break:clone;
   -webkit-box-decoration-break: clone;
-  line-height: 1.35em;
+  line-height: 36px !important;
+  font-size: 32px;
 }
 .print-header .article-print .info {
   display:flex;
@@ -180,14 +183,14 @@ h2, h3, h4 {
 }
 .print-header .article-print .info .authors {
   display:block;
-  color:#C30E00;
+  color:#000000;
   font-weight: normal;
   font-size: 14pt;
   line-height:18pt;
   padding:2mm;
   border-style: inset;
   border-width: 0cm;
-  border-bottom-width: 0.5pt;
+  border-bottom-width: 0.3pt;
   border-color:#C30E00;
 }
 .print-header .article-print .info .author {
@@ -217,12 +220,13 @@ h2, h3, h4 {
   border-radius: 1mm;
   border-style: solid;
   border-width: 0cm;
-  border-bottom-width: 0.5pt;
+  border-bottom-width: 0.3pt;
   border-color:#ffffff;
 }
 
 .author-block {
-  margin-left:1.5cm;
+  margin-left:0.2cm !important;
+  display: inline-block !important;
 }
 .author-block .image-avatar {
   width:96px;
@@ -233,9 +237,11 @@ h2, h3, h4 {
   font-size: 12pt;
   line-height:18pt;
   padding-bottom:6pt;
+  color:#C30E00 !important
 }
 .author-block .description {
   font-weight: normal;
   font-size: 10pt;
   line-height:14pt;
+  font-family: "IBM Plex Serif" !important
 }

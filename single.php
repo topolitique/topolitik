@@ -77,7 +77,7 @@ get_header();
 				<meta name="twitter:card" content="summary_large_image">
 
 
-
+				<!-- printing header -->
 				<header class="print-header just-print">
 					<div class="branding">
 						<img class="brand-left" src="<?php echo get_template_directory_uri()?>/images/topo-print-1.png"></img>
@@ -101,6 +101,7 @@ get_header();
 					</div>
 				</header>
 
+				<!-- web page header -->
 				<header class="entry-header no-print">
 					<?php
 					if ( is_singular() ) :
@@ -120,51 +121,40 @@ get_header();
 						</div><!-- .entry-meta -->
 					<?php endif; ?>
 					<?php topolitik_entry_footer(); ?>
-				</header><!-- .entry-header -->
-				<!--<div class="post-image-container">
-					<div class="post-info right-sidebar">
+				</header>
 
-					</div>
-
-				</div>-->
-
-				<div style="display:block;width:100%;min-height:200px;" class="no-print">
-				<?php
-				$postid = get_the_ID();
-				$custom_fields = get_post_custom($postid);
-				if (array_key_exists('header_img', $custom_fields)) {
-					$my_custom_field = $custom_fields['header_img'];
-					foreach ( $my_custom_field as $key => $value ) {
-						if ($value) {
-							$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
-							echo '<div class="post-thumbnail no-print">';
-							echo '<div class="banner" style="background-image:url('.$v.')"></div>';
-							echo '</div>';
-							echo '<img class="just-print print-thumbnail" src="'.$v.'" > ';
-						} else {
-							topolitik_post_thumbnail();
+				<div style="display:block;width:100%" class="no-print">
+					<?php
+					$postid = get_the_ID();
+					$custom_fields = get_post_custom($postid);
+					if (array_key_exists('header_img', $custom_fields)) {
+						$my_custom_field = $custom_fields['header_img'];
+						foreach ( $my_custom_field as $key => $value ) {
+							if ($value) {
+								$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
+								echo '<div class="post-thumbnail no-print">';
+								echo '<div class="banner" style="background-image:url('.$v.')"></div>';
+								echo '</div>';
+								echo '<img class="just-print print-thumbnail" src="'.$v.'" > ';
+							}
 						}
-					}
-				} else if (array_key_exists('arch_thumb', $custom_fields)) {
-					$my_custom_field = $custom_fields['arch_thumb'];
-					foreach ( $my_custom_field as $key => $value ) {
-						if ($value) {
-							$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
-							echo '<div class="post-thumbnail no-print">';
-							echo '<div class="banner" style="background-image:url('.$v.')"></div>';
-							echo '</div>';
-							echo '<img class="just-print print-thumbnail" src="'.$v.'" > ';
-						} else {
-							topolitik_post_thumbnail();
+					} else if (array_key_exists('arch_thumb', $custom_fields)) {
+						$my_custom_field = $custom_fields['arch_thumb'];
+						foreach ( $my_custom_field as $key => $value ) {
+							if ($value) {
+								$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
+								echo '<div class="post-thumbnail no-print">';
+								echo '<div class="banner" style="background-image:url('.$v.')"></div>';
+								echo '</div>';
+								echo '<img class="just-print print-thumbnail" src="'.$v.'" > ';
+							}
 						}
+					}	else {
+						topolitik_post_thumbnail();
 					}
-				}
-				else {
-					topolitik_post_thumbnail();
-				}
 
-				?>
-			</div>
+					?>
+				</div>
 				<div class="post-info right-sidebar no-print">
 					<div class="link-to-print no-print" onclick="window.print();">
 						<img class="print-icon" src="<?php echo get_template_directory_uri()?>/images/print.png" height="64" />

@@ -92,7 +92,24 @@ if ( ! function_exists( 'topolitik_entry_footer' ) ) :
 			echo '</span>';
 		}
 
-	
+
+	}
+endif;
+
+if ( ! function_exists( 'topolitik_video_footer' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function topolitik_video_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'topolitik' ) );
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<div class="tags-links">' . esc_html__( 'tags: %1$s', 'topolitik' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			}
+		}
 	}
 endif;
 
@@ -106,15 +123,13 @@ if ( ! function_exists( 'topolitik_post_thumbnail' ) ) :
 	function topolitik_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			?>
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<?php
-				echo "<img src='".get_template_directory_uri()."/thumbnail.png"."' />"
-				?>
-			</a>
+			<!-- NO THUMBNAIL >
+
+			-->
 			<?php
 		}
 
-		if ( is_singular() ) :
+		else if ( is_singular() ) :
 			?>
 
 			<div class="post-thumbnail">
@@ -149,11 +164,9 @@ if ( ! function_exists( 'topolitik_post_thumbnail' ) ) :
 	function topolitik_post_thumbnail() {
 		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
 			?>
-			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
-				<?php
-				echo "<img src='".get_template_directory_uri()."/thumbnail.png"."' />"
-				?>
-			</a>
+			<!-- NO THUMBNAIL >
+
+			-->
 			<?php
 		}	else {
 			if ( is_singular() ) :
