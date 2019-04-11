@@ -142,7 +142,7 @@ get_header();
 							 ?>
 							 <div class="video-button">
 								 	<svg>
-								 		<path d="M42 32 L42 96 L96 64 Z" />
+								 		<path d="M28 18 L28 78 L78 48 Z" />
 								 	</svg>
 							 </div>
 						 </div>

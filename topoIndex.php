@@ -21,7 +21,23 @@ get_header();
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
-				get_template_part( 'template-parts/post-card', get_post_type() );
+
+				$isVideo = false;
+
+				$categories = wp_get_post_categories($post_id=get_the_ID());
+				foreach ($categories as $cat) {
+					// code...
+					echo ' ';
+					if (get_cat_name($cat)=="TV") {
+						$isVideo = true;
+					}
+				}
+
+				if ($isVideo) {
+					get_template_part( 'template-parts/video-card', get_post_type() );
+				} else {
+					get_template_part( 'template-parts/post-card', get_post_type() );
+				}
 			}
 		}
 		?>
