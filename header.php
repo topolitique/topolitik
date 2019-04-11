@@ -79,7 +79,8 @@
 			<?php endif; ?>
 		</div><!-- .site-branding -->
 
-		<nav id="site-navigation" class="main-navigation container no-print" style="margin-bottom:0px">
+		<div id="site-navigation" class="main-navigation no-print">
+			<div class="container">
 			<div class="scroll-container">
 				<div class="inner-container">
 					<?php
@@ -90,7 +91,8 @@
 					?>
 				</div>
 			</div>
-		</nav><!-- #site-navigation -->
+			</div>
+		</div><!-- #site-navigation -->
 	</header><!-- #masthead -->
 
 

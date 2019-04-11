@@ -666,8 +666,8 @@ a:hover, a:active {
 	height:32px;
 	overflow: auto;
 	background-color:#BE0E00;
+	display: block;
 }
-
 .main-navigation ul {
 	display: block;
 	list-style: none;
@@ -708,7 +708,7 @@ a:hover, a:active {
 	position: relative;
 	padding-left:6px;
 	padding-right:6px;
-	height:30px;
+	height:32px;
 	border-style: solid;
 	border-width: 0px;
 	border-right-width: 1px;
@@ -740,17 +740,20 @@ a:hover, a:active {
 .main-navigation.toggled ul {
 	display: block;
 }
-
+.main-navigation .container {
+	margin-bottom:0px;
+}
 .main-navigation .scroll-container {
 	width: 100%;
 	margin:0px;
-	margin-left: 20px;
+	margin-left: auto;
+	margin-right: auto;
 	padding:0px;
 	overflow: auto;
 }
 .main-navigation .inner-container {
 	display: block;
-	width: 1000px !important;
+	width: 1200px !important;
 	min-width: 1000px;
 	background: gray;
 }
@@ -1310,10 +1313,13 @@ object {
 .container {
 	margin:0px;
 	margin-bottom:12px;
+	margin-left:auto;
+	margin-right:auto;
 	padding:0px;
 	display: flex;
 	flex-wrap: wrap !important;
 	flex-flow: row;
+	max-width: 1600px; /* change this ? */
 }
 .container article {
 	flex:1;
@@ -1394,6 +1400,7 @@ object {
 	margin-bottom: 0px;
 	margin-top:20px;
 	font-size: 11px;
+	line-height: 16px;
 	letter-spacing: .2em;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -1409,7 +1416,9 @@ object {
 .section-header a:visited {
 	color:white;
 }
-
+.section-header .container {
+	display: block
+}
 @media screen and (max-width: 37.5em) {
 	.section-header a {
 		font-size: 10px
@@ -1632,7 +1641,9 @@ object {
 	overflow: hidden;
 	/*margin-left:40px;
 	margin-right:40px;*/
-	padding:0px
+	padding:0px;
+	padding-left:12px;
+	padding-right:12px;
 }
 .post-container p {
 	padding : 2px;
@@ -2155,11 +2166,12 @@ iframe.embedded-container {
 }
 .post-card.video .post-card-info {
 	position: absolute;
-	bottom:22px;
-	left:88px;
+	left:18px;
+	top:18px;
 	background:rgba(25,25,29,0.96);
 	padding-right:8px;
-	max-width: 200px;
+	padding-left:56px;
+	max-width: 264px;
 	border-style: solid;
 	border-width: 0px;
 	border-bottom-width: 1px;
@@ -2188,16 +2200,34 @@ iframe.embedded-container {
 }
 .post-card-playbutton__video {
 	position: absolute;
-	bottom:22px;
-	left:18px;
-	width: 64px;
-	height:64px;
+	top:28px;
+	left:24px;
+	width: 46px;
+	height:46px;
 	background: rgba(25,25,29,0.96);
 	border-radius: 50%;
 	border-style: solid;
 	border-width: 1px;
 	border-color: #C30E00;
+	transform: scale(1);
+	transition: all .2s;
 }
 .post-card-playbutton__video svg path {
 	fill:white;
+	transition: all .2s;
+}
+.post-card.video:hover  svg path {
+	fill: #C30E00;
+}
+.post-card.video:hover .post-card-playbutton__video {
+	transform: scale(1.1);
+}
+
+#site-navigation {
+	max-width: auto !important;
+	margin:0 auto !important;
+	width: 100%;
+}
+#site-navigation .inner-container {
+	padding-left:20px;
 }

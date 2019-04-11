@@ -37,11 +37,6 @@
     }
 
     ?>
-  <a href="<?php echo esc_url( get_permalink() ) ?>" class="post-card-playbutton__video">
-    <svg width="64" height="64">
-      <path d="M20 16 L48 32 L20 48 Z">
-    </svg>
-  </a>
   <div class="post-card-info">
     <header class="post-card-header">
       <?php
@@ -80,5 +75,11 @@
   			</div><!-- .entry-meta -->
   		<?php endif; ?>
   	</footer><!-- .entry-footer -->
+
   </div>
+  <a href="<?php echo esc_url( get_permalink() ) ?>" class="post-card-playbutton__video">
+    <svg width="56" height="56">
+      <path d="M13 10 L36 23 L13 36 Z">
+    </svg>
+  </a>
 </article><!-- #post-<?php the_ID(); ?> -->

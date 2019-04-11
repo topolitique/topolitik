@@ -11,9 +11,11 @@ get_header();
 
 
 		<!-- First section : latest posts -->
-		<div class="container section-header latest">
-			<h1>Derniers articles</h1>
-			<a href="<?php echo esc_url(join("", array(get_permalink(),"latest") ) ) ?> ">plus d'articles</a>
+		<div class="section-header latest">
+			<div class="container">
+				<h1>Derniers articles</h1>
+				<a href="<?php echo esc_url(join("", array(get_permalink(),"latest") ) ) ?> ">plus d'articles</a>
+			</div>
 		</div>
 		<div class="container index latest">
 		<?php
@@ -44,9 +46,11 @@ get_header();
 		</div>
 
 		<!-- Second section : international -->
-		<div class="container section-header international">
-			<h1>International</h1>
-			<a href="<?php echo esc_url(get_category_link( get_cat_ID( 'international' ))); ?> ">plus d'articles</a>
+		<div class="section-header international">
+			<div class="container">
+				<h1>International</h1>
+				<a href="<?php echo esc_url(get_category_link( get_cat_ID( 'international' ))); ?> ">plus d'articles</a>
+			</div>
 		</div>
 		<div class="container index section international">
 		<?php
@@ -61,9 +65,11 @@ get_header();
 		</div>
 
 		<!-- Third section : Société et histoire -->
-		<div class="container section-header suisse">
-			<h1>Suisse</h1>
-			<a href="<?php echo esc_url(get_category_link( get_cat_ID( 'suisse' ))); ?> ">plus d'articles</a>
+		<div class="section-header suisse">
+			<div class="container">
+				<h1>Suisse</h1>
+				<a href="<?php echo esc_url(get_category_link( get_cat_ID( 'suisse' ))); ?> ">plus d'articles</a>
+			</div>
 		</div>
 		<div class="container index section international">
 		<?php
@@ -77,18 +83,22 @@ get_header();
 		?>
 		</div>
 
-		<div class="container section-header topotv">
-			<h1><i class="fas fa-video"></i>   TOPO TV</h1>
-			<a href="https://www.youtube.com/channel/UC6PeO7m3__Qs8qHdctK9OGQ">plus de vidéos</a>
-		</div>
-		<div class="container home-widget-section youtube">
-			<?php dynamic_sidebar( 'homepage-1' ); ?>
-		</div>
+		<!--<div class="section-header topotv">
+			<div class="container">
+				<h1><i class="fas fa-video"></i>   TOPO TV</h1>
+				<a href="https://www.youtube.com/channel/UC6PeO7m3__Qs8qHdctK9OGQ">plus de vidéos</a>
+			</div>
+		</div>-->
+		<!--<div class="container home-widget-section youtube">
+			<?php /*dynamic_sidebar( 'homepage-1' );*/ ?>
+		</div>-->
 
 		<!-- Third section : Genre -->
-		<div class="container section-header genre">
-			<h1>Genre et Identité</h1>
-			<a href="<?php echo esc_url(get_category_link( 460 )); ?> ">plus d'articles</a>
+		<div class="section-header genre">
+			<div class="container">
+				<h1>Genre et Identité</h1>
+				<a href="<?php echo esc_url(get_category_link( 460 )); ?> ">plus d'articles</a>
+			</div>
 		</div>
 		<div class="container index section international">
 		<?php
@@ -103,20 +113,23 @@ get_header();
 		</div>
 
 		<!-- Third section : Edito -->
-		<div class="container section-header edito">
-			<h1>Edito</h1>
-			<a href="<?php echo esc_url(get_category_link( get_cat_ID( 'edito' ))); ?> ">plus d'articles</a>
+		<div class="section-header edito">
+			<div class="container">
+				<h1>Edito</h1>
+				<a href="<?php echo esc_url(get_category_link( get_cat_ID( 'edito' ))); ?> ">plus d'articles</a>
+			</div>
 		</div>
 		<div class="container index section international">
-		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'edito' ) );
-		if ( $latest_blog_posts->have_posts() ) {
-			while ( $latest_blog_posts->have_posts() ) {
-				$latest_blog_posts->the_post();
-				get_template_part( 'template-parts/post-card-small', get_post_type() );
+			<?php
+			$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'edito' ) );
+			if ( $latest_blog_posts->have_posts() ) {
+				while ( $latest_blog_posts->have_posts() ) {
+					$latest_blog_posts->the_post();
+					get_template_part( 'template-parts/post-card-small', get_post_type() );
+				}
 			}
-		}
-		?>
+			?>
+
 		</div>
 
 
@@ -139,9 +152,11 @@ get_header();
 
 
 		<!-- Third section : Société et histoire -->
-		<div class="container section-header societe-histoire">
-			<h1>Société et Histoire</h1>
-			<a href="<?php echo esc_url(get_category_link( 4 )); ?> ">plus d'articles</a>
+		<div class="section-header societe-histoire">
+			<div class="container">
+				<h1>Société et Histoire</h1>
+				<a href="<?php echo esc_url(get_category_link( 4 )); ?> ">plus d'articles</a>
+			</div>
 		</div>
 		<div class="container index section international">
 		<?php
