@@ -19,7 +19,7 @@ get_header();
 		</div>
 		<div class="container index latest">
 		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 5 ) );
+		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 5, 'cat' => '-593' ) );
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
@@ -34,16 +34,11 @@ get_header();
 					if (get_cat_name($cat)=="TV") {
 						$isVideo = true;
 					}
-					if (get_cat_name($cat)=="Non répertorié") {
-						$show = false;
-					}
 				}
-				if ($show) {
-					if ($isVideo) {
-						get_template_part( 'template-parts/video-card', get_post_type() );
-					} else {
-						get_template_part( 'template-parts/post-card', get_post_type() );
-					}
+				if ($isVideo) {
+					get_template_part( 'template-parts/video-card', get_post_type() );
+				} else {
+					get_template_part( 'template-parts/post-card', get_post_type() );
 				}
 			}
 		}
@@ -59,7 +54,7 @@ get_header();
 		</div>
 		<div class="container index section international">
 		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 6, 'category_name'=>'international' ) );
+		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 6, 'category_name'=>'international','cat' => '-593' ) );
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
@@ -78,7 +73,7 @@ get_header();
 		</div>
 		<div class="container index section international">
 		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'suisse' ) );
+		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'suisse', 'cat' => '-593' ) );
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
@@ -107,7 +102,7 @@ get_header();
 		</div>
 		<div class="container index section international">
 		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'genreetidentite' ) );
+		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'genreetidentite', 'cat' => '-593' ) );
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
@@ -126,7 +121,7 @@ get_header();
 		</div>
 		<div class="container index section international">
 			<?php
-			$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'edito' ) );
+			$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'edito', 'cat' => '-593' ) );
 			if ( $latest_blog_posts->have_posts() ) {
 				while ( $latest_blog_posts->have_posts() ) {
 					$latest_blog_posts->the_post();
@@ -145,7 +140,7 @@ get_header();
 		</div>
 		<div class="container index section international">
 		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 6, 'category_name'=>'culture' ) );
+		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 6, 'category_name'=>'culture', 'cat' => '-593' ) );
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
@@ -165,7 +160,7 @@ get_header();
 		</div>
 		<div class="container index section international">
 		<?php
-		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'societe-histoire' ) );
+		$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 3, 'category_name'=>'societe-histoire', 'cat' => '-593' ) );
 		if ( $latest_blog_posts->have_posts() ) {
 			while ( $latest_blog_posts->have_posts() ) {
 				$latest_blog_posts->the_post();
