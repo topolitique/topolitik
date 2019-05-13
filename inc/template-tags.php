@@ -58,12 +58,16 @@ if ( ! function_exists( 'topolitik_entry_footer' ) ) :
 	function topolitik_entry_footer() {
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
-			/* translators: used between list items, there is a space after the comma */
-			$categories_list = get_the_category_list( esc_html__( ', ', 'topolitik' ) );
-			if ( $categories_list ) {
-				/* translators: 1: list of categories. */
-				printf( '<div class="cat-links">' . esc_html__( '%1$s', 'topolitik' ) . '</div>', $categories_list ); // WPCS: XSS OK.
-			}
+			$categories = wp_get_post_categories($post_id=get_the_ID());
+			/*if ( $categories ) {
+				echo '<div class="cat-links>"';
+				foreach ($categories as $cat) {
+					if (get_cat_name($cat)!="Non répertorié") {
+						echo $cat;
+					}
+				};
+				echo '</div>';
+			}*/
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'topolitik' ) );

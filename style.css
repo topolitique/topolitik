@@ -1636,14 +1636,14 @@ object {
 	background: white;
 	border-radius: 3px;
 	margin-top:0px;
+	margin-left:6px;
+	margin-right:6px;
 }
 .post-container .entry-content {
 	overflow: hidden;
 	/*margin-left:40px;
 	margin-right:40px;*/
 	padding:0px;
-	padding-left:12px;
-	padding-right:12px;
 }
 .post-container p {
 	padding : 2px;

@@ -25,6 +25,7 @@ get_header();
 				$latest_blog_posts->the_post();
 
 				$isVideo = false;
+				$show = true;
 
 				$categories = wp_get_post_categories($post_id=get_the_ID());
 				foreach ($categories as $cat) {
@@ -33,12 +34,16 @@ get_header();
 					if (get_cat_name($cat)=="TV") {
 						$isVideo = true;
 					}
+					if (get_cat_name($cat)=="Non répertorié") {
+						$show = false;
+					}
 				}
-
-				if ($isVideo) {
-					get_template_part( 'template-parts/video-card', get_post_type() );
-				} else {
-					get_template_part( 'template-parts/post-card', get_post_type() );
+				if ($show) {
+					if ($isVideo) {
+						get_template_part( 'template-parts/video-card', get_post_type() );
+					} else {
+						get_template_part( 'template-parts/post-card', get_post_type() );
+					}
 				}
 			}
 		}
