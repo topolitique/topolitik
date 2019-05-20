@@ -11,7 +11,7 @@ get_header();
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/print.css" mce_href="<?php echo get_template_directory_uri()?>/print.css" media="print" />
 
 	<div id="primary" class="content-area video">
-			<article id="post-<?php the_ID(); ?>" class="post-container">
+			<article id="post-<?php the_ID(); ?>" class="post-container video">
 
 				<?php
 				while ( have_posts() ) :

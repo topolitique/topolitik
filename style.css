@@ -497,7 +497,8 @@ hr {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 6px 6px;
+	font-family: 'IBM Plex Serif'
 }
 
 ul {
@@ -507,7 +508,9 @@ ul {
 ol {
 	list-style: decimal;
 }
-
+li {
+	padding-top:6px;
+}
 li > ul,
 li > ol {
 	margin-bottom: 0;
@@ -1110,7 +1113,7 @@ object {
 #secondary-menu li a {
 	color: white;
 	font-size: 12px;
-	font-weight: bold;
+	font-weight: normal;
 	text-decoration: none !important;
 }
 #secondary-menu li:hover, #secondary-menu li a {
@@ -1548,6 +1551,9 @@ object {
 	justify-content:space-around;
 }
 
+.post-container.video {
+	margin:0 auto;
+}
 .post-container .entry-header {
 	background:white;
 	width:728px;
@@ -1790,13 +1796,15 @@ object {
 
 .post-references {
 	color:rgb(140,140,140)
-}
-.post-references p {
-	color:rgb(140,140,140);
 	transition: all .2s;
 }
-.post-references p:hover {
+.post-references p {
+}
+.post-references:hover {
 	color:rgb(50,50,50)
+}
+.post-references ol {
+	margin-left:0px;
 }
 
 
