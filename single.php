@@ -14,16 +14,16 @@ get_header();
 
 	<div id="primary" class="content-area">
 			<article id="post-<?php the_ID(); ?>" class="post-container">
-
 				<?php
 				while ( have_posts() ) :
 					the_post();
 
+					// Global PHP variables
 					$postid = get_the_ID();
 			    $custom_fields = get_post_custom($postid);
+
 					if (array_key_exists('abstract', $custom_fields)) {
-						$my_custom_field = $custom_fields['abstract'];
-				    foreach ( $my_custom_field as $key => $value ) {
+				    foreach ( $custom_fields['abstract'] as $key => $value ) {
 							if ($value) {
 				      	echo '<meta property="og:description" content="' . $value .'">';
 								echo '<meta property="twitter:description" content="' . $value .'">';
@@ -31,8 +31,7 @@ get_header();
 				    }
 					}
 					if (array_key_exists('kicker', $custom_fields)) {
-						$my_custom_field2 = $custom_fields['kicker'];
-						foreach ( $my_custom_field2 as $key => $value ) {
+						foreach ( $custom_fields['kicker'] as $key => $value ) {
 							if ($value) {
 								echo '<meta property="article:kicker" content="' . $value .'">';
 								echo '<meta property="topo:kicker" content="' . $value .'">';
@@ -40,8 +39,7 @@ get_header();
 						}
 					}
 					if (array_key_exists('arch_thumb', $custom_fields)) {
-						$my_custom_field1 = $custom_fields['arch_thumb'];
-						foreach ( $my_custom_field1 as $key => $value ) {
+						foreach ( $custom_fields['arch_thumb'] as $key => $value ) {
 							if ($value) {
 								$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
 								echo '<meta property="og:image" content="' . $v .'">';
@@ -53,8 +51,7 @@ get_header();
 							}
 						}
 					} else if (array_key_exists('header_img', $custom_fields)) {
-						$my_custom_field2 = $custom_fields['header_img'];
-						foreach ( $my_custom_field2 as $key => $value ) {
+						foreach ( $custom_fields['header_img'] as $key => $value ) {
 							if ($value) {
 								$v2 = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
 								echo '<meta property="og:image" content="' . $v2 .'">';
@@ -71,16 +68,32 @@ get_header();
 						echo '<meta property="og:image" content="'.get_the_post_thumbnail_url(false).'" >' ;
 					}
 				?>
-				<meta property="og:title" content="<?php echo get_the_title(); ?>">
-				<meta property="og:url" content="<?php echo get_permalink() ?>">
-				<meta name="twitter:title" content="<?php echo get_the_title(); ?>">
-				<meta name="twitter:card" content="summary_large_image">
+
+				<meta
+					property="og:title"
+					content="<?php echo get_the_title(); ?>"
+					>
+				<meta
+					property="og:url"
+					content="<?php echo get_permalink(); ?>"
+					>
+				<meta
+					name="twitter:title"
+					content="<?php echo get_the_title(); ?>"
+					>
+				<meta
+					name="twitter:card"
+					content="summary_large_image"
+					>
 
 
 				<!-- printing header -->
 				<header class="print-header just-print">
 					<div class="branding">
-						<img class="brand-left" src="<?php echo get_template_directory_uri()?>/images/topo-print-1.png"></img>
+						<img
+							class="brand-left"
+							src="<?php echo get_template_directory_uri()?>/images/topo-print-1.png"
+							/>
 						<img class="brand-right" src="<?php echo get_template_directory_uri()?>/images/topo-print-2.png"></img>
 					</div>
 					<div class="article-print">
@@ -105,37 +118,33 @@ get_header();
 				<header class="entry-header no-print">
 					<!-- Kicker -->
 					<?php
-					$postid = get_the_ID();
-					$custom_fields = get_post_custom($postid);
-					if (array_key_exists('kicker', $custom_fields)) {
-						$my_custom_field = $custom_fields['kicker'];
-						foreach ( $my_custom_field as $key => $value ) {
-							if ($value) {
-								echo "<h2 class='title-kicker'>".$value."</h2>";
-							};
-						}
-					};
+						// ! : gettings global vars : $custom_fields and $
+						if (array_key_exists('kicker', $custom_fields)) {
+							foreach ( $custom_fields['kicker'] as $key => $value ) {
+								if ($value) {
+									echo "<h2 class='title-kicker'>".$value."</h2>";
+								};
+							}
+						};
 					?>
-					<!-- Title -->
+					<!-- Title & more -->
 					<?php
-					if ( is_singular() ) :
-						the_title( '<h1 class="entry-title">', '</h1>' );
-					else :
-						the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-					endif;
+						if ( is_singular() ) :
+							the_title( '<h1 class="entry-title">', '</h1>' );
+						else :
+							the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+						endif;
 
-					if ( 'post' === get_post_type() ) :
-						?>
-						<div class="entry-meta">
-							<?php
+						if ( 'post' === get_post_type() ) {
+							echo "<div class='entry-meta'>";
 							coauthors_posts_links();
 							echo "<b> / </b>";
 							topolitik_get_categories();
-							echo '<br/>';
+							echo "<br/>";
 							topolitik_posted_on();
-							?>
-						</div><!-- .entry-meta -->
-					<?php endif; ?>
+							echo "</div>";
+						};
+					?>
 				</header>
 
 				<div style="display:block;width:100%" class="no-print">
@@ -143,8 +152,7 @@ get_header();
 					$postid = get_the_ID();
 					$custom_fields = get_post_custom($postid);
 					if (array_key_exists('header_img', $custom_fields)) {
-						$my_custom_field = $custom_fields['header_img'];
-						foreach ( $my_custom_field as $key => $value ) {
+						foreach ( $custom_fields['header_img'] as $key => $value ) {
 							if ($value) {
 								$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
 								echo '<div class="post-thumbnail no-print">';
@@ -154,8 +162,7 @@ get_header();
 							}
 						}
 					} else if (array_key_exists('arch_thumb', $custom_fields)) {
-						$my_custom_field = $custom_fields['arch_thumb'];
-						foreach ( $my_custom_field as $key => $value ) {
+						foreach ( $custom_fields['arch_thumb'] as $key => $value ) {
 							if ($value) {
 								$v = wp_get_attachment_image_src($value, "adv-pos-a-large")[0];
 								echo '<div class="post-thumbnail no-print">';
@@ -195,8 +202,7 @@ get_header();
 				$postid = get_the_ID();
 				$custom_fields = get_post_custom($postid);
 				if (array_key_exists('ref_list', $custom_fields)) {
-					$my_custom_field = $custom_fields['ref_list'];
-					foreach ( $my_custom_field as $key => $value ) {
+					foreach ( $custom_fields['ref_list'] as $key => $value ) {
 						$text = str_replace("\n", "\n\n", $value); // ensure reference is in new paragraph
 
 						include 'packages/parsedown-1.7.3/Parsedown.php';
