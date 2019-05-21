@@ -14,8 +14,11 @@ function topolitik_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
-
-	/* Custom settings */
+	// Special Banner
+	$wp_customize->add_section( 'header_image' , array(
+			'title'      => __( 'Bannière Spéciale', 'topolitik' ),
+			'priority'   => 30,
+	));
 	$wp_customize->add_setting( 'header_bg' , array(
     	'default'   => '#FAFAFA',
     	'transport' => 'refresh',
@@ -24,8 +27,6 @@ function topolitik_customize_register( $wp_customize ) {
     	'default'   => 'http://topolitique.ch',
     	'transport' => 'postMessage',
 	));
-
-	/* Custom controls (shown in admin page's customizer) */
 	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
 		'label'      => __( 'Couleur de fond', 'topolitik' ),
 		'section'    => 'header_image',
@@ -37,12 +38,24 @@ function topolitik_customize_register( $wp_customize ) {
 		'section'    => 'header_image',
 		'settings'   => 'header_link',
 		'priority'   => 1
+	)));
+
+	// Google Analytics
+	$wp_customize->add_section( 'google_analytics' , array(
+	    'title'      => __( 'Google Analytics', 'topolitik' ),
+	    'priority'   => 100,
+	));
+	$wp_customize->add_setting( 'ga_code' , array(
+    	'default'   => '',
+    	'transport' => 'postMessage',
+	));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'link_text', array(
+		'label'      => __( 'ID de suivi', 'topolitik' ),
+		'section'    => 'google_analytics',
+		'settings'   => 'ga_code',
+		'priority'   => 1
 
 	)));
-	$wp_customize->add_section( 'header_image' , array(
-	    'title'      => __( 'Bannière Spéciale', 'topolitik' ),
-	    'priority'   => 30,
-	));
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(

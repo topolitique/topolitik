@@ -13,6 +13,18 @@
 <!doctype html>
 <html amp <?php language_attributes(); ?>>
 <head>
+	<!-- Google Analytics -->
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_theme_mod('ga_code', ''); ?>"></script>
+	<script>
+  	window.dataLayer = window.dataLayer || [];
+  	function gtag(){dataLayer.push(arguments);}
+  	gtag('js', new Date());
+
+  	gtag('config', '<?php echo get_theme_mod('ga_code', ''); ?>');
+	</script>
+
+
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width,minimum-scale=1, initial-scale=1">
 
@@ -24,13 +36,14 @@
 	<?php wp_head(); ?>
 	<link rel="canonical" href="<?php echo get_permalink( get_queried_object_id() );?>">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap" rel="stylesheet">
 
 </head>
 
 <body <?php body_class(); ?>>
+	<!-- Fonts loaded after first load -->
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap" rel="stylesheet">
 	<!-- Font Awesome - include after page is loaded -->
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/brands.css" integrity="sha384-1KLgFVb/gHrlDGLFPgMbeedi6tQBLcWvyNUN+YKXbD7ZFbjX6BLpMDf0PJ32XJfX" crossorigin="anonymous">
