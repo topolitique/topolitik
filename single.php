@@ -182,12 +182,14 @@ get_header();
 				if (array_key_exists('ref_list', $custom_fields)) {
 					$my_custom_field = $custom_fields['ref_list'];
 					foreach ( $my_custom_field as $key => $value ) {
+						$text = str_replace("\n", "\n\n", $value); // ensure reference is in new paragraph
+
 						include 'packages/parsedown-1.7.3/Parsedown.php';
 						$Parsedown = new Parsedown();
-						if ($value) {
+						if ($text) {
 							echo '<div class="post-references">';
 							echo '<h2 class="post-references-title">Références</h2>';
-							echo $Parsedown->text($value);
+							echo $Parsedown->text($text);
 							echo '</div>';
 						}
 

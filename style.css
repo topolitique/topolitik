@@ -1795,13 +1795,15 @@ object {
 }
 
 .post-references {
-	color:rgb(140,140,140)
+	color:rgb(140,140,140);
 	transition: all .2s;
 }
 .post-references p {
+	color:rgb(140,140,140) !important;
+	transition: all .2s;
 }
-.post-references:hover {
-	color:rgb(50,50,50)
+.post-references:hover p {
+	color:rgb(50,50,50) !important;
 }
 .post-references ol {
 	margin-left:0px;
