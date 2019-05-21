@@ -25,6 +25,9 @@
 	<link rel="canonical" href="<?php echo get_permalink( get_queried_object_id() );?>">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:600,700&display=swap" rel="stylesheet">
+
 </head>
 
 <body <?php body_class(); ?>>

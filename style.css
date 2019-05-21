@@ -416,7 +416,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	margin-bottom: 1.5em;
+	margin-bottom: 12pt;
 }
 
 dfn, cite, em, i {
@@ -711,6 +711,7 @@ a:hover, a:active {
 	position: relative;
 	padding-left:6px;
 	padding-right:6px;
+	padding-top:0px;
 	height:32px;
 	border-style: solid;
 	border-width: 0px;
@@ -1557,14 +1558,24 @@ object {
 .post-container .entry-header {
 	background:white;
 	width:728px;
-	margin:6px;
+	margin-top:6px;
+}
+.post-container .title-kicker {
+	display: inline-block;
+	padding-left:3pt;
+	padding-right:3pt;
+	margin-top:3pt;
+	margin-bottom:3pt;
+	font-size: 14pt;
+	color: white;
+	background:#C30E00;
 }
 .post-container .entry-title {
 	font-weight: 700;
 	font-size: 32pt;
 	line-height:36pt;
 	margin-bottom:0px;
-	margin-top:12px;
+	margin-top:0px;
 	color:black;
 }
 .post-container .entry-meta {
@@ -1655,10 +1666,11 @@ object {
 	padding : 2px;
 	max-width: 40em;
 	font-size: 14pt;
-	line-height: 24pt;
-	font-family: "IBM Plex Serif";
+	line-height: 22pt;
+	font-family: "Source Serif Pro";
 	color:black;
 	text-align: justify;
+	text-indent: 12pt;
 }
 
 .post-container p.has-drop-cap::first-letter, .drop-cap {
@@ -1673,8 +1685,13 @@ object {
 	float:left
 }
 
-.post-container h1, .post-container h2, .post-container h3, .post-container h4 {
+.post-container h1 {
 	font-family: "IBM Plex Sans";
+
+}
+.post-container h2, .post-container h3, .post-container h4 {
+	font-family: "Source Sans Pro";
+	font-weight: 600;
 	color:black;
 }
 .post-container h1 {
@@ -1682,11 +1699,13 @@ object {
  line-height: 22pt;
 }
 .post-container h2 {
- font-size: 16pt;
- line-height: 18pt;
+ font-size: 18pt;
+ line-height: 20pt;
+ /*font-family: "IBM Plex Sans";*/
+ font-weight: 700 !important;
 }
  .post-container h3 {
-	font-size: 12pt;
+	font-size: 14pt;
 	line-height: 16pt;
  }
 .post-container h4 {
@@ -1696,7 +1715,6 @@ object {
 
 .post-container p:nth-child(1) {
 	margin-top:0px;
-
 }
 
 .post-container .post-info {
@@ -1790,7 +1808,7 @@ object {
 	.post-container p {
 		font-size: 12pt;
 		line-height: 21pt;
-		text-align: left;
+		text-align: justify;
 	}
 }
 
@@ -1800,6 +1818,11 @@ object {
 }
 .post-references p {
 	color:rgb(140,140,140) !important;
+	text-align: left;
+	font-size: 12pt;
+	line-height: 16pt;
+	margin-bottom:12pt;
+	text-indent: 0px !important;
 	transition: all .2s;
 }
 .post-references:hover p {
@@ -2169,6 +2192,12 @@ iframe.embedded-container {
 .post-card.video {
 	position: relative;
 	height:auto;
+}
+
+.post-card.video .post-thumbnail img {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #C30E00;
 }
 .post-card.video .entry-footer {
 	margin:0px;

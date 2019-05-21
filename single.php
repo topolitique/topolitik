@@ -103,6 +103,20 @@ get_header();
 
 				<!-- web page header -->
 				<header class="entry-header no-print">
+					<!-- Kicker -->
+					<?php
+					$postid = get_the_ID();
+					$custom_fields = get_post_custom($postid);
+					if (array_key_exists('kicker', $custom_fields)) {
+						$my_custom_field = $custom_fields['kicker'];
+						foreach ( $my_custom_field as $key => $value ) {
+							if ($value) {
+								echo "<h2 class='title-kicker'>".$value."</h2>";
+							};
+						}
+					};
+					?>
+					<!-- Title -->
 					<?php
 					if ( is_singular() ) :
 						the_title( '<h1 class="entry-title">', '</h1>' );
@@ -114,13 +128,14 @@ get_header();
 						?>
 						<div class="entry-meta">
 							<?php
-							topolitik_posted_on();
-							echo " <b> / </b> ";
 							coauthors_posts_links();
+							echo "<b> / </b>";
+							topolitik_get_categories();
+							echo '<br/>';
+							topolitik_posted_on();
 							?>
 						</div><!-- .entry-meta -->
 					<?php endif; ?>
-					<?php topolitik_entry_footer(); ?>
 				</header>
 
 				<div style="display:block;width:100%" class="no-print">

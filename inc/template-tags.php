@@ -59,15 +59,14 @@ if ( ! function_exists( 'topolitik_entry_footer' ) ) :
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() ) {
 			$categories = wp_get_post_categories($post_id=get_the_ID());
-			/*if ( $categories ) {
-				echo '<div class="cat-links>"';
+			if ( $categories ) {
 				foreach ($categories as $cat) {
-					if (get_cat_name($cat)!="Non répertorié") {
-						echo $cat;
+					$c_name = get_cat_name($cat);
+					if ($c_name != "Non répertorié" && $c_name != "Non classé") {
+						echo $c_name;
 					}
 				};
-				echo '</div>';
-			}*/
+			};
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'topolitik' ) );
@@ -116,6 +115,72 @@ if ( ! function_exists( 'topolitik_video_footer' ) ) :
 		}
 	}
 endif;
+
+if ( ! function_exists( 'topolitik_get_categories' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function topolitik_get_categories() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			$categories = wp_get_post_categories($post_id=get_the_ID());
+			if ( $categories ) {
+				foreach ($categories as $cat) {
+					$c_name = get_cat_name($cat);
+					if ($c_name != "Non répertorié" && $c_name != "Non classé") {
+						echo $c_name;
+					}
+				};
+			};
+
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'topolitik' ) );
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<div class="tags-links">' . esc_html__( 'tags: %1$s', 'topolitik' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			}
+		}
+
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: post title */
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'topolitik' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					get_the_title()
+				)
+			);
+			echo '</span>';
+		}
+
+
+	}
+endif;
+
+if ( ! function_exists( 'topolitik_video_footer' ) ) :
+	/**
+	 * Prints HTML with meta information for the categories, tags and comments.
+	 */
+	function topolitik_video_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'topolitik' ) );
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<div class="tags-links">' . esc_html__( 'tags: %1$s', 'topolitik' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+			}
+		}
+	}
+endif;
+
 
 if ( ! function_exists( 'topolitik_post_thumbnail' ) ) :
 	/**
