@@ -1,6 +1,7 @@
 <?php
 /*
  Template Name: Latest posts
+ Version : 1.0.0
  * The main template file
  *
  * This is the most generic template file in a WordPress theme

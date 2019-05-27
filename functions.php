@@ -190,6 +190,111 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
-}
+};
 
-//remove_filter('the_content', 'wptexturize'); // removes weird encoding issues;
+add_action('rest_api_init', function() {
+	$args = array(
+    'type' => 'string',
+    'single' => true,
+    'show_in_rest' => true,
+	);
+	register_meta( 'post', 'kicker', $args);
+	register_meta( 'post', 'youtube_video', $args);
+	register_meta( 'post', 'arch_thumb', $args);
+
+
+	register_rest_field( 'post', 'coauthors', array(
+		'get_callback' => function($data) {
+			$authors = array();
+			$coauthors = get_coauthors($data['id']);
+			foreach ($coauthors as $coauthor) {
+				$image = coauthors_get_avatar( $coauthor, 32 );
+				$dom = new DOMDocument();
+				$dom->loadXML($image);
+				$imagesrc = $dom->getElementsByTagName('img')[0]->getAttribute('src');
+
+				$author = array(
+					"name" => $coauthor->display_name,
+					"avatar" => $imagesrc
+				);
+				array_push($authors, $author);
+			}
+			return $authors;
+		}
+	));
+
+	register_rest_field( 'post', 'image', array(
+		'get_callback' => function($data) {
+			$thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id( $data['id']), "adv-pos-a-large")[0];
+			if (!isset($thumbnail)) {
+				$custom_fields = get_post_custom( $data['id'] );
+				$thumbnail = array_key_exists('header_img', $custom_fields) ? wp_get_attachment_image_src($custom_fields['header_img'][0], "adv-pos-a-large")[0] : '';
+			}
+			return $thumbnail;
+		}
+	));
+
+
+	register_rest_field( 'post', 'image', array(
+		'get_callback' => function($data) {
+			$thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id( $data['id']), "adv-pos-a-large")[0];
+			if (!isset($thumbnail)) {
+				$custom_fields = get_post_custom( $data['id'] );
+				$thumbnail = array_key_exists('header_img', $custom_fields) ? wp_get_attachment_image_src($custom_fields['header_img'][0], "adv-pos-a-large")[0] : '';
+			}
+			return $thumbnail;
+		}
+	));
+
+	register_rest_route("topo/v1","/ui/", array(
+	  'methods' => 'GET',
+	  'callback' => function($request) {
+
+			/* Categories */
+			$categories = array();
+			$menus = wp_get_nav_menus();
+			foreach ($menus as $key => $wp_menu) {
+				// code...
+				$menu = (array) $wp_menu;
+
+				if ($menu['name']) {
+
+					$name = $menu['name'];
+					$id = $menu['term_id'];
+
+					$menu_items = array();
+					$menu_pre_items = (array) wp_get_nav_menu_items( $id );
+					foreach ($menu_pre_items as $key => $item) {
+						$item = (array) $item;
+						$menu_items[$key]['id'] = (int) $item['object_id'];
+						$menu_items[$key]['title'] = $item['title'];
+						$menu_items[$key]['url'] = $item['url'];
+					}
+
+					$categories[ $name ] = array();
+					$categories[ $name ]['id']           = $menu['term_id'];
+					$categories[ $name ]['name']         = $menu['name'];
+					$categories[ $name ]['slug']         = $menu['slug'];
+					$categories[ $name ]['description']  = $menu['description'];
+					$categories[ $name ]['count']        = $menu['count'];
+					$categories[ $name ]['data']         = $menu_items;
+
+					}
+			}
+
+			/* Response */
+			$response = new stdClass();
+    	$response->code     = 'Success';
+    	$response->message  = 'Posts Retreived';
+			$response->menus = $categories;
+			$response->social = array(
+				"facebook" => get_theme_mod('social_fb', '#'),
+				"twitter" => get_theme_mod('social_twitter', '#'),
+				"instagram" => get_theme_mod('social_insta', '#'),
+				"youtube" => get_theme_mod('social_yt', '#')
+			);
+    	return new WP_REST_Response( $response , 200 );
+		}
+	));
+
+});
