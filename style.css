@@ -1569,6 +1569,7 @@ object {
 	font-size: 14pt;
 	color: white;
 	background:#C30E00;
+	font-family: "IBM Plex Sans"
 }
 .post-container .entry-title {
 	font-weight: 700;
@@ -1671,7 +1672,7 @@ object {
 	max-width: 40em;
 	font-size: 14pt;
 	line-height: 22pt;
-	font-family: "Source Serif Pro";
+	font-family: "Source Serif Pro", serif;
 	color:black;
 	text-align: justify;
 	text-indent: 12pt;
@@ -1787,7 +1788,12 @@ object {
 	}
 	.post-container .post-thumbnail img {
 		width: 100%;
+		border-radius: 0px;
 		height:auto;
+	}
+	.post-container .post-thumbnail .banner {
+		height: 250px !important;
+		background-size: cover;
 	}
 	.post-container .post, .post-container .page {
 		width: 100%;
@@ -1800,14 +1806,15 @@ object {
 		line-height: 30px;
 	}
 	.post-container .title-kicker {
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 20px;
 	}
 	.post-container .entry-meta {
-		font-size: 11px;
-		line-height: 14px;
+		font-size: 12px;
+		line-height: 16px;
 		margin-top:2px;
 		margin-bottom:0px;
+		letter-spacing: .05em;
 	}
 	.post-container .posted-on {
 		font-size: 10px;
@@ -1822,7 +1829,7 @@ object {
 	}
 	.post-container p {
 		font-size: 12pt;
-		line-height: 21pt;
+		line-height: 18pt;
 		text-align: justify;
 	}
 }

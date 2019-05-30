@@ -267,7 +267,7 @@ add_action('rest_api_init', function() {
 					foreach ($menu_pre_items as $key => $item) {
 						$item = (array) $item;
 						$menu_items[$key]['id'] = (int) $item['object_id'];
-						$menu_items[$key]['title'] = $item['title'];
+						$menu_items[$key]['name'] = $item['title'];
 						$menu_items[$key]['url'] = $item['url'];
 					}
 
