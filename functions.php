@@ -154,6 +154,7 @@ add_action( 'widgets_init', 'topolitik_widgets_init' );
  */
 function topolitik_scripts() {
 	wp_enqueue_style( 'topolitik-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'topolitik-style-index', get_template_directory_uri() . '/styles/index.css' );
 
 	wp_enqueue_script( 'topolitik-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -201,6 +202,7 @@ add_action('rest_api_init', function() {
 	register_meta( 'post', 'kicker', $args);
 	register_meta( 'post', 'youtube_video', $args);
 	register_meta( 'post', 'arch_thumb', $args);
+	register_meta( 'post', 'ref_list', $args);
 
 
 	register_rest_field( 'post', 'coauthors', array(
@@ -209,15 +211,17 @@ add_action('rest_api_init', function() {
 			$coauthors = get_coauthors($data['id']);
 			foreach ($coauthors as $coauthor) {
 				$image = coauthors_get_avatar( $coauthor, 32 );
-				$dom = new DOMDocument();
-				$dom->loadXML($image);
-				$imagesrc = $dom->getElementsByTagName('img')[0]->getAttribute('src');
-
-				$author = array(
-					"name" => $coauthor->display_name,
-					"avatar" => $imagesrc
-				);
-				array_push($authors, $author);
+				if ($image) {
+					$dom = new DOMDocument();
+					$dom->loadXML($image);
+					$imagesrc = $dom->getElementsByTagName('img')[0]->getAttribute('src');
+	
+					$author = array(
+						"name" => $coauthor->display_name,
+						"avatar" => $imagesrc
+					);
+					array_push($authors, $author);
+				}
 			}
 			return $authors;
 		}
@@ -225,22 +229,10 @@ add_action('rest_api_init', function() {
 
 	register_rest_field( 'post', 'image', array(
 		'get_callback' => function($data) {
-			$thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id( $data['id']), "adv-pos-a-large")[0];
+			$thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id( $data['id']), "large")[0];
 			if (!isset($thumbnail)) {
 				$custom_fields = get_post_custom( $data['id'] );
-				$thumbnail = array_key_exists('header_img', $custom_fields) ? wp_get_attachment_image_src($custom_fields['header_img'][0], "adv-pos-a-large")[0] : '';
-			}
-			return $thumbnail;
-		}
-	));
-
-
-	register_rest_field( 'post', 'image', array(
-		'get_callback' => function($data) {
-			$thumbnail = wp_get_attachment_image_src(get_post_thumbnail_id( $data['id']), "adv-pos-a-large")[0];
-			if (!isset($thumbnail)) {
-				$custom_fields = get_post_custom( $data['id'] );
-				$thumbnail = array_key_exists('header_img', $custom_fields) ? wp_get_attachment_image_src($custom_fields['header_img'][0], "adv-pos-a-large")[0] : '';
+				$thumbnail = array_key_exists('header_img', $custom_fields) ? wp_get_attachment_image_src($custom_fields['header_img'][0], "large")[0] : '';
 			}
 			return $thumbnail;
 		}

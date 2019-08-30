@@ -41,6 +41,94 @@ function topolitik_customize_register( $wp_customize ) {
 		'priority'   => 1
 	)));
 
+	// Homepage
+	$wp_customize->add_section( 'homepage' , array(
+		'title'      => __( "Page d'accueil", 'topolitik' ),
+		'priority'   => 30,
+	));
+	$wp_customize->add_setting( 'homepage_section_1' , array(
+		'default'    => 'derniersarticles',
+	));
+	$wp_customize->add_setting( 'homepage_section_1_header' , array(
+		'default'    => 'Titre',
+	));
+	$wp_customize->add_setting( 'homepage_section_1_body' , array(
+		'default'    => '',
+	));
+	$wp_customize->add_setting( 'homepage_section_2' , array(
+		'default'    => null,
+	));
+	$wp_customize->add_setting( 'homepage_section_3' , array(
+		'default'    => '[rien]',
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_setting( 'homepage_section_4' , array(
+		'default'    => '[rien]',
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_setting( 'homepage_section_5' , array(
+		'default'    => '[rien]',
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_1_', array(
+		'label'      => __( 'Section 1', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_1',
+		'type'       => 'select',
+		'choices'     => array( 'derniersarticles' => 'Articles récents' ),
+		'priority'   => 1,
+	)));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_1_header_', array(
+		'label'      => __( 'Section 1 : Titre', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_1_header',
+		'priority'   => 2,
+	)));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_1_body_', array(
+		'label'      => __( 'Section 1 : Description', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_1_body',
+		'priority'   => 3,
+	)));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_2_', array(
+		'label'      => __( 'Section 2', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_2',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_3_', array(
+		'label'      => __( 'Section 3', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_3',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_4_', array(
+		'label'      => __( 'Section 4', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_4',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_5_', array(
+		'label'      => __( 'Section 5', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_5',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
 
 	// Google Analytics
 	$wp_customize->add_section( 'google_analytics' , array(
@@ -62,7 +150,7 @@ function topolitik_customize_register( $wp_customize ) {
 	// Social media
 	$wp_customize->add_section( 'social_media' , array(
 			'title'      => __( 'Réseaux sociaux', 'topolitik' ),
-			'priority'   => 30,
+			'priority'   => 40,
 	));
 	$wp_customize->add_setting( 'social_fb' , array(
     	'default'   => '#',
@@ -155,3 +243,19 @@ function topolitik_customize_preview_js() {
 	wp_enqueue_script( 'topolitik-customizer', get_template_directory_uri() . '/js/customizer.js', array( 'customize-preview' ), '20151215', true );
 }
 add_action( 'customize_preview_init', 'topolitik_customize_preview_js' );
+
+
+function get_categories_select() {
+  $teh_cats = get_categories();
+  $results;
+ 
+  $count = count($teh_cats);
+  for ($i=0; $i < $count; $i++) {
+    if (isset($teh_cats[$i]))
+      $results[$teh_cats[$i]->slug] = $teh_cats[$i]->name;
+    else
+      $count++;
+	}
+	sprintf('hey,', $results);
+  return $results;
+}

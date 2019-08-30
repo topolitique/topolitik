@@ -14,13 +14,23 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer no-print">
-		<div class="site-info container">
 
-				<?php
-				echo "📰 + 🎓 + 🇨🇭 = 👌";
-				/* translators: 1: Theme name, 2: Theme author. */
-				?>
-		</div><!-- .site-info -->
+		<div class="site-footer-notes">
+			Topolitique. Le média des étudiants genevois !
+		</div><!-- .site-footer-notes -->
+
+		<div class="site-footer-notes">
+				Contact: <span class="size-footer-mail">topo@unige.ch</span>
+		</div><!-- .site-footer-notes -->
+
+		<div class="site-footer-notes">
+				hébergé par...
+				<img 
+					class="site-footer-host-logo"
+					src="<?php echo get_template_directory_uri()?>/images/logo_infomaniak_environnement_blanc.svg" 
+				/>
+		</div><!-- .site-footer-notes -->
+
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
