@@ -13,38 +13,40 @@ get_header();
 		<div class="section-container">
 			<div class="index-section">
 				<div class="index-section-margin">
-					<h1 class="index-section-title"><?php echo get_theme_mod('homepage_section_1_header') ?></h1>
-					<p class="index-section-description"><?php echo get_theme_mod('homepage_section_1_body') ?></p>
+					<h1 class="index-section-title no-mobile"><?php echo get_theme_mod('homepage_section_1_header') ?></h1>
+					<p class="index-section-description no-mobile"><?php echo get_theme_mod('homepage_section_1_body') ?></p>
 				</div>
 				<div class="index-section-content">
-				<?php
-					$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 5, 'cat' => '-593' ) );
+					<div class="index-section-content-first-articles">
+						<?php
+							$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 5, 'cat' => '-593' ) );
 
-					if ( $latest_blog_posts->have_posts() ) {
-						while ( $latest_blog_posts->have_posts() ) {
-							$latest_blog_posts->the_post();
+							if ( $latest_blog_posts->have_posts() ) {
+								while ( $latest_blog_posts->have_posts() ) {
 
-							$isVideo = false;
-							$show = true;
+									$latest_blog_posts->the_post();
 
-							$categories = wp_get_post_categories($post_id=get_the_ID());
-							foreach ($categories as $cat) {
-								// code...
-								echo ' ';
-								if (get_cat_name($cat)=="TV") {
-									$isVideo = true;
+									$isVideo = false;
+									$show = true;
+
+									$categories = wp_get_post_categories($post_id=get_the_ID());
+									foreach ($categories as $cat) {
+										// code...
+										echo ' ';
+										if (get_cat_name($cat)=="TV") {
+											$isVideo = true;
+										}
+									}
+									get_template_part( 'template-parts/article-card', get_post_type() );
+
+									if ($latest_blog_posts->current_post === 1) {
+										// add div after first post
+										echo '</div><div class="index-section-content-last-articles">';
+									}
+
 								}
 							}
-							get_template_part( 'template-parts/article-card', get_post_type() );
-
-							if ($latest_blog_posts->current_post === 0) {
-								// add div after first post
-								echo '<div class="index-section-content-last-articles">';
-							}
-
-						}
-					}
-				?>
+						?>
 					</div><!-- .index-section-content-last-articles -->
 				</div><!-- .index-section-content -->
 			</div><!-- .index-section -->
@@ -69,6 +71,7 @@ get_header();
 					<p><?php echo $categoryObj->count ?> articles</p>
 				</div>
 				<div class="index-section-content">
+					<div class="index-section-content-first-articles">
 					<?php
 						$latest_blog_posts = new WP_Query( array( 'posts_per_page' => 5, 'category_name'=> $category, 'cat' => '-593' ) );
 
@@ -89,9 +92,9 @@ get_header();
 								}
 								get_template_part( 'template-parts/article-card', get_post_type() );
 
-								if ($latest_blog_posts->current_post === 0) {
+								if ($latest_blog_posts->current_post === 1) {
 									// add div after first post
-									echo '<div class="index-section-content-last-articles">';
+									echo '</div><div class="index-section-content-last-articles">';
 								}
 
 							}

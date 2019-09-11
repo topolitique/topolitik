@@ -25,11 +25,11 @@
     if (array_key_exists('kicker', $custom_fields)) {
       $kicker = $custom_fields['kicker'][0];
       if ($kicker) {
-        echo "<a class='article-card-kicker' href='".esc_url( get_permalink()). "'>". $kicker . "</a><br/>";
+        echo "<div class='article-card-kicker-container'><a class='article-card-kicker' href='".esc_url( get_permalink()). "'>". $kicker . "</a></div>";
       }
     }
 
-    echo '<a class="article-card-title" href="'.esc_url( get_permalink()).'" >'.get_the_title().'<br/></a>';
+    echo '<a class="article-card-title" href="'.esc_url( get_permalink()).'" >'.get_the_title().'</a>';
 
     if (array_key_exists('abstract', $custom_fields)) {
       $abstract = $custom_fields['abstract'][0];

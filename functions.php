@@ -155,8 +155,10 @@ add_action( 'widgets_init', 'topolitik_widgets_init' );
 function topolitik_scripts() {
 	wp_enqueue_style( 'topolitik-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'topolitik-style-index', get_template_directory_uri() . '/styles/index.css' );
+	wp_enqueue_style( 'topolitik-style-header', get_template_directory_uri() . '/styles/header.css' );
+	wp_enqueue_style( 'topolitik-style-homepage', get_template_directory_uri() . '/styles/homepage.css' );
 
-	wp_enqueue_script( 'topolitik-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'topolitik-script-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'topolitik-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -165,11 +167,6 @@ function topolitik_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'topolitik_scripts' );
-
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

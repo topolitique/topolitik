@@ -15,36 +15,13 @@ function topolitik_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
-	// Special Banner
-	$wp_customize->add_section( 'header_image' , array(
-			'title'      => __( 'Bannière Spéciale', 'topolitik' ),
-			'priority'   => 20,
-	));
-	$wp_customize->add_setting( 'header_bg' , array(
-    	'default'   => '#FAFAFA',
-    	'transport' => 'refresh',
-	));
-	$wp_customize->add_setting( 'header_link' , array(
-    	'default'   => 'http://topolitique.ch',
-    	'transport' => 'postMessage',
-	));
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'background_color', array(
-		'label'      => __( 'Couleur de fond', 'topolitik' ),
-		'section'    => 'header_image',
-		'settings'   => 'header_bg',
-		'priority'   => 2
-	)));
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'link_text', array(
-		'label'      => __( 'Lien URL', 'topolitik' ),
-		'section'    => 'header_image',
-		'settings'   => 'header_link',
-		'priority'   => 1
-	)));
+	/* 
+	Homepage
+	*/
 
-	// Homepage
 	$wp_customize->add_section( 'homepage' , array(
 		'title'      => __( "Page d'accueil", 'topolitik' ),
-		'priority'   => 30,
+		'priority'   => 10,
 	));
 	$wp_customize->add_setting( 'homepage_section_1' , array(
 		'default'    => 'derniersarticles',
@@ -59,15 +36,24 @@ function topolitik_customize_register( $wp_customize ) {
 		'default'    => null,
 	));
 	$wp_customize->add_setting( 'homepage_section_3' , array(
-		'default'    => '[rien]',
   	'capability' => 'edit_theme_options',
 	));
 	$wp_customize->add_setting( 'homepage_section_4' , array(
-		'default'    => '[rien]',
   	'capability' => 'edit_theme_options',
 	));
 	$wp_customize->add_setting( 'homepage_section_5' , array(
-		'default'    => '[rien]',
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_setting( 'homepage_section_6' , array(
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_setting( 'homepage_section_7' , array(
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_setting( 'homepage_section_8' , array(
+  	'capability' => 'edit_theme_options',
+	));
+	$wp_customize->add_setting( 'homepage_section_9' , array(
   	'capability' => 'edit_theme_options',
 	));
 	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_1_', array(
@@ -130,24 +116,124 @@ function topolitik_customize_register( $wp_customize ) {
 		'priority'   => 5,
 	)));
 
-	// Google Analytics
-	$wp_customize->add_section( 'google_analytics' , array(
-	    'title'      => __( 'Google Analytics', 'topolitik' ),
-	    'priority'   => 150,
-	));
-	$wp_customize->add_setting( 'ga_code' , array(
-    	'default'   => '',
-    	'transport' => 'postMessage',
-	));
-	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'ga_id', array(
-		'label'      => __( 'ID de suivi', 'topolitik' ),
-		'section'    => 'google_analytics',
-		'settings'   => 'ga_code',
-		'priority'   => 1
-
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_6_', array(
+		'label'      => __( 'Section 6', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_6',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
 	)));
 
-	// Social media
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_7_', array(
+		'label'      => __( 'Section 7', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_7',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_8_', array(
+		'label'      => __( 'Section 8', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_8',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
+
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'homepage_section_9_', array(
+		'label'      => __( 'Section 9', 'topolitik' ),
+		'section'    => 'homepage',
+		'settings'   => 'homepage_section_9',
+		'priority'   => 1,
+		'type'       => 'select',
+		'choices'    => get_categories_select(),
+		'priority'   => 5,
+	)));
+
+	/* 
+		Header Additions
+	*/
+
+	$wp_customize->add_section( 'header_bigbanner' , array(
+			'title'      => __( 'Image: bannière', 'topolitik' ),
+			'priority'   => 20,
+	));
+	$wp_customize->add_setting( 'header_bigbanner_bg' , array(
+    	'transport' => 'refresh',
+	));
+	$wp_customize->add_setting( 'header_bigbanner_link' , array(
+    	'transport' => 'postMessage',
+	));
+	$wp_customize->add_setting( 'header_bigbanner_image' , array(
+		'transport' => 'postMessage',
+		'default'   => ''
+	));
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'bigbanner_link_text', array(
+		'label'      => __( 'Image (1400x250 px)', 'topolitik' ),
+		'section'    => 'header_bigbanner',
+		'settings'   => 'header_bigbanner_image',
+		'priority'   => 1
+	)));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'bigbanner_background_color', array(
+		'label'      => __( 'Couleur de fond', 'topolitik' ),
+		'section'    => 'header_bigbanner',
+		'settings'   => 'header_bigbanner_bg',
+		'priority'   => 2
+	)));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'bigbanner_image_src', array(
+		'label'      => __( 'URL', 'topolitik' ),
+		'section'    => 'header_bigbanner',
+		'settings'   => 'header_bigbanner_link',
+		'priority'   => 3
+	)));
+	
+	/* 
+		Header Image: Small
+	*/
+
+	$wp_customize->add_section( 'header_smallbanner' , array(
+		'title'      => __( 'Image: En-tête', 'topolitik' ),
+		'priority'   => 30,
+	));
+	$wp_customize->add_setting( 'header_smallbanner_bg' , array(
+		'transport' => 'refresh',
+	));
+	$wp_customize->add_setting( 'header_smallbanner_link' , array(
+		'transport' => 'postMessage',
+	));
+	$wp_customize->add_setting( 'header_smallbanner_image' , array(
+		'transport' => 'postMessage',
+	));
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'smallbanner_link_text', array(
+		'label'      => __( 'Petite: Image (200x96px)', 'topolitik' ),
+		'section'    => 'header_smallbanner',
+		'settings'   => 'header_smallbanner_image',
+		'priority'   => 1
+	)));
+	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'smallbanner_background_color', array(
+		'label'      => __( 'Couleur de fond', 'topolitik' ),
+		'section'    => 'header_smallbanner',
+		'settings'   => 'header_smallbanner_bg',
+		'priority'   => 2
+	)));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'smallbanner_image_src', array(
+		'label'      => __( 'Lien URL', 'topolitik' ),
+		'section'    => 'header_smallbanner',
+		'settings'   => 'header_smallbanner_link',
+		'priority'   => 3
+	)));
+
+	/*
+	Social media
+	*/ 
+
 	$wp_customize->add_section( 'social_media' , array(
 			'title'      => __( 'Réseaux sociaux', 'topolitik' ),
 			'priority'   => 40,
@@ -193,6 +279,29 @@ function topolitik_customize_register( $wp_customize ) {
 		'priority'   => 4
 	)));
 
+
+	/*
+		Google Analytics Settings
+	*/
+
+	$wp_customize->add_section( 'google_analytics' , array(
+	    'title'      => __( 'Google Analytics', 'topolitik' ),
+	    'priority'   => 150,
+	));
+	$wp_customize->add_setting( 'ga_code' , array(
+    	'default'   => '',
+    	'transport' => 'postMessage',
+	));
+	$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'ga_id', array(
+		'label'      => __( 'ID de suivi', 'topolitik' ),
+		'section'    => 'google_analytics',
+		'settings'   => 'ga_code',
+		'priority'   => 1
+	)));
+
+	/*
+		Refresh
+	*/
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'blogname', array(
 			'selector'        => '.site-title a',
@@ -203,9 +312,13 @@ function topolitik_customize_register( $wp_customize ) {
 			'render_callback' => 'topolitik_customize_partial_blogdescription',
 		) );
 		/* refresh customizer */
-		$wp_customize->selective_refresh->add_partial( 'header_bg', array(
-			'selector'        => '#header-advert',
-			'render_callback' => 'topolitik_customize_partial_header_bg',
+		$wp_customize->selective_refresh->add_partial( 'header_bigbanner', array(
+			'selector'        => '#header-bigbanner-advert',
+			'render_callback' => 'topolitik_customize_partial_header_big',
+		));
+		$wp_customize->selective_refresh->add_partial( 'header_smallbanner', array(
+			'selector'        => '#header-smallbanner-advert',
+			'render_callback' => 'topolitik_customize_partial_header_smallbanner',
 		) );
 	}
 
@@ -213,6 +326,8 @@ function topolitik_customize_register( $wp_customize ) {
 	$wp_customize->remove_section( 'background_image' );
 	$wp_customize->remove_section( 'static_front_page' );
 	$wp_customize->remove_section( 'custom_css' );
+	$wp_customize->remove_section( 'header_image' );
+
 }
 add_action( 'customize_register', 'topolitik_customize_register', 11 );
 
@@ -233,8 +348,11 @@ function topolitik_customize_partial_blogname() {
 function topolitik_customize_partial_blogdescription() {
 	bloginfo( 'description' );
 }
-function topolitik_customize_partial_header_bg() {
-	bloginfo( 'header_bg' );
+function topolitik_customize_partial_header_bigbanner() {
+	bloginfo( 'header_bigbanner' );
+}
+function topolitik_customize_partial_header_smallbanner() {
+	bloginfo( 'header_smallbanner' );
 }
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
