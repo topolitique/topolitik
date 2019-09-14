@@ -425,16 +425,6 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 
-blockquote {
-	padding: 0 1.5em;
-	border-style: solid;
-	border-width: 0px;
-	border-left-width: 2px;
-	border-color: #C30E00;
-	font-style: italic;
-	font-size: 18px;
-	font-weight: 300;
-}
 
 address {
 	margin: 0 0 1.5em;

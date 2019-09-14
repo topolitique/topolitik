@@ -128,16 +128,16 @@ if ( ! function_exists( 'topolitik_get_categories' ) ) :
 				foreach ($categories as $cat) {
 					$c_name = get_cat_name($cat);
 					if ($c_name != "Non répertorié" && $c_name != "Non classé") {
-						echo $c_name;
+						echo '<span class="tag-category">'.$c_name.'</span>';
 					}
 				};
 			};
 
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'topolitik' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ' ', 'list item separator', 'topolitik' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<div class="tags-links">' . esc_html__( 'tags: %1$s', 'topolitik' ) . '</div>', $tags_list ); // WPCS: XSS OK.
+				printf( $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
