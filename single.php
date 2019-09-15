@@ -68,6 +68,7 @@ endwhile;
 			<div class="page-container">
 				<div class="article-margin article-margin-authors">
 					<!-- Author and article info -->
+					<?php if (!is_page()): ?>
 					<?php 
 					$coauthors = get_coauthors($postid);
 					$index = 0;
@@ -82,7 +83,7 @@ endwhile;
 							$src = $o->getAttribute('src');							
 						};
 						?>
-							<a href="<?php echo get_site_url();?>/authors/<?php echo $coauthor->user_login; ?>" class="article-author-container">
+							<a href="<?php echo get_site_url();?>/author/<?php echo $coauthor->user_login; ?>" class="article-author-container">
 								<div class="article-author-avatar" style="background-image: url(<?php echo $src; ?>)">
 								
 								</div>
@@ -91,8 +92,9 @@ endwhile;
 								</div>
 							</a>
 					<?php endforeach;?>
+					<?php endif; ?>
 				</div>
-				<div class="article-content">
+				<div class="article-content article-headline-container">
 					<!-- Headline and kicker -->
 					<?php						
 						if ($kicker) {
@@ -112,11 +114,19 @@ endwhile;
 				</div>
 			</div>
 			<!-- Thumbnail -->
+			<?php if ($thumbnail != ''): ?>
 			<div class="page-container article-thumbnail-container" style="background-image: url(<?php echo $thumbnail; ?>);">
 				<div class="article-margin article-margin-thumbnail">
-					<p class="article-abstract-in-thumbnail"><?php echo $abstract; ?></p>
+					<div class="article-margin-thumbnail-image" style="background-image: url(<?php echo $thumbnail; ?>);">
+
+					</div>
+					<p class="article-abstract-in-thumbnail">
+						<?php echo $abstract; ?>
+						<br />
+						<br />
+						<?php if ( 'post' === get_post_type() ) {topolitik_posted_on(); }; ?>
+					</p>
 					<div class="article-date-in-thumbnail">
-						<?php if ( 'post' === get_post_type() ) { topolitik_posted_on(); }; ?>
 					</div>
 				</div>
 				<div class="article-content">
@@ -125,6 +135,7 @@ endwhile;
 
 				</div>
 			</div>
+			<?php endif;?>
 			<!-- Content -->
 			<div class="page-container">
 				<div class="article-margin">
@@ -141,25 +152,23 @@ endwhile;
 							<?php topolitik_get_categories(); ?>
 						</div>
 					</div>
+					<?php if (array_key_exists('ref_list', $custom_fields)) : ?>
 					<div class="article-references">
 							<span class="article-references-title">Références</span>
 							<?php 
-								if (array_key_exists('ref_list', $custom_fields)) {
 									foreach ( $custom_fields['ref_list'] as $key => $value ) {
 										$text = str_replace("\n", "\n\n", $value); // ensure reference is in new paragraph
 								
 										include 'packages/parsedown-1.7.3/Parsedown.php';
 										$Parsedown = new Parsedown();
 										if ($text) {
-											echo '<div class="post-references">';
 											echo $Parsedown->text($text);
-											echo '</div>';
 										}
 								
 									}
-								}
 							?>
 					</div>
+					<?php endif; ?>
 				</div>
 				<div class="article-sidebar">
 					<?php dynamic_sidebar( 'sidebar-2' ); ?>

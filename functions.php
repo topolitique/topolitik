@@ -154,9 +154,9 @@ add_action( 'widgets_init', 'topolitik_widgets_init' );
  */
 function topolitik_scripts() {
 	wp_enqueue_style( 'topolitik-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'topolitik-style-index', get_template_directory_uri() . '/styles/index.css' );
 	wp_enqueue_style( 'topolitik-style-header', get_template_directory_uri() . '/styles/header.css' );
 	wp_enqueue_style( 'topolitik-style-homepage', get_template_directory_uri() . '/styles/homepage.css' );
+	wp_enqueue_style( 'topolitik-style-archive', get_template_directory_uri() . '/styles/archive.css' );
 	wp_enqueue_style( 'topolitik-style-article', get_template_directory_uri() . '/styles/article.css' );
 
 	wp_enqueue_script( 'topolitik-script-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );

@@ -1,4 +1,4 @@
-.index-section {
+.homepage-section {
 	width: 100%;
 	display: flex;
 	flex-wrap: wrap;
@@ -18,7 +18,7 @@
 
 /* Section Margin */
 
-.index-section-margin {
+.homepage-section-margin {
 	background-color: rgb(253,253,254);
 	width: 300px;
 	padding-bottom: 12pt;
@@ -29,14 +29,14 @@
 	border-left-width: 1px; 
 	border-left-color: rgb(235,235,255);
 }
-.index-section-margin h1, .index-section-margin h2 {
+.homepage-section-margin h1, .homepage-section-margin h2 {
 	margin-left: 12pt;
 	text-align: left; 
 	font-size: 16pt;
 	font-weight: 400;
 	margin-bottom: 0pt;
 }
-.index-section-margin p {
+.homepage-section-margin p {
 	margin-left: 12pt;
 	text-align: left; 
 	font-size: 12pt;
@@ -44,7 +44,7 @@
 	margin-top: 0pt;
 	margin-bottom: 4pt;
 }
-.index-section-margin a {
+.homepage-section-margin a {
 	display: block;
 	margin-left: 12pt;
 	text-align: left; 
@@ -52,20 +52,20 @@
 	color: #DB1000;
 }
 
-.index-section-content {
+.homepage-section-content {
 	flex: 1;
 	align-self: stretch;
 	display: flex;
 	flex-direction: row;
 	padding: 12pt;
 }
-.index-section-content-last-articles {
+.homepage-section-content-last-articles {
 	flex:1;
 	display: block; 
 	height: auto;
 	min-width: 256pt;
 }
-.index-section-content-first-articles {
+.homepage-section-content-first-articles {
   flex:1;
   min-width:60%;
 	display: block; 
@@ -252,42 +252,42 @@
 }
 
 /* Second post in section */
-.index-section-content-last-articles .article-card:nth-child(1) {
+.homepage-section-content-last-articles .article-card:nth-child(1) {
 	height: 250px;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-thumbnail {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-thumbnail {
 	position:absolute;
 	width: 100%; 
 	height: 100%;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-kicker {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-kicker {
 	font-size: 11pt;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-title {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-title {
 	font-size: 16pt;
 	line-height: 2rem;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-meta {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-meta {
 	height: 0pt;
 	margin: 0pt;
 	margin-top: 4pt;
 	overflow: hidden;
 	transition: height .3s;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-abstract {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-abstract {
 	display:none;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-author-avatar {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-author-avatar {
 	height: 28pt;
 	width: 28pt;
 }
-.index-section-content-last-articles .article-card:nth-child(1) .article-card-author-text {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-author-text {
 	height: 28pt;
 	line-height: 28pt;
 	font-size: 12pt;
 }
 
-.index-section-content-last-articles .article-card:nth-child(1):hover .article-card-meta {
+.homepage-section-content-last-articles .article-card:nth-child(1):hover .article-card-meta {
 	height: 28pt;
 	padding: 0pt;
 }
@@ -378,23 +378,23 @@
 }
 
 @media screen and (max-width: 1040px) {
-	.index-section {
+	.homepage-section {
 		flex-direction: column;
 		align-content: stretch;
 	}
-	.index-section-margin {
+	.homepage-section-margin {
 		width: 100%;
 	}
-	.index-section-content {
+	.homepage-section-content {
 		flex-wrap: wrap;
 	}
-	.index-section-content-last-articles {
+	.homepage-section-content-last-articles {
 		padding: 0pt;
   }
-  .index-section-content-first-articles {
+  .homepage-section-content-first-articles {
     padding: 0;
   }
-	.index-section-description {
+	.homepage-section-description {
 		display:none;
 	}
 	.article-card {
@@ -407,9 +407,12 @@
     display: none;
   }
   .article-card {
-    margin-right: 0;
-  }
+		margin-right: 0;
+	}
+	.article-card:nth-child(1) {
+		height: 280pt;
+	}
   .article-card-author-text {
-    font-size: 12pt
+    font-size: 12pt;
   }
 }
