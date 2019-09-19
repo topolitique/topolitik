@@ -213,6 +213,7 @@ a[rel="tag"] {
 	padding-left: 12pt;
 	padding-right: 12pt;
 	padding-top: 2pt;
+	padding-bottom: 24pt;
 	border-style: dashed;
 	border-width: 0;
 	border-top-width: 1px;
@@ -239,6 +240,7 @@ a[rel="tag"] {
 	padding: 4pt;
 	padding-left: 6pt;
 	padding-right: 6pt;
+	margin-bottom: 12pt;
 }
 .article-references ol {
 	margin-left: 0;

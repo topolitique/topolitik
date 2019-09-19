@@ -124,7 +124,9 @@ endwhile;
 						<?php echo $abstract; ?>
 						<br />
 						<br />
-						<?php if ( 'post' === get_post_type() ) {topolitik_posted_on(); }; ?>
+						<?php if ( 'post' === get_post_type() ) {
+							topolitik_posted_on(); 
+						}; ?>
 					</p>
 					<div class="article-date-in-thumbnail">
 					</div>
@@ -146,7 +148,14 @@ endwhile;
 						<?php the_content(); ?>
 						<div class="article-body-footer-separator"></div>
 						<div class="article-body-footer-authors">
-							<?php coauthors_posts_links(); ?>, le <?php topolitik_posted_on(); ?>
+							<?php coauthors_posts_links(); ?>, le <?php topolitik_posted_on(); ?>.
+							<?php if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ): 
+								$updated_time_string = sprintf( '<time class="entry-date updated" datetime="%1$s">%2$s</time>',
+									esc_attr( get_the_modified_date( DATE_W3C ) ),
+									esc_html( get_the_modified_date() )
+								);
+								echo 'Dernière modification le '.$updated_time_string;
+							endif; ?>
 						</div>
 						<div class="article-body-footer-tags">
 							<?php topolitik_get_categories(); ?>
