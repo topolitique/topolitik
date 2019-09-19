@@ -54,10 +54,11 @@ function apre_render_ref_list(){
 	global $post;
 	$post_id = (int)$post->ID;
 	$meta_value = get_post_meta($post_id, 'ref_list', true);
+	// TODO: exporter le style dans css
 	?>
 
 	<div class="meta-box-item-content">
-		 <textarea type="textarea" name="apre_ref_list" id="apre_ref_list" value="<?php echo $meta_value; ?>" style="width: 100%; min-height: 200px; border: 1px solid rgb(120, 120, 120);;"><?php echo $meta_value; ?></textarea>
+		 <textarea type="textarea" name="apre_ref_list" id="apre_ref_list" value="<?php echo $meta_value; ?>" style="width: 100%; min-height: 200px; border: 1px solid rgb(120, 120, 120);"><?php echo $meta_value; ?></textarea>
 	</div>
 
 	<?php
@@ -90,10 +91,11 @@ function apre_render_guest_author_function(){
 	global $post;
 	$post_id = (int)$post->ID;
 	$meta_value = get_post_meta($post_id, 'guest_author_function', true);
+	// TODO: exporter le style dans css
 	?>
 	   <div class="meta-box-item-title">Fonction</div>
 		 <div class="meta-box-item-content">
-			<input type="text" name="apre_guest_author_function" id="apre_guest_author_function" value="<?php echo $meta_value; ?>">
+			<input type="text" name="apre_guest_author_function" id="apre_guest_author_function" value="<?php echo $meta_value; ?>" style="width: 50%; border: 1px solid rgb(120, 120, 120);">
 		 </div>
 	<?php
 }
