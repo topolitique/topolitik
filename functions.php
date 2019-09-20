@@ -154,14 +154,9 @@ add_action( 'widgets_init', 'topolitik_widgets_init' );
  */
 function topolitik_scripts() {
 	wp_enqueue_style( 'topolitik-style', get_stylesheet_uri() );
-	wp_enqueue_style( 'topolitik-style-header', get_template_directory_uri() . '/styles/header.css' );
-	wp_enqueue_style( 'topolitik-style-homepage', get_template_directory_uri() . '/styles/homepage.css' );
-	wp_enqueue_style( 'topolitik-style-archive', get_template_directory_uri() . '/styles/archive.css' );
-	wp_enqueue_style( 'topolitik-style-article', get_template_directory_uri() . '/styles/article.css' );
+	wp_enqueue_style( 'topolitik-style-main', get_template_directory_uri() . '/main.css' );
 
 	wp_enqueue_script( 'topolitik-script-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );
-
-	wp_enqueue_script( 'topolitik-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -185,12 +180,8 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
- * Load Jetpack compatibility file.
+ * REST API
  */
-if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
-};
-
 add_action('rest_api_init', function() {
 	$args = array(
     'type' => 'string',

@@ -1,0 +1,26 @@
+{
+  "name": "topolitik",
+  "version": "1.0.0",
+  "description": "WP Theme the topolitik.ch",
+  "main": "build.js",
+  "scripts": {
+    "start": "node ./build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topolitique/topolitik.git"
+  },
+  "author": "Mark Spurgeon",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/topolitique/topolitik/issues"
+  },
+  "homepage": "https://github.com/topolitique/topolitik#readme",
+  "devDependencies": {
+    "fs": "0.0.1-security",
+    "node-sass": "^4.12.0"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2"
+  }
+}

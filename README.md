@@ -14,14 +14,11 @@ Parsedown. </p>
 -   En-tête : `header.php`
 -   Bas de page : `footer.php`
 -   Commentaires : `comments.php`
--   Contenu de l'article : `content.php`
--   **Lien à l'article (avec abstract)** : `post-card.php`
--   **Lien à l'article (sans abstract)** : `post-card-small.php`
 
 **pages complètes**
 
--   Index: `topoindex.php` articles par section, on peut ajouter ou
-    enlever des sections...
+-   Index: `homepage.php` articles par section, on peut ajouter ou
+    enlever des sections... #TODO: changer à `home.php`
 -   Derniers articles: `index.php` (index par défaut, replacé par
     topoindex.php) -> '/latest'
 -   Catégorie:  `archive.php` : '/category/\<...>'
@@ -50,10 +47,9 @@ Parsedown. </p>
 
 ## TODO:
 
--   place pour une bannière spéciale ✌️
--   enlever les commentaires ✌️ (on peut les désactiver sur admin?)
--   trouver un moyen d'afficher des liens event et topotv
 -   Inclure des PDF ou 'carousel' pour certains articles
+-   Base pour scss, le résultat se trouvant sur "main.css" ✌️
+
 
 ✍️ = entrain de bosser dessus
 ✌️ = pas mal
