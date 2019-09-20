@@ -675,24 +675,6 @@ object {
 --------------------------------------------------------------*/
 /* No Galleries Yet */
 
-/*
-	PAGE CONTAINER 
-*/
-.page-container {
-	width: 100%;
-	max-width: 1400px;
-	padding: 0;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: row;
-	align-content: center;
-	align-items: stretch;
-	border-style: solid;
-	border-width: 0px;
-	border-right-width: 1px; 
-	border-right-color: rgb(235,235,255);
-}
-
 #content {
 	z-index:1;
 	background: transparent !important;
@@ -776,73 +758,6 @@ object {
 		margin:4px;
 		padding-left:20px
 	}
-}
-
-
-/* posts */
-.container {
-	margin:0px;
-	margin-bottom:12px;
-	margin-left:auto;
-	margin-right:auto;
-	padding:0px;
-	display: flex;
-	flex-wrap: wrap !important;
-	flex-flow: row;
-	max-width: 1600px; /* change this ? */
-}
-.container article {
-	flex:1;
-}
-@media screen and (min-width: 37.5em) {
-	.container {
-		padding-left:100px;
-		padding-right:100px;
-	}
-}
-
-.container .post-card:nth-child(1)  {
-	flex: 1 1 600px !important;
-}
-.container .post-card:nth-child(2)  {
-	flex: 1 1 350px !important;
-}
-
-.container .post-card:nth-child(n+3) .post-card-abstract {
-	display: none;
-}
-
-
-/* in Front page */
-.container.section .post-card:nth-child(1)  {
-	flex: 1 1 300px !important;
-}
-.container.section .post-card:nth-child(2)  {
-	flex: 1 1 300px !important;
-}
-.container.section .post-card:nth-child(3)  {
-	flex: 1 1 300px !important;
-}
-
-/* in Category page (archive) */
-
-.container.archive .post-card:nth-child(1)  {
-	flex: 1 1 300px !important;
-}
-.container.archive .post-card:nth-child(2)  {
-	flex: 1 1 400px !important;
-}
-.container.archive .post-card:nth-child(3)  {
-	flex: 1 1 250px !important;
-}
-.container.archive .post-card:nth-child(3) .post-card-abstract {
-	display: block;
-}
-
-
-/* in Latest Articles' page */
-.container.latest .post-card:nth-child(1)  {
-	flex: 1 1 600px !important;
 }
 
 

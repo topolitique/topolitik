@@ -10,7 +10,7 @@ get_header();
 		<main id="main" class="site-main">
 
 		<!-- NEW Section 1 -->
-		<div class="section-container">
+		<div class="layout-container">
 			<div class="homepage-section">
 				<div class="homepage-section-margin">
 					<h1 class="homepage-section-title no-mobile"><?php echo get_theme_mod('homepage_section_1_header') ?></h1>
@@ -62,7 +62,7 @@ get_header();
 				if ($category):
 					$categoryObj = get_category_by_slug($category); 
 			?>
-		<div class="section-container">
+		<div class="layout-container">
 			<div class="homepage-section">
 				<div class="homepage-section-margin">
 					<h1 class="homepage-section-title"><?php echo $categoryObj->name ?></h1>

@@ -65,8 +65,8 @@ endwhile;
 				<meta name="twitter:card" content="summary_large_image">
 			
 			<!-- Headline -->
-			<div class="page-container">
-				<div class="article-margin article-margin-authors">
+			<div class="layout-container">
+				<div class="layout-margin article-margin-authors">
 					<!-- Author and article info -->
 					<?php if (!is_page()): ?>
 					<?php 
@@ -94,7 +94,7 @@ endwhile;
 					<?php endforeach;?>
 					<?php endif; ?>
 				</div>
-				<div class="article-content article-headline-container">
+				<div class="layout-content article-headline-container">
 					<!-- Headline and kicker -->
 					<?php						
 						if ($kicker) {
@@ -109,14 +109,14 @@ endwhile;
 						endif;
 					?>
 				</div>
-				<div class="article-sidebar">
+				<div class="layout-sidebar">
 
 				</div>
 			</div>
 			<!-- Thumbnail -->
 			<?php if ($thumbnail != ''): ?>
-			<div class="page-container article-thumbnail-container" style="background-image: url(<?php echo $thumbnail; ?>);">
-				<div class="article-margin article-margin-thumbnail">
+			<div class="layout-container article-thumbnail-container" style="background-image: url(<?php echo $thumbnail; ?>);">
+				<div class="layout-margin article-margin-thumbnail">
 					<div class="article-margin-thumbnail-image" style="background-image: url(<?php echo $thumbnail; ?>);">
 
 					</div>
@@ -131,19 +131,19 @@ endwhile;
 					<div class="article-date-in-thumbnail">
 					</div>
 				</div>
-				<div class="article-content">
+				<div class="layout-content">
 				</div>
-				<div class="article-sidebar">
+				<div class="layout-sidebar">
 
 				</div>
 			</div>
 			<?php endif;?>
 			<!-- Content -->
-			<div class="page-container">
-				<div class="article-margin">
+			<div class="layout-container">
+				<div class="layout-margin">
 					<div class="article-margin-tags"><?php topolitik_get_categories(); ?></div>
 				</div>
-				<div class="article-content">
+				<div class="layout-content">
 					<div class="article-body">
 						<?php the_content(); ?>
 						<div class="article-body-footer-separator"></div>
@@ -179,7 +179,7 @@ endwhile;
 					</div>
 					<?php endif; ?>
 				</div>
-				<div class="article-sidebar">
+				<div class="layout-sidebar">
 					<?php dynamic_sidebar( 'sidebar-2' ); ?>
 				</div>
 			</div>

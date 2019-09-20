@@ -1,3 +1,34 @@
+/*hello*/
+.layout-container {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: stretch;
+  border-style: solid;
+  border-width: 0px;
+  border-right-width: 1px;
+  border-left-width: 1px;
+  border-color: #f6f6f8; }
+
+.layout-margin {
+  width: 300px;
+  padding-bottom: 6pt;
+  border-style: solid;
+  border-width: 0px;
+  border-right-width: 1px;
+  border-right-color: #f6f6f8; }
+
+.layout-content {
+  flex: 1;
+  max-width: 100%; }
+
+.layout-sidebar {
+  width: 300px; }
+
 .site-header {
   background: #C30E00;
   border-style: solid;
@@ -206,7 +237,7 @@
   border-style: solid;
   border-width: 0px;
   border-top-width: 1px;
-  border-color: rgba(55, 55, 55, 0.1);
+  border-color: rgba(55, 55, 55, 0.06);
   flex: 1;
   display: flex;
   overflow: hidden; }
@@ -327,7 +358,7 @@
   border-width: 0px;
   border-bottom-width: 1px;
   border-right-width: 1px;
-  border-color: #fbfbfb; }
+  border-color: #f6f6f8; }
 
 /* Section Margin */
 .homepage-section-margin {
@@ -337,9 +368,7 @@
   border-style: solid;
   border-width: 0px;
   border-right-width: 1px;
-  border-right-color: #fbfbfb;
-  border-left-width: 1px;
-  border-left-color: #fbfbfb; }
+  border-right-color: #f6f6f8; }
 
 .homepage-section-margin h1, .homepage-section-margin h2 {
   margin-left: 12pt;
@@ -684,38 +713,6 @@
     height: 280pt; }
   .article-card-author-text {
     font-size: 12pt; } }
-
-/* LAYOUTS */
-.page-container {
-  width: 100%;
-  max-width: 1400px;
-  padding: 0;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: row;
-  align-content: center;
-  align-items: stretch;
-  border-style: solid;
-  border-width: 0px;
-  border-right-width: 1px;
-  border-right-color: #ebebff; }
-
-.article-margin {
-  width: 300px;
-  padding-bottom: 6pt;
-  border-style: solid;
-  border-width: 0px;
-  border-right-width: 1px;
-  border-right-color: #ebebff;
-  border-left-width: 1px;
-  border-left-color: #ebebff; }
-
-.article-content {
-  flex: 1;
-  max-width: 100%; }
-
-.article-sidebar {
-  width: 300px; }
 
 /* HEADLINE */
 .article-headline-container {

@@ -10,12 +10,15 @@
 get_header();
 ?>
 
-	<div id="primary" class="content-area">
+	<div id="primary" class="layout-container">
 		<main id="main" class="site-main">
+		<div class="layout-margin">
+
+		</div>
 		<div class="container archive">
 		<?php if ( have_posts() ) : ?>
 
-			<div class="page-header">
+			<div class="layout-header">
 				<div class="page-title-bloc">
 				<?php
 				echo "<h1 class='page-title'>";
@@ -35,7 +38,7 @@ get_header();
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
 				 */
-				 get_template_part( 'template-parts/post-card', get_post_type() );
+				 get_template_part( 'template-parts/article-card', get_post_type() );
 
 			endwhile;
 

@@ -1,22 +1,16 @@
 ![topo](screenshot.png)
 
-<h1 style="text-align:center">
-Design for [topolitique.ch](http://topolitique.ch)
-</h1>
-<p style="text-align:center">
-Wordpress theme with specific news features. Using Coauthors Plus and
-Parsedown. </p>
+Thème Wordpress pour [topolitique.ch](http://topolitique.ch)
+=====
+
 
 ## Structure :
 
-**éléments d'une page**
+**PHP**
 
 -   En-tête : `header.php`
 -   Bas de page : `footer.php`
 -   Commentaires : `comments.php`
-
-**pages complètes**
-
 -   Index: `homepage.php` articles par section, on peut ajouter ou
     enlever des sections... #TODO: changer à `home.php`
 -   Derniers articles: `index.php` (index par défaut, replacé par
@@ -28,10 +22,13 @@ Parsedown. </p>
 -   Page spéciale : `page.php`
 -   Page pour l'équipe : `team.php`
 
-**styles**
+**STYLES**
 
--   Site: `style.css`
--   Impression: `print.css`
+Le style du site est construit avec sass. Tous les fichiers de base se trouvent dans `scss/` et sont compilés vers `main.css`. Pour compiler le style, faites comme ceci:
+
+1) `npm install` ou `yarn install`
+2) `npm run build` ou `yarn build`
+3) Pour développer: `npm run serve` ou `yarn serve`, les mises à jour du style se feront en __real time__ 
 
 **fonctions**
 
@@ -44,6 +41,8 @@ Parsedown. </p>
 -   `inc/template-functions.php` : pas utilisé
 -   `inc/template-tags.php` : référence pour des balises genre
     `topolitik_posted_on()` pour afficher la date de l'article
+
+-------
 
 ## TODO:
 
