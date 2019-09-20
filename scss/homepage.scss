@@ -27,14 +27,14 @@
 	border-right-width: 1px; 
 	border-right-color: $homeBorderColor;
 }
-.homepage-section-margin h1, .homepage-section-margin h2 {
+.homepage-section-title {
 	margin-left: 12pt;
 	text-align: left; 
 	font-size: 16pt;
 	font-weight: 400;
 	margin-bottom: 0pt;
 }
-.homepage-section-margin p {
+.homepage-section-margin p, .homepage-section-description {
 	margin-left: 12pt;
 	text-align: left; 
 	font-size: 12pt;
@@ -89,7 +89,6 @@
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	width: 100%;
 }
 .article-card-text {
 }
@@ -306,10 +305,9 @@
 }
 
 .article-card:nth-child(n + 2) .article-card-thumbnail {
-	width: 25%;
-	min-width: 25%;
-	height: auto;
-	float:left;
+	width: 128px;
+	min-width: 128px;
+	height: 80px;
 	transition: width .4s;
 }
 .article-card:nth-child(n + 2) .article-card-text {

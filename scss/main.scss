@@ -1,5 +1,9 @@
 @import 'constants';
-
+/**
+ * Normalize
+ **/
+@import 'normalize'; // normalize throughout all browsers
+@import 'style.scss'; // LONG-TERM: THIS FILE WILL NO LONGER EXIST
 @import 'layout';
 
 

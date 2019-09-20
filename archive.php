@@ -10,52 +10,46 @@
 get_header();
 ?>
 
-	<div id="primary" class="layout-container">
-		<main id="main" class="site-main">
-		<div class="layout-margin">
-
-		</div>
-		<div class="container archive">
-		<?php if ( have_posts() ) : ?>
-
-			<div class="layout-header">
-				<div class="page-title-bloc">
-				<?php
-				echo "<h1 class='page-title'>";
-				wp_title($sep="");
-				echo "</h1>";
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-				</div>
-			</div><!-- .page-header -->
-
+	<div id="primary">
+		<main id="main" class="layout-container">
+			<div class="layout-margin">
+			<h1 class='homepage-section-title'><?php wp_title($sep="", null);?> </h1>
 			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				 get_template_part( 'template-parts/article-card', get_post_type() );
+					echo "<h2 class='homepage-section-title'>";
+					wp_title($sep="");
+					echo "</h2>";
+					the_archive_description( '<div class="homepage-section-description">', '</div>' );
+					?>
+			</div>
+			<div class="layout-content archive-content" id="archive-content">
+			<?php if ( have_posts() ) : ?>
 
-			endwhile;
+				<?php
+				/* Start the Loop */
+				while ( have_posts() ) :
+					the_post();
+					/*
+					* Include the Post-Type-specific template for the content.
+					* If you want to override this in a child theme, then include a file
+					* called content-___.php (where ___ is the Post Type name) and that will be used instead.
+					*/
+					get_template_part( 'template-parts/article-card', get_post_type() );
+
+				endwhile;
 
 
-		else :
+			else :
 
-			get_template_part( 'template-parts/content', 'none' );
+				get_template_part( 'template-parts/content', 'none' );
 
-		endif;
-		?>
+			endif;
+			?>
+			</div>
+		<div class="layout-sidebar">
+
 		</div>
-		<?php
-			the_posts_navigation();
-		?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
-
 <?php
 get_sidebar();
 get_footer();

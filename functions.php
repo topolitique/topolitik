@@ -156,7 +156,8 @@ function topolitik_scripts() {
 	wp_enqueue_style( 'topolitik-style', get_stylesheet_uri() );
 	wp_enqueue_style( 'topolitik-style-main', get_template_directory_uri() . '/main.css' );
 
-	wp_enqueue_script( 'topolitik-script-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );
+	wp_enqueue_script( 'topolitik-script-main', get_template_directory_uri() . '/js/main.js', array('jquery'), '0.0.1', true );
+	// wp_enqueue_script( 'topolitik-script-header', get_template_directory_uri() . '/js/header.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -279,3 +280,31 @@ add_action('rest_api_init', function() {
 	));
 
 });
+
+/**
+ * Add infinite scroll feature
+ */
+//Infinite Scroll
+function wp_infinitepaginate(){
+	$loopFile = $_POST['loop_file'];
+	$paged = $_POST['page_no'];
+	$action = $_POST['what'];
+	$value = $_POST['value'];
+
+	if($action == 'author_name'){
+			$arg = array('author_name' => $value, 'paged' => $paged, 'post_status' => 'publish');
+	} elseif ($action == 'category_name'){
+			$arg = array('category_name' => $value, 'paged' => $paged, 'post_status' => 'publish' );
+	} elseif ($action == 'search'){
+			$arg = array('s' => $value, 'paged' => $paged, 'post_status' => 'publish' );
+	} else {
+			$arg = array('paged' => $paged, 'post_status' => 'publish');
+	}
+	# Load the posts
+	query_posts( $arg );
+	get_template_part( $loopFile );
+
+	exit;
+}
+add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
+add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
