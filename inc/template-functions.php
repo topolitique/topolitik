@@ -105,10 +105,10 @@ add_action( 'wp_head', 'topolitik_meta_tags' );
  * Add and display Custom Field
  */
 function apre_init_meta(){
-	add_meta_box('ref_list', 'Références', 'apre_render_ref_list', 'post');
+	add_meta_box('ref_list', 'Références', 'apre_render_ref_list', 'post', 'normal', 'high');
 	add_meta_box('guest_author_function', 'Fonction', 'apre_render_guest_author_function', 'guest-author');
 	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'kicker'); // remplaçé 'kicker' en 'post' ci-dessous
-	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'post'); 
+	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'post', 'normal', 'high'); 
 }
 add_action('admin_init', 'apre_init_meta');
 
@@ -123,7 +123,13 @@ function apre_render_ref_list(){
 	?>
 
 	<div class="meta-box-item-content">
-		 <textarea type="textarea" name="apre_ref_list" id="apre_ref_list" value="<?php echo $meta_value; ?>" style="width: 100%; min-height: 200px; border: 1px solid rgb(120, 120, 120);"><?php echo $meta_value; ?></textarea>
+	<div>
+		<div class="wp-block editor-styles-wrapper" style="margin-left: auto; margin-right:auto">
+			<textarea type="textarea" name="apre_ref_list" id="apre_ref_list" style="width:100%;min-height:300px;padding:12px;" placeholder="Références" value="<?php echo $meta_value; ?>">
+				<?php echo $meta_value; ?>
+			</textarea>
+		</div>
+	</div>
 	</div>
 
 	<?php
