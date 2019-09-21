@@ -46,19 +46,21 @@ get_header();
 					<?php endif; ?>
 				</div>
 				<div class="layout-content article-headline-container">
-					<!-- Headline and kicker -->
-					<?php						
-						if ($kicker) {
-							echo "<h2 class='article-content-kicker'>".$kicker."</h2>";
-						};
-					?>
-					<?php
-						if ( is_singular() ) :
-							the_title( '<h1 class="article-content-title">', '</h1>' );
-						else :
-							the_title( '<h2 class="article-content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-						endif;
-					?>
+					<div class="article-headline-content">
+						<!-- Headline and kicker -->
+						<?php						
+							if ($kicker) {
+								echo "<h2 class='article-content-kicker'>".$kicker."</h2>";
+							};
+						?>
+						<?php
+							if ( is_singular() ) :
+								the_title( '<h1 class="article-content-title">', '</h1>' );
+							else :
+								the_title( '<h2 class="article-content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+							endif;
+						?>
+					</div>
 				</div>
 				<div class="layout-sidebar">
 

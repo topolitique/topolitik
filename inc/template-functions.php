@@ -46,6 +46,7 @@ function topolitik_init_global_values() {
 			the_post();
 			global $postid;
 			$postid = get_the_ID();
+			global $custom_fields;
 			$custom_fields = get_post_custom($postid);
 			
 			// abstract / extract --> TODO: get extract if no abstract;

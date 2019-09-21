@@ -3,25 +3,29 @@
 /* HEADLINE */
 .article-headline-container {
 	padding-top: 12pt;
+	flex:1;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 .article-content-kicker {
-	font-family: "IBM Plex Mono", monospace;
-	font-weight: normal;
+	font-family: $displayMonoFont;
+	font-weight: 500;
 	text-transform: lowercase;
-	color: #C30E00;
+	color: $brandColor;
 	padding: 0;
 	padding-bottom: 4pt;
 	padding-left: 12pt;
 	margin: 0;
-	font-size: 16pt;
-	line-height: 22pt;
+	font-size: 1.2rem;
+	line-height: 1.6rem;
 }
 .article-content-title {	
 	padding: 0;
 	padding-left: 12pt;
 	padding-bottom: 12pt;
 	margin: 0;
-	font-family: "IBM Plex Sans", sans-serif;
+	font-family: $displaySansFont;
 	font-weight: 500;
 	color: black;
 	font-size: 24pt;
@@ -68,7 +72,7 @@
 	z-index: 2;
 	color: white;
 	font-size: 10pt;
-	font-family: "IBM Plex Mono", monospace;
+	font-family: $displayMonoFont;
 	padding-left: 12pt;
 	padding-right: 12pt;
 	text-shadow: 0px 1px 1px rgba(0,0,0,0.7);
@@ -133,8 +137,8 @@
 	padding: 10pt;
 }
 .tag-category {
-	font-family: "IBM Plex Mono";
-	background-color: #C30E00;
+	font-family: $displayMonoFont;
+	background-color: $hintColor;
 	color: white;
 	padding: 2pt;
 	padding-left: 4pt;
@@ -142,9 +146,9 @@
 	font-size: 10pt;
 }
 a[rel="tag"] {
-	font-family: "IBM Plex Mono";
+	font-family: $displayMonoFont;
 	font-size: 10pt;
-	color: #C30E00;
+	color: $hintColor;
 	margin-left: 4pt;
 	margin-right: 0pt;
 }
@@ -156,7 +160,7 @@ a[rel="tag"] {
 	background: #C30E00;
 }
 .article-body-footer-authors {
-	font-family: "IBM Plex Sans", sans-serif;
+	font-family: $sansFont;
 	font-size: 13pt;
 	padding-top: 8pt;
 	padding-bottom: 8pt;
@@ -176,38 +180,38 @@ a[rel="tag"] {
 }
 
 .article-references {
-	margin-top: 12pt;
 	padding-left: 12pt;
 	padding-right: 12pt;
 	padding-top: 2pt;
 	padding-bottom: 24pt;
-	border-style: dashed;
+	border-style: solid;
 	border-width: 0;
 	border-top-width: 1px;
-	border-color: #C30E00;
+	border-color: $homeBorderColor;
 	text-align: left;
 	max-width: 100%;
 	max-width: 40rem;
 	overflow: hidden;
-	font-family: "Source Serif Pro", serif;
+	font-family: $serifFont;
 	opacity: 0.8;
 	transition: opacity .2s;
 }
 .article-references:hover {
 	opacity: 1;
 }
+.article-references {
+	font-size: 1.1rem;
+}
 .article-references-title {
-	font-family: "IBM Plex Mono";
-	font-size: 10pt;
-	color: #C30E00;
-	border-style: dashed;
-	border-width: 1px;
-	border-top-width: 0;
-	border-color: #C30E00;
-	padding: 4pt;
-	padding-left: 6pt;
+	font-family: $displayMonoFont;
+	font-size: 0.9rem;
+	color: $brandColor;
+	border-style: solid;
+	border-width: 0px;
+	border-top-width: 2px;
+	padding: 3pt;
+	padding-left:0;
 	padding-right: 6pt;
-	margin-bottom: 12pt;
 }
 .article-references ol {
 	margin-left: 0;
@@ -218,6 +222,7 @@ a[rel="tag"] {
 	padding-top: 12pt;
 	padding-left: 12pt;
 	padding-right: 12pt;
+	padding-bottom: 12pt;
 	max-width: 40rem;
 }
 
@@ -225,7 +230,7 @@ a[rel="tag"] {
 .article-body h2,
 .article-body h3,
 .article-body h4 {
-	font-family: "Source Sans Pro";
+	font-family: $sansFont;
 	font-weight: 600;
 	padding: 0;
 	margin: 0;
@@ -241,8 +246,8 @@ a[rel="tag"] {
 	font-size: 13pt;
 }
 .article-body p {
-	font-family: "Source Serif Pro";
-	font-size: 13pt;
+	font-family: $serifFont;
+	font-size: 14pt;
 	text-align: justify;
 	padding: 0;
 	margin: 0;
@@ -263,10 +268,11 @@ a[rel="tag"] {
 }
 .article-body cite {
 	font-style: normal;
-	font-family: "Source Sans Pro", sans-serif;
+	font-family: $sansFont;
 }
-
-@media screen and (max-width: 1040px) {
+.article-body ul, .article-body ol {
+	font-family: $serifFont;
+	font-size: 1.2rem;
 }
 
 @media screen and (max-width: 1040px) {

@@ -311,7 +311,7 @@ a:hover, a:active {
 	border-style: solid;
 	border-width: 0px;
 	border-left-width: 1px; 
-	border-left-color: rgb(235,235,255);
+	border-left-color: $homeBorderColor;
 }
 .widget ul {
 	display:block;
@@ -323,7 +323,7 @@ a:hover, a:active {
 .widget ul li {
 	margin-bottom: 6pt;
 	line-height: 1.2rem;
-	color: rgb(50, 60, 195);
+	color: $hintColor;
 	font-family: "IBM Plex Sans", sans-serif;
 }
 .widget ul li a {
@@ -333,11 +333,13 @@ a:hover, a:active {
 .widget-title {
 	padding:0px;
 	margin:0px;
-	margin-top:12px;
-	font-size: 12pt;
-	color: #C30E00;
+	margin-top:0px;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	font-size: 0.9rem;
 	font-weight: 400;
-	font-family: 'IBM Plex Mono', arial;
+	font-family: $displayMonoFont;
+	color: black;
 }
 .widget .menu {
 	list-style-type: none;
@@ -345,12 +347,12 @@ a:hover, a:active {
 	padding-left:0pt;
 }
 .widget .menu a {
-	color: rgb(50, 60, 195);
+	color: $hintColor;
 	opacity: .9;
 	text-decoration: none;
 	font-weight: 400;
 	font-family: 'IBM Plex Sans', monospace;
-	font-size: 12pt;
+	font-size: 1rem;
 	letter-spacing: 0.05rem;
 }
 .widget .menu a:hover {
@@ -445,49 +447,6 @@ object {
 
 
 
-/* 
-	FOOTER 
-*/
-.site-footer {
-	background:#C30E00;
-	color:white;
-	padding:6px;
-	font-size: 24px;
-	line-height: 20px;
-}
-.widget-area {
-	background:linear-gradient(white, rgb(253,253,255));
-	border-style: solid;
-	border-width: 0px;
-	border-top-width: 1px;
-	border-color: rgb(235,235,255);
-}
-.site-footer-notes {
-	width: 100%;
-	max-width: 400pt;
-	margin: 2pt auto;
-	padding: 6pt;
-	padding-bottom: 12pt;
-	text-align: center;
-	font-size: 12pt;
-	font-family: "IBM Plex Mono";
-}
-
-.site-footer-host-logo {
-	display: block;
-	margin: 0 auto;
-	width: 136pt;
-}
-
-.site-footer-mail {
-	color: rgb(50, 60, 255); 
-	background-color: white; 
-	padding-top: 2pt; 
-	padding-left: 4pt;
-	padding-right: 4pt;
-	padding-bottom: 3pt;
-	border-radius: 2pt;
-}
 /*page/archive*/
 .page-header {
 	flex:1 1 320px !important;
