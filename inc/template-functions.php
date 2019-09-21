@@ -107,13 +107,10 @@ add_action( 'wp_head', 'topolitik_meta_tags' );
 function apre_init_meta(){
 	add_meta_box('ref_list', 'Références', 'apre_render_ref_list', 'post');
 	add_meta_box('guest_author_function', 'Fonction', 'apre_render_guest_author_function', 'guest-author');
-	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'kicker');
+	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'kicker'); // remplaçé 'kicker' en 'post' ci-dessous
+	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'post'); 
 }
 add_action('admin_init', 'apre_init_meta');
-
-add_action('save_post', 'apre_save_ref_list');
-add_action('save_post', 'apre_save_guest_author_function');
-add_action('save_post', 'apto_kicker');
 
 /**
  * Custom Field: Reference
@@ -149,8 +146,9 @@ function apre_save_ref_list($post_id){ // $post-id est géré par wordpress
 	else: // Autrement, on ajoute la meta
 		add_post_meta($post_id, $meta_key, $meta_value);
 	endif;
- 
 }
+add_action('save_post', 'apre_save_ref_list');
+
 
 /**
  * Custom Field: Guest author function
@@ -161,9 +159,8 @@ function apre_render_guest_author_function(){
 	$meta_value = get_post_meta($post_id, 'guest_author_function', true);
 	// TODO: exporter le style dans css
 	?>
-	   <div class="meta-box-item-title">Fonction</div>
 		 <div class="meta-box-item-content">
-			<input type="text" name="apre_guest_author_function" id="apre_guest_author_function" value="<?php echo $meta_value; ?>" style="width: 50%; border: 1px solid rgb(120, 120, 120);">
+			<input type="text" name="apre_guest_author_function" id="apre_guest_author_function" value="<?php echo $meta_value; ?>" style="min-width: 30%;" placeholder="Redacteur / Président / Chef de Pôle">
 		 </div>
 	<?php
 }
@@ -184,8 +181,9 @@ function apre_render_guest_author_function(){
 	else:
 		add_post_meta($post_id, $meta_key, $meta_value);
 	endif;
- 
 }
+add_action('save_post', 'apre_save_guest_author_function');
+
 
 /**
  * Custom Field: Kicker
@@ -196,9 +194,8 @@ function apto_render_kicker(){
 	$meta_value = get_post_meta($post_id, 'kicker', true);
 	// TODO: exporter le style dans css
 	?>
-	   <div class="meta-box-item-title">Fonction</div>
 		 <div class="meta-box-item-content">
-			<input type="text" name="apto_kicker" id="apto_kicker" value="<?php echo $meta_value; ?>" style="width: 50%; border: 1px solid rgb(120, 120, 120);">
+			<input type="text" name="apto_kicker" id="apto_kicker" value="<?php echo $meta_value; ?>" >
 		 </div>
 	<?php
 }
@@ -219,13 +216,8 @@ function apto_render_kicker(){
 	else:
 		add_post_meta($post_id, $meta_key, $meta_value);
 	endif;
- 
 }
-
-/**
- * Add and display Custom Post Type
- */
-add_action( 'init', 'apto_custom_post_type_topotv', 0 );
+add_action('save_post', 'apre_save_kicker');
 
 
 /**
@@ -255,17 +247,18 @@ function apto_custom_post_type_topotv() {
 	$args = array(
 		'label'               => __( 'Vidéo Topo TV'),
 		'description'         => __( 'Toutes les vidéos de Topo TV'),
-      'labels'              => $labels,
-      'menu_icon'      => 'dashicons-video-alt2',
+    'labels'              => $labels,
+    'menu_icon'           => 'dashicons-video-alt2',
 		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
-		'show_in_rest' => true,
+		'show_in_rest'        => true,
 		'hierarchical'        => false,
 		'public'              => true,
 		'has_archive'         => false,
-      'menu_position' => 5
+    'menu_position'       => 5
 
 	);
 
 	register_post_type( 'topotv', $args );
-
 }
+add_action( 'init', 'apto_custom_post_type_topotv', 0 );
+
