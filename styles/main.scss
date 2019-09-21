@@ -1,0 +1,30 @@
+/*!
+Theme Name: topolitik
+Theme URI: http://github.com/topo/topolitik.git
+Author: Mark Spurgeon (markspurgeon96@hotmail.com)
+Description: Thème pour le site Topolitique.ch, le média des étudiants genevois !
+Version: 3.0.0
+License: GNU General Public License v2
+License URI: LICENSE
+Text Domain: topolitik
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+@import 'constants';
+
+@import 'normalize'; // normalize throughout all browsers
+@import 'style.scss'; // LONG-TERM: THIS FILE WILL NO LONGER EXIST
+@import 'layout';
+
+
+@import 'header';
+@import 'homepage';
+@import 'article';
+
+@import 'archive';
+

@@ -7,8 +7,15 @@ function toggleMenu() {
   document.getElementById('site-header-navigation-button').className = "site-header-navigation-button " + shouldBeActive;
 }
 
+function printWelcomeMessage() {
+  console.log("\n\n%cBonjour, bienvenue sur le site de TOPO",'font-weight: bold;');
+  console.log("%cUn problème ? Contactez-nous à topo@unige.ch ", 'color: #C30E00; font-weight: bold;');
+  console.log("%cou contactez les web master: Mark Spurgeon (markspurgeon96@hotmail.com) et Alexandre Petot. ", 'color: #C30E00')
+}
+
 ( function( $ ) {
 
+  printWelcomeMessage();
     var count = 11;
     var total = 200;
     $(window).scroll(function(){
