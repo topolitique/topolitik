@@ -155,3 +155,51 @@ function apto_render_kicker(){
 	endif;
  
 }
+
+/**
+ * Add and display Custom Post Type
+ */
+add_action( 'init', 'apto_custom_post_type_topotv', 0 );
+
+
+/**
+ * Custom Post Type: Topo TV
+ */
+function apto_custom_post_type_topotv() {
+
+	// Permet de remplacer le texte des boutons de la partie Admin. Au lieu de 'Ajouter un article', on aura 'Ajouter une nouvelle vidéo'
+	$labels = array(
+		'name'                => _x( 'Vidéo Topo TV', 'Post Type General Name'),
+		'singular_name'       => _x( 'Vidéo Topo TV', 'Post Type Singular Name'),
+		'menu_name'           => __( 'Topo TV'),
+		// Les différents libellés de l'administration
+		'all_items'           => __( 'Toutes les vidéos'),
+		'view_item'           => __( 'Voir les vidéos'),
+		'add_new_item'        => __( 'Ajouter une nouvelle vidéo'),
+		'add_new'             => __( 'Ajouter une vidéo'),
+		'edit_item'           => __( 'Editer la vidéo'),
+		'update_item'         => __( 'Modifier la vidéo'),
+		'search_items'        => __( 'Rechercher une vidéo'),
+		'not_found'           => __( 'Non trouvée'),
+		'not_found_in_trash'  => __( 'Non trouvée dans la corbeille'),
+	);
+	
+	// Options
+	
+	$args = array(
+		'label'               => __( 'Vidéo Topo TV'),
+		'description'         => __( 'Toutes les vidéos de Topo TV'),
+      'labels'              => $labels,
+      'menu_icon'      => 'dashicons-video-alt2',
+		'supports'            => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields', ),
+		'show_in_rest' => true,
+		'hierarchical'        => false,
+		'public'              => true,
+		'has_archive'         => false,
+      'menu_position' => 5
+
+	);
+
+	register_post_type( 'topotv', $args );
+
+}
