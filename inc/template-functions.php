@@ -37,14 +37,80 @@ function topolitik_pingback_header() {
 add_action( 'wp_head', 'topolitik_pingback_header' );
 
 /**
+ * Initialize global values for singular pages (articles and pages)
+ * So that these values get retrieved only once.
+ */
+function topolitik_init_global_values() {
+	if (is_singular()):
+		while ( have_posts() ) :
+			the_post();
+			global $postid;
+			$postid = get_the_ID();
+			$custom_fields = get_post_custom($postid);
+			
+			// abstract / extract --> TODO: get extract if no abstract;
+			global $abstract;
+			$abstract = get_the_excerpt();
+			if (array_key_exists('abstract', $custom_fields)) : 
+				$abstract = $custom_fields['abstract'][0];
+			endif;
+		
+			global $kicker;
+			$kicker = "";
+			if (array_key_exists('kicker', $custom_fields)) : 
+				$kicker = $custom_fields['kicker'][0];
+			endif;
+				
+			global $thumbnail;
+			$thumbnail = get_the_post_thumbnail_url(get_the_ID());
+			if (array_key_exists('arch_thumb', $custom_fields)) : 
+					$thumbnail_id = $custom_fields['arch_thumb'][0];
+					if ($thumbnail_id) {
+						$thumbnail = wp_get_attachment_image_src($thumbnail_id, "adv-pos-a-large")[0];
+					};
+			elseif (array_key_exists('header_img', $custom_fields)) : 
+					$thumbnail_id = $custom_fields['header_img'][0];
+					if ($thumbnail_id) {
+						$thumbnail = wp_get_attachment_image_src($thumbnail_id, "adv-pos-a-large")[0];
+					}
+			endif;
+		endwhile;
+	endif;
+}
+add_action( 'wp', 'topolitik_init_global_values' );
+
+function topolitik_meta_tags() {
+	?>
+		<meta property="og:image" content="<?php echo $thumbnail; ?>">
+		<meta property="twitter:image" content="<?php echo $thumbnail; ?>" >
+		<!-- title -->
+		<meta property="og:title" content="<?php echo get_the_title(); ?>" >
+		<meta name="twitter:title" content="<?php echo get_the_title(); ?>">
+		<!-- url-->
+		<meta property="og:url" content="<?php echo get_permalink(); ?>" >
+		<!-- description -->
+		<meta property="og:description" content="<?php echo $abstract; ?>">
+		<meta property="twitter:description" content="<?php echo $abstract; ?>">
+		<!-- more -->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="og:image:width" content="1920">
+		<meta name="og:image:height" content="1080">
+		<meta name="og:type" content="article">
+
+	<?php
+}
+add_action( 'wp_head', 'topolitik_meta_tags' );
+
+/**
  * Add and display Custom Field
  */
-add_action('admin_init', 'apre_init_meta');
 function apre_init_meta(){
 	add_meta_box('ref_list', 'Références', 'apre_render_ref_list', 'post');
 	add_meta_box('guest_author_function', 'Fonction', 'apre_render_guest_author_function', 'guest-author');
 	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'kicker');
 }
+add_action('admin_init', 'apre_init_meta');
+
 add_action('save_post', 'apre_save_ref_list');
 add_action('save_post', 'apre_save_guest_author_function');
 add_action('save_post', 'apto_kicker');
