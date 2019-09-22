@@ -18,6 +18,34 @@ get_header();
 			<!-- Headline -->
 			<div class="layout-container">
 				<div class="layout-margin article-margin-authors">
+				</div>
+				<div class="layout-content article-headline-container">
+						<!-- Headline and kicker -->
+						<?php						
+							if ($kicker) {
+								echo "<h2 class='article-content-kicker'>".$kicker."</h2>";
+							};
+						?>
+						<?php
+							if ( is_singular() ) :
+								the_title( '<h1 class="article-content-title">', '</h1>' );
+							else :
+								the_title( '<h2 class="article-content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+							endif;
+						?>
+				</div>
+				<div class="layout-sidebar">
+
+				</div>
+			</div>
+			<!-- Thumbnail -->
+			<?php if ($thumbnail != ''): ?>
+			<div class="layout-container article-thumbnail-container" style="background-image: url(<?php echo $thumbnail; ?>);">
+				<div class="layout-margin article-margin-thumbnail">
+					<div class="article-margin-thumbnail-image" style="background-image: url(<?php echo $thumbnail; ?>);">
+
+					</div>
+					<div class="article-margin-authors">
 					<!-- Author and article info -->
 					<?php if (!is_page()): ?>
 					<?php 
@@ -44,45 +72,10 @@ get_header();
 							</a>
 					<?php endforeach;?>
 					<?php endif; ?>
-				</div>
-				<div class="layout-content article-headline-container">
-					<div class="article-headline-content">
-						<!-- Headline and kicker -->
-						<?php						
-							if ($kicker) {
-								echo "<h2 class='article-content-kicker'>".$kicker."</h2>";
-							};
-						?>
-						<?php
-							if ( is_singular() ) :
-								the_title( '<h1 class="article-content-title">', '</h1>' );
-							else :
-								the_title( '<h2 class="article-content-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-							endif;
-						?>
-					</div>
-				</div>
-				<div class="layout-sidebar">
-
-				</div>
-			</div>
-			<!-- Thumbnail -->
-			<?php if ($thumbnail != ''): ?>
-			<div class="layout-container article-thumbnail-container" style="background-image: url(<?php echo $thumbnail; ?>);">
-				<div class="layout-margin article-margin-thumbnail">
-					<div class="article-margin-thumbnail-image" style="background-image: url(<?php echo $thumbnail; ?>);">
-
 					</div>
 					<p class="article-abstract-in-thumbnail">
 						<?php echo $abstract; ?>
-						<br />
-						<br />
-						<?php if ( 'post' === get_post_type() ) {
-							topolitik_posted_on(); 
-						}; ?>
 					</p>
-					<div class="article-date-in-thumbnail">
-					</div>
 				</div>
 				<div class="layout-content">
 				</div>
@@ -94,7 +87,19 @@ get_header();
 			<!-- Content -->
 			<div class="layout-container">
 				<div class="layout-margin">
-					<div class="article-margin-tags"><?php topolitik_get_categories(); ?></div>
+					<div class="article-margin-tags"> <!-- TODO: rename class -->
+						<?php topolitik_get_categories(); ?>
+					</div>
+					<div class="article-margin-extra-info">
+						<i class="fas fa-clock"></i>
+						<?php echo topolitik_reading_time(); ?>
+					</div>
+					<?php if ( 'post' === get_post_type() ): ?>
+					<div class="article-margin-extra-info">
+						<i class="fas fa-calendar-alt"></i>
+						<?php topolitik_posted_on(); ?>
+					</div>
+					<?php endif; ?>
 				</div>
 				<div class="layout-content">
 					<div class="article-body">

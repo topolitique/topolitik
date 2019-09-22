@@ -1,31 +1,10 @@
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
 html {
 	overflow-x: hidden;
 }
 body {
 	margin: 0;
 	background:white;
-	font-family: "IBM Plex Sans";
+	font-family: $sansFont;
   overflow-x: hidden;
   font-size: 12px;
 }

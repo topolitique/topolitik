@@ -1,12 +1,10 @@
+// Headline Block
 
+// Headline, in layout-container
 
-/* HEADLINE */
 .article-headline-container {
 	padding-top: 12pt;
 	flex:1;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
 }
 .article-content-kicker {
 	font-family: $displayMonoFont;
@@ -28,11 +26,12 @@
 	font-family: $displaySansFont;
 	font-weight: 500;
 	color: black;
-	font-size: 24pt;
+	font-size: 1.8rem;
 	line-height: 26pt;
 }
 
-/* THUMBNAIL */
+// Thumbnail Block
+
 .article-thumbnail-container {
 	min-height: 200pt;
 	background-color:black;
@@ -41,10 +40,11 @@
 	background-attachment: fixed;
 }
 
+// Thumbnail (1st column)
 .article-margin-thumbnail {
 	background-color: rgba(0,0,0,0.1);
 	border-right-color: rgba(0,0,0,0.15);
-	border-left-color: transparent;
+	border-left-width: 0;
 	position: relative;
 	overflow: hidden;
 }
@@ -64,7 +64,6 @@
 	filter: blur(4px);
   -webkit-filter: blur(4px);
 }
-
 .article-abstract-in-thumbnail {
 	position: relative;
 	top: 0;
@@ -86,28 +85,36 @@
 	color: inherit;
 }
 
-/* AUTHORS */
+// Authors (1rst collumn)
+
 .article-margin-authors {
-	display: flex; 
+	position:relative;
+	display: flex;; 
 	flex-direction: column-reverse;
 	padding: 0;
-	padding-top: 6pt;
+	padding-top:0.3rem;
+	z-index: 4;
 }
 .article-author-container {
 	flex: 0;
 	display: flex;
 	height: 42pt;
-	margin-bottom: 6pt;
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
 	text-decoration: none;
-	transition: background .1s;
+	border-style: solid;
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-color: rgba(0,0,0,0.09);
 }
 .article-author-avatar {
 	flex: 0;
 	min-width: 42pt;
 	min-height: 42pt;
-	margin-left: 12pt;
+	margin-left: 0.7rem;
 	border-radius: 50%;
-	background-color: rgb(240, 240, 240);
+	box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0.15);
 	background-position: center;
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -116,26 +123,56 @@
 	flex: 1;
 	line-height: 42pt;
 	max-height: 42pt;
-	padding-left: 6pt;
-	padding-right: 12pt;
-	font-size: 12pt;
-	color: black;
+	padding-left: 0.6rem;
+	padding-right: 1rem;
+	font-size: 0.9rem;
+	font-family: $displayMonoFont;
+	color: white;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	text-shadow: 0px 0px 4px rgba(0,0,0,0.5);
 }
 .article-author-name a {
 	color: inherit;
-}
 
+}
 .article-author-container:hover {
-	background: rgb(250,250,250);
 }
 
-/* TAGS */
-.article-margin-tags {
-	padding: 10pt;
+// Content
+
+// Tags (1st column)
+.article-margin-extra-info {
+	padding-top: 0.4rem;
+	padding-bottom: 0.4rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+	border-style:solid;
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-color: $homeBorderColor;
+
+	font-family: $displayMonoFont;
+	font-size: 0.8rem;
 }
+.article-margin-extra-info a {
+	color: inherit;
+	text-decoration: none;
+}
+.article-margin-extra-info i.fas {
+	padding-right: 0.4rem;
+}
+
+.article-margin-tags {
+	padding: 1rem;
+	padding-bottom: 0.5rem;
+	border-style:solid;
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-color: $homeBorderColor;
+}
+
 .tag-category {
 	font-family: $displayMonoFont;
 	background-color: $hintColor;
@@ -153,7 +190,67 @@ a[rel="tag"] {
 	margin-right: 0pt;
 }
 
-/* FOOTER */
+// Content (2nd column)
+
+.article-body {
+	max-width: 40rem;
+	padding: 1rem;
+	font-size: 1rem;
+	line-height: 1.5rem;
+}
+
+.article-body h1, 
+.article-body h2,
+.article-body h3,
+.article-body h4 {
+	font-family: $sansFont;
+	font-weight: 500;
+	padding: 0;
+	margin: 0;
+	color: black;
+}
+
+.article-body h2 {
+	font-size: 1.4rem;
+	padding-top: 1rem;
+}
+
+.article-body h3,
+.article-body h4 {
+	font-size: 1rem;;
+	padding-top: 0.5rem;
+}
+.article-body p {
+	font-family: $serifFont;
+	font-size: 14pt;
+	text-align: justify;
+	padding: 0;
+	margin: 0;
+	padding-top: 8pt;
+	padding-bottom: 8pt;
+}
+
+.article-body blockquote {
+	margin-left: 0;
+	padding: 0 1.5em;
+	border-style: solid;
+	border-width: 0px;
+	border-left-width: 2px;
+	border-color: #C30E00;
+	font-style: italic;
+	font-weight: 300;
+	line-height: 1.4rem
+}
+.article-body cite {
+	font-style: normal;
+	font-family: $sansFont;
+}
+.article-body ul, .article-body ol {
+	font-family: $serifFont;
+	font-size: 1.2rem;
+}
+
+// Footer (2nd row, contains authors, tags, and references)
 .article-body-footer-separator {
 	width: 64pt;
 	height: 1pt;
@@ -178,6 +275,8 @@ a[rel="tag"] {
 .article-body-footer-tags {
 	transition: opacity .2s;
 }
+
+// References (2nd row)
 
 .article-references {
 	padding-left: 12pt;
@@ -217,63 +316,8 @@ a[rel="tag"] {
 	margin-left: 0;
 	padding-left: 12pt;
 }
-/* BODY */
-.article-body {
-	padding-top: 12pt;
-	padding-left: 12pt;
-	padding-right: 12pt;
-	padding-bottom: 12pt;
-	max-width: 40rem;
-}
 
-.article-body h1, 
-.article-body h2,
-.article-body h3,
-.article-body h4 {
-	font-family: $sansFont;
-	font-weight: 600;
-	padding: 0;
-	margin: 0;
-	color: black;
-}
-
-.article-body h2 {
-	font-size: 16pt;
-}
-
-.article-body h3,
-.article-body h4 {
-	font-size: 13pt;
-}
-.article-body p {
-	font-family: $serifFont;
-	font-size: 14pt;
-	text-align: justify;
-	padding: 0;
-	margin: 0;
-	padding-top: 8pt;
-	padding-bottom: 8pt;
-}
-
-.article-body blockquote {
-	margin-left: 0;
-	padding: 0 1.5em;
-	border-style: solid;
-	border-width: 0px;
-	border-left-width: 2px;
-	border-color: #C30E00;
-	font-style: italic;
-	font-weight: 300;
-	line-height: 1.4rem
-}
-.article-body cite {
-	font-style: normal;
-	font-family: $sansFont;
-}
-.article-body ul, .article-body ol {
-	font-family: $serifFont;
-	font-size: 1.2rem;
-}
+// Remove 1st and 3rd row on mobile
 
 @media screen and (max-width: 1040px) {
 	.article-margin {
@@ -282,6 +326,7 @@ a[rel="tag"] {
 	.article-sidebar {
 		display: none;
 	}
+	// background image is attached to div and not screen 
 	.article-thumbnail-container {
 		background-attachment: initial;
 	}

@@ -269,3 +269,17 @@ function apto_custom_post_type_topotv() {
 }
 add_action( 'init', 'apto_custom_post_type_topotv', 0 );
 
+
+function topolitik_reading_time() {
+	global $post;
+	$content = get_post_field( 'post_content', $post->ID );
+	$word_count = str_word_count( strip_tags( $content ) );
+	$readingtime = "";
+	$timer = ceil($word_count / 200); // higher --> 
+	if ($readingtime == 1) {
+		$readingtime = "Que dalle";
+	} else {
+		$readingtime = $timer." minutes";
+	}
+	return $readingtime;
+}
