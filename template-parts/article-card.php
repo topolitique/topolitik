@@ -52,14 +52,8 @@
           $coauthors = get_coauthors(get_the_ID());
           $index = 0;
           foreach ($coauthors as $coauthor) { 
-            $avatar = coauthors_get_avatar( $coauthor, 150 );
-            if ($avatar) {
-              $dom = new DOMDocument();
-              $dom->loadXML($avatar);
-              $o = $dom->getElementsByTagName('img')[0];
-              $avatar_src = $o->getAttribute('src');
-              echo '<div class="article-card-author-avatar" style="background-image: url('.$avatar_src.')"></div>';
-            }
+            $avatar = coauthors_get_avatar( $coauthor, $size = 64, $class = 'article-card-author-avatar');
+            echo $avatar;
           }
           echo '<div class="article-card-author-text">';
           coauthors_posts_links();

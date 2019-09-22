@@ -154,10 +154,10 @@
 	text-align: left;
 }
 
-.article-card-author-avatar {
+.article-card-meta .avatar {
 	width: 40pt; 
 	height: 40pt;
-	display: inline;
+	display: inline-block;
 	float: left;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -274,7 +274,7 @@
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-abstract {
 	display:none;
 }
-.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-author-avatar {
+.homepage-section-content-last-articles .article-card:nth-child(1) .article-card-meta .avatar {
 	height: 28pt;
 	width: 28pt;
 }
@@ -343,7 +343,7 @@
 	margin-left: 8pt;
 	margin-bottom: 4pt;
 }
-.article-card:nth-child(n + 2) .article-card-author-avatar {
+.article-card:nth-child(n + 2) .article-card-meta .avatar {
 	width: 21pt;
 	height: 21pt;
 	margin-right: 6pt;

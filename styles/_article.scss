@@ -107,10 +107,10 @@
 	border-bottom-width: 1px;
 	border-color: rgba(0,0,0,0.09);
 }
-.article-author-avatar {
+.article-author-container .avatar {
 	flex: 0;
-	min-width: 42pt;
-	min-height: 42pt;
+	width: 42pt;
+	height: 42pt;
 	margin-left: 0.7rem;
 	border-radius: 50%;
 	box-shadow: 0px 2px 7px rgba(0,0,0,0.2);

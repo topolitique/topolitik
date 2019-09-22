@@ -43,19 +43,10 @@
 					$index = 0;
 					foreach ($coauthors as $coauthor): 
 						$index++;
-						$avatar = coauthors_get_avatar( $coauthor, 150 );
-						$src = '';
-						if ($avatar) {
-							$dom = new DOMDocument(); // COMMENT: @Mark Est-ce que c'est toi qui a écrit ça ?
-							$dom->loadXML($avatar);
-							$o = $dom->getElementsByTagName('img')[0];
-							$src = $o->getAttribute('src');							
-						};
+						$avatar = coauthors_get_avatar( $coauthor, 64); // @Alex: avant, je préférais utiliser l'URL de l'image plutôt que d'utiliser leur <img>, question de style. Mais là ça marche donc j'ai enlevé le DOMElement
 						?>
 							<a href="<?php echo get_site_url();?>/author/<?php echo $coauthor->user_login; ?>" class="article-author-container">
-								<div class="article-author-avatar" style="background-image: url(<?php echo $src; ?>)">
-								
-								</div>
+								<?php echo $avatar; ?>
 								<div class="article-author-name">
 									<?php echo $coauthor->display_name; ?>
 								</div>
