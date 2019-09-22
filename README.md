@@ -53,3 +53,11 @@ Le style du site est construit avec sass. Tous les fichiers de base se trouvent 
 ✍️ = entrain de bosser dessus
 ✌️ = pas mal
 👌 = top
+
+-------
+## Communication
+
+- TODO: Truc à faire
+- COMMENT: Réflexion dans le code
+- @Nom-de-la-personne-à-interpeller
+- FIXME: Bug à corriger
