@@ -1,14 +1,4 @@
-<?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package topolitik
- */
-
-get_header();
-?>
+<?php if (is_user_logged_in()) {echo 'archive.php';} get_header(); ?>
 
 	<div id="primary">
 		<main id="main" class="layout-container">

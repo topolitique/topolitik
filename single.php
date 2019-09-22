@@ -1,14 +1,4 @@
-<?php
-/**
- * The template for displaying all single posts + pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package topolitik
- */
-
-get_header();
-?>
+<?php if (is_user_logged_in()) {echo 'single.php';} get_header(); ?>
 	<!-- TODO : include in functions.php -->
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/print.css" mce_href="<?php echo get_template_directory_uri()?>/print.css" media="print" />
 
