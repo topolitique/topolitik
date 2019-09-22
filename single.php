@@ -1,5 +1,5 @@
 <?php if (is_user_logged_in()) {echo 'single.php';} get_header(); ?>
-	<!-- TODO : include in functions.php -->
+	<!-- TODO : include in functions.php COMMENT: @Mark Est-ce qu'on pense pourvoir gérer l'impression mieux que Firefox ? -->
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/print.css" mce_href="<?php echo get_template_directory_uri()?>/print.css" media="print" />
 
 	<div id="primary">
@@ -46,7 +46,7 @@
 						$avatar = coauthors_get_avatar( $coauthor, 150 );
 						$src = '';
 						if ($avatar) {
-							$dom = new DOMDocument();
+							$dom = new DOMDocument(); // COMMENT: @Mark Est-ce que c'est toi qui a écrit ça ?
 							$dom->loadXML($avatar);
 							$o = $dom->getElementsByTagName('img')[0];
 							$src = $o->getAttribute('src');							
