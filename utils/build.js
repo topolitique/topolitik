@@ -6,9 +6,12 @@ const log = console.log;
 
 
 function build() {
-  let result = sass.render({
+  let options = {
     file: path.join(__dirname, '../styles/main.scss'),
-  }, (err, result) => {
+    sourceComments: true, // comments the source file
+    // outputStyle: 'compressed', 
+  };
+  sass.render(options, (err, result) => {
     if (err) {
       log(chalk.white.bgRed.bold("Error, please fix!!"));
       log(chalk.red.bold(err));
@@ -23,7 +26,7 @@ function build() {
 
 /**
  * Build css
- * */
+ */
 build();
 
 /**
