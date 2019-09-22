@@ -31,3 +31,12 @@
 .layout-sidebar {
 	width: 300px;
 }
+
+@media screen and (max-width: 1040px) {
+	.layout-margin {
+		display: none;
+	}
+	.layout-sidebar {
+		display: none;
+	}
+}

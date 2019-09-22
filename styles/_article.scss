@@ -110,7 +110,9 @@
 .article-author-container .avatar {
 	flex: 0;
 	width: 42pt;
+	max-width: 42pt;
 	height: 42pt;
+	max-height: 42pt;
 	margin-left: 0.7rem;
 	border-radius: 50%;
 	box-shadow: 0px 2px 7px rgba(0,0,0,0.2);
@@ -320,11 +322,8 @@ a[rel="tag"] {
 // Remove 1st and 3rd row on mobile
 
 @media screen and (max-width: 1040px) {
-	.article-margin {
-		display: none;
-	}
-	.article-sidebar {
-		display: none;
+	.article-margin-authors {
+		display: none !important;
 	}
 	// background image is attached to div and not screen 
 	.article-thumbnail-container {

@@ -1215,6 +1215,14 @@ iframe.embedded-container {
 .layout-sidebar {
   width: 300px; }
 
+@media screen and (max-width: 1040px) {
+  /* line 36, styles/_layout.scss */
+  .layout-margin {
+    display: none; }
+  /* line 39, styles/_layout.scss */
+  .layout-sidebar {
+    display: none; } }
+
 /* line 1, styles/_header.scss */
 .site-header {
   background: #C30E00;
@@ -2182,7 +2190,9 @@ iframe.embedded-container {
 .article-author-container .avatar {
   flex: 0;
   width: 42pt;
+  max-width: 42pt;
   height: 42pt;
+  max-height: 42pt;
   margin-left: 0.7rem;
   border-radius: 50%;
   box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.2);
@@ -2191,7 +2201,7 @@ iframe.embedded-container {
   background-size: contain;
   background-repeat: no-repeat; }
 
-/* line 122, styles/_article.scss */
+/* line 124, styles/_article.scss */
 .article-author-name {
   flex: 1;
   line-height: 42pt;
@@ -2206,11 +2216,11 @@ iframe.embedded-container {
   text-overflow: ellipsis;
   text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5); }
 
-/* line 136, styles/_article.scss */
+/* line 138, styles/_article.scss */
 .article-author-name a {
   color: inherit; }
 
-/* line 146, styles/_article.scss */
+/* line 148, styles/_article.scss */
 .article-margin-extra-info {
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
@@ -2223,16 +2233,16 @@ iframe.embedded-container {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.8rem; }
 
-/* line 159, styles/_article.scss */
+/* line 161, styles/_article.scss */
 .article-margin-extra-info a {
   color: inherit;
   text-decoration: none; }
 
-/* line 163, styles/_article.scss */
+/* line 165, styles/_article.scss */
 .article-margin-extra-info i.fas {
   padding-right: 0.4rem; }
 
-/* line 167, styles/_article.scss */
+/* line 169, styles/_article.scss */
 .article-margin-tags {
   padding: 1rem;
   padding-bottom: 0.5rem;
@@ -2241,7 +2251,7 @@ iframe.embedded-container {
   border-bottom-width: 1px;
   border-color: #f6f6f8; }
 
-/* line 176, styles/_article.scss */
+/* line 178, styles/_article.scss */
 .tag-category {
   font-family: "IBM Plex Mono", monospace;
   background-color: #4278FF;
@@ -2251,7 +2261,7 @@ iframe.embedded-container {
   padding-right: 4pt;
   font-size: 10pt; }
 
-/* line 185, styles/_article.scss */
+/* line 187, styles/_article.scss */
 a[rel="tag"] {
   font-family: "IBM Plex Mono", monospace;
   font-size: 10pt;
@@ -2259,14 +2269,14 @@ a[rel="tag"] {
   margin-left: 4pt;
   margin-right: 0pt; }
 
-/* line 195, styles/_article.scss */
+/* line 197, styles/_article.scss */
 .article-body {
   max-width: 40rem;
   padding: 1rem;
   font-size: 1rem;
   line-height: 1.5rem; }
 
-/* line 202, styles/_article.scss */
+/* line 204, styles/_article.scss */
 .article-body h1,
 .article-body h2,
 .article-body h3,
@@ -2277,18 +2287,18 @@ a[rel="tag"] {
   margin: 0;
   color: black; }
 
-/* line 213, styles/_article.scss */
+/* line 215, styles/_article.scss */
 .article-body h2 {
   font-size: 1.4rem;
   padding-top: 1rem; }
 
-/* line 218, styles/_article.scss */
+/* line 220, styles/_article.scss */
 .article-body h3,
 .article-body h4 {
   font-size: 1rem;
   padding-top: 0.5rem; }
 
-/* line 223, styles/_article.scss */
+/* line 225, styles/_article.scss */
 .article-body p {
   font-family: "EB Garamond", serif;
   font-size: 14pt;
@@ -2298,7 +2308,7 @@ a[rel="tag"] {
   padding-top: 8pt;
   padding-bottom: 8pt; }
 
-/* line 233, styles/_article.scss */
+/* line 235, styles/_article.scss */
 .article-body blockquote {
   margin-left: 0;
   padding: 0 1.5em;
@@ -2310,30 +2320,30 @@ a[rel="tag"] {
   font-weight: 300;
   line-height: 1.4rem; }
 
-/* line 244, styles/_article.scss */
+/* line 246, styles/_article.scss */
 .article-body cite {
   font-style: normal;
   font-family: "IBM Plex Sans", Helvetica, sans-serif; }
 
-/* line 248, styles/_article.scss */
+/* line 250, styles/_article.scss */
 .article-body ul, .article-body ol {
   font-family: "EB Garamond", serif;
   font-size: 1.2rem; }
 
-/* line 254, styles/_article.scss */
+/* line 256, styles/_article.scss */
 .article-body-footer-separator {
   width: 64pt;
   height: 1pt;
   background: #C30E00; }
 
-/* line 259, styles/_article.scss */
+/* line 261, styles/_article.scss */
 .article-body-footer-authors {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   font-size: 13pt;
   padding-top: 8pt;
   padding-bottom: 8pt; }
 
-/* line 265, styles/_article.scss */
+/* line 267, styles/_article.scss */
 .article-body-footer-authors a {
   font-weight: 500;
   font-size: 14pt;
@@ -2344,11 +2354,11 @@ a[rel="tag"] {
   border-bottom-width: 1pt;
   border-color: rgba(240, 40, 60, 0.2); }
 
-/* line 275, styles/_article.scss */
+/* line 277, styles/_article.scss */
 .article-body-footer-tags {
   transition: opacity .2s; }
 
-/* line 281, styles/_article.scss */
+/* line 283, styles/_article.scss */
 .article-references {
   padding-left: 12pt;
   padding-right: 12pt;
@@ -2366,15 +2376,15 @@ a[rel="tag"] {
   opacity: 0.8;
   transition: opacity .2s; }
 
-/* line 298, styles/_article.scss */
+/* line 300, styles/_article.scss */
 .article-references:hover {
   opacity: 1; }
 
-/* line 301, styles/_article.scss */
+/* line 303, styles/_article.scss */
 .article-references {
   font-size: 1.1rem; }
 
-/* line 304, styles/_article.scss */
+/* line 306, styles/_article.scss */
 .article-references-title {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.9rem;
@@ -2386,19 +2396,16 @@ a[rel="tag"] {
   padding-left: 0;
   padding-right: 6pt; }
 
-/* line 315, styles/_article.scss */
+/* line 317, styles/_article.scss */
 .article-references ol {
   margin-left: 0;
   padding-left: 12pt; }
 
 @media screen and (max-width: 1040px) {
-  /* line 323, styles/_article.scss */
-  .article-margin {
-    display: none; }
-  /* line 326, styles/_article.scss */
-  .article-sidebar {
-    display: none; }
-  /* line 330, styles/_article.scss */
+  /* line 325, styles/_article.scss */
+  .article-margin-authors  {
+    display: none !important; }
+  /* line 329, styles/_article.scss */
   .article-thumbnail-container {
     background-attachment: initial; } }
 

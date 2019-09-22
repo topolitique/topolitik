@@ -7,7 +7,7 @@
 			
 			<!-- Headline -->
 			<div class="layout-container">
-				<div class="layout-margin article-margin-authors">
+				<div class="layout-margin">
 				</div>
 				<div class="layout-content article-headline-container">
 						<!-- Headline and kicker -->
@@ -43,7 +43,7 @@
 					$index = 0;
 					foreach ($coauthors as $coauthor): 
 						$index++;
-						$avatar = coauthors_get_avatar( $coauthor, 64); // @Alex: avant, je préférais utiliser l'URL de l'image plutôt que d'utiliser leur <img>, question de style. Mais là ça marche donc j'ai enlevé le DOMElement
+						$avatar = coauthors_get_avatar( $coauthor, 64); // @Alex: avant, je préférais utiliser l'URL de l'image plutôt que d'utiliser leur <img>, question de style. Mais là ça marche donc j'ai enlevé le DOMElement qui extrait l'url de l'image
 						?>
 							<a href="<?php echo get_site_url();?>/author/<?php echo $coauthor->user_login; ?>" class="article-author-container">
 								<?php echo $avatar; ?>
