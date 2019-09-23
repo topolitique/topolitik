@@ -255,8 +255,11 @@ a[rel="tag"] {
 // Footer (2nd row, contains authors, tags, and references)
 .article-body-footer-separator {
 	width: 64pt;
-	height: 1pt;
-	background: #C30E00;
+	height: 2rem;
+	border-style: solid;
+	border-width: 0;
+	border-bottom-width: 1px;
+	border-color: #C30E00;
 }
 .article-body-footer-authors {
 	font-family: $sansFont;

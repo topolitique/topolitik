@@ -2333,17 +2333,20 @@ a[rel="tag"] {
 /* line 256, styles/_article.scss */
 .article-body-footer-separator {
   width: 64pt;
-  height: 1pt;
-  background: #C30E00; }
+  height: 2rem;
+  border-style: solid;
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-color: #C30E00; }
 
-/* line 261, styles/_article.scss */
+/* line 264, styles/_article.scss */
 .article-body-footer-authors {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   font-size: 13pt;
   padding-top: 8pt;
   padding-bottom: 8pt; }
 
-/* line 267, styles/_article.scss */
+/* line 270, styles/_article.scss */
 .article-body-footer-authors a {
   font-weight: 500;
   font-size: 14pt;
@@ -2354,11 +2357,11 @@ a[rel="tag"] {
   border-bottom-width: 1pt;
   border-color: rgba(240, 40, 60, 0.2); }
 
-/* line 277, styles/_article.scss */
+/* line 280, styles/_article.scss */
 .article-body-footer-tags {
   transition: opacity .2s; }
 
-/* line 283, styles/_article.scss */
+/* line 286, styles/_article.scss */
 .article-references {
   padding-left: 12pt;
   padding-right: 12pt;
@@ -2376,15 +2379,15 @@ a[rel="tag"] {
   opacity: 0.8;
   transition: opacity .2s; }
 
-/* line 300, styles/_article.scss */
+/* line 303, styles/_article.scss */
 .article-references:hover {
   opacity: 1; }
 
-/* line 303, styles/_article.scss */
+/* line 306, styles/_article.scss */
 .article-references {
   font-size: 1.1rem; }
 
-/* line 306, styles/_article.scss */
+/* line 309, styles/_article.scss */
 .article-references-title {
   font-family: "IBM Plex Mono", monospace;
   font-size: 0.9rem;
@@ -2396,16 +2399,16 @@ a[rel="tag"] {
   padding-left: 0;
   padding-right: 6pt; }
 
-/* line 317, styles/_article.scss */
+/* line 320, styles/_article.scss */
 .article-references ol {
   margin-left: 0;
   padding-left: 12pt; }
 
 @media screen and (max-width: 1040px) {
-  /* line 325, styles/_article.scss */
+  /* line 328, styles/_article.scss */
   .article-margin-authors  {
     display: none !important; }
-  /* line 329, styles/_article.scss */
+  /* line 332, styles/_article.scss */
   .article-thumbnail-container {
     background-attachment: initial; } }
 

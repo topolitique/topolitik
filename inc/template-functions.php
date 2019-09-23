@@ -126,9 +126,7 @@ function apre_render_ref_list(){
 	<div class="meta-box-item-content">
 	<div>
 		<div class="wp-block editor-styles-wrapper" style="margin-left: auto; margin-right:auto">
-			<textarea type="textarea" name="apre_ref_list" id="apre_ref_list" style="width:100%;min-height:300px;padding:12px;" placeholder="Références" value="<?php echo $meta_value; ?>">
-				<?php echo $meta_value; ?>
-			</textarea>
+			<textarea type="textarea" name="apre_ref_list" id="apre_ref_list" style="width:100%;min-height:300px;padding:12px;" placeholder="Références" value="<?php echo $meta_value; ?>"><?php echo $meta_value; ?></textarea>
 		</div>
 	</div>
 	</div>
@@ -275,7 +273,7 @@ function topolitik_reading_time() {
 	$content = get_post_field( 'post_content', $post->ID );
 	$word_count = str_word_count( strip_tags( $content ) );
 	$readingtime = "";
-	$timer = ceil($word_count / 200); // higher --> 
+	$timer = ceil($word_count / 300); // higher --> 
 	if ($readingtime == 1) {
 		$readingtime = "Que dalle";
 	} else {
