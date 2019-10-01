@@ -81,6 +81,7 @@ function topolitik_init_global_values() {
 add_action( 'wp', 'topolitik_init_global_values' );
 
 function topolitik_meta_tags() {
+	global $thumbnail, $abstract;
 	?>
 		<meta property="og:image" content="<?php echo $thumbnail; ?>">
 		<meta property="twitter:image" content="<?php echo $thumbnail; ?>" >

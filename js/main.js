@@ -18,12 +18,14 @@ function printWelcomeMessage() {
   printWelcomeMessage();
     var count = 11;
     var total = 200;
+
     $(window).scroll(function(){
       if ($(window).scrollTop() == $(document).height() - $(window).height()){
        if (count > total){
          return false;
        } else{
-         loadArticle(count);
+          console.log('Reached bottom of page.');
+          loadArticle(count);
        }
        count++;
       }
@@ -36,11 +38,15 @@ function printWelcomeMessage() {
       if (window.location.href.toString().includes('/beta/')) {
         prefix = "beta/"
       }
+
+      console.log('Requesting articles');
+
       $.ajax({
         url: `/${prefix}wp-admin/admin-ajax.php`,
         type:'POST',
         data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=template-parts%2Farchive-loop',
         success: function (html) {
+          console.log(`Loading ${count} articles.`);
           $('li#inifiniteLoader').hide('1000');
           $("#archive-content").append(html);
         },

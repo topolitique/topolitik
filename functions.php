@@ -288,8 +288,8 @@ add_action('rest_api_init', function() {
 function wp_infinitepaginate(){
 	$loopFile = $_POST['loop_file'];
 	$paged = $_POST['page_no'];
-	$action = $_POST['what'];
-	$value = $_POST['value'];
+	$action = array_search('what', $_POST);
+	$value = array_search('value', $_POST);
 
 	if($action == 'author_name'){
 			$arg = array('author_name' => $value, 'paged' => $paged, 'post_status' => 'publish');
