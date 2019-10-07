@@ -138,7 +138,7 @@ function apre_render_ref_list(){
 function apre_save_ref_list($post_id){ // $post-id est géré par wordpress
 	# vardump($_POST);
 	$field_name = 'apre_ref_list';
-	$meta_value = $_POST['apre_ref_list'];
+	isset($_POST['apre_ref_list']) ? $meta_value = $_POST['apre_ref_list'] : $meta_value = '';
 	$meta_key = 'ref_list';
 
 	if (!isset($meta_value)): // Vérification qu'il y a bien un champs dédié // Manière détournée pour s'assurer que ça n'apparaît que dans la création des auteurs invités
@@ -173,7 +173,7 @@ function apre_render_guest_author_function(){
  
  function apre_save_guest_author_function($post_id){
 	# vardump($_POST);
-	$meta_value = $_POST['apre_guest_author_function'];
+	isset($_POST['apre_guest_author_function']) ? $meta_value = $_POST['apre_guest_author_function'] : $meta_value = '';
 	$meta_key = 'guest_author_function';
  
 	if (!isset($meta_value)):
@@ -208,7 +208,7 @@ function apto_render_kicker(){
  
  function apre_save_kicker($post_id){
 	# vardump($_POST);
-	$meta_value = $_POST['apto_kicker'];
+	isset($_POST['apto_kicker']) ? $meta_value = $_POST['apto_kicker'] : $meta_value = '';
 	$meta_key = 'kicker';
  
 	if (!isset($meta_value)):
