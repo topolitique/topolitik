@@ -57,3 +57,16 @@ function printWelcomeMessage() {
       return false;
     }
   } )( jQuery );
+
+/* Module ajouté afin de gérer l'animation des interview (affichage des réponses) */
+const itvHeader = document.querySelectorAll('.interview-header');
+itvHeader.forEach(element => {
+  element.addEventListener('click', toggleActive);
+})
+
+function toggleActive(){
+  if(this.classList.contains('interview-header')) {
+    this.classList.toggle('reponse-active');
+    this.nextElementSibling.classList.toggle('reponse-active')
+  }
+}
