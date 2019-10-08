@@ -64,9 +64,9 @@ itvHeader.forEach(element => {
   element.addEventListener('click', toggleActive);
 })
 
-function toggleActive(event){
-  if(event.target.classList.contains('interview-header')) {
-    event.target.classList.toggle('reponse-active');
-    event.target.nextElementSibling.classList.toggle('reponse-active')
+function toggleActive(){
+  if(this.classList.contains('interview-header')) {
+    this.classList.toggle('reponse-active');
+    this.nextElementSibling.classList.toggle('reponse-active')
   }
 }

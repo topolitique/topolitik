@@ -1,8 +1,8 @@
 <div class="interview-block">
     <div class="interview-header">
-        <p class="interview-question"><?php block_field('question')?></p>
+        <div class="interview-question"><?php block_field('question')?></div>
         <div class="interview-arrow">&rsaquo;</div>
     </div>
-    <p class="interview-reponse"><?php block_field('reponse') ?></p>
+    <div class="interview-reponse"><?php block_field('reponse') ?></div>
 </div>
 

@@ -9,6 +9,8 @@
     background-color: rgba(245, 245, 245);
     border-radius: 5px 5px 0 0;
 
+    cursor: pointer;
+
 }
 
 .interview-header:hover {
@@ -41,9 +43,6 @@ p.interview-question {
     opacity: 0;
 
     transition: opacity 0s;
-
-
-
 }
 .interview-reponse.reponse-active {
     height: auto;
