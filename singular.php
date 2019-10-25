@@ -1,4 +1,4 @@
-<?php if (is_user_logged_in()) {echo 'singular.php';} get_header(); ?>
+<?php get_header(); ?>
 	<!-- TODO : include in functions.php COMMENT: @Mark Est-ce qu'on pense pourvoir gérer l'impression mieux que Firefox ? -->
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri()?>/print.css" mce_href="<?php echo get_template_directory_uri()?>/print.css" media="print" />
 

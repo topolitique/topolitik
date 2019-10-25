@@ -1,4 +1,4 @@
-<?php if (is_user_logged_in()) {echo 'index.php';} get_header(); ?>
+<?php get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
