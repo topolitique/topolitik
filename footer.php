@@ -22,14 +22,15 @@
 			<div class="site-footer-notes">
 					Contact: <span class="size-footer-mail hinted">topo@unige.ch</span>
 			</div><!-- .site-footer-notes -->
-
-			<!-- <div class="site-footer-notes">
-					hébergé par...
-					<img 
-						class="site-footer-host-logo"
-						src="<?php echo get_template_directory_uri()?>/images/logo_infomaniak_environnement_blanc.svg" 
-					/>
-			</div>--><!-- .site-footer-notes --> 
+			<div class="site-footer-notes separator">
+					Hébergement: 
+					<a href="https://news.infomaniak.com/hebergement-gratuit-pour-les-etudiants/" target="_blank">
+						<img 
+							class="site-footer-host-logo"
+							src="<?php echo get_template_directory_uri()?>/images/infomaniak_env.svg" 
+						/>
+					</a>
+			</div><!-- .site-footer-notes --> 
 		</div>
 
 	</footer><!-- #colophon -->
