@@ -46,8 +46,10 @@ Le style du site est construit avec sass. Tous les fichiers de base se trouvent 
 
 ## TODO:
 
--   Inclure des PDF ou 'carousel' pour certains articles
+-   Inclure des PDF ou 'carousel' pour certains articles (blocks ?)
 -   Base pour scss, le résultat se trouvant sur "main.css" ✌️
+-   Mettre à jour la page de co-auteur ✍️
+-   Rendre les pages de catégories plus 'solide' (quand les articles s'ajoutent) ✍️
 
 
 ✍️ = entrain de bosser dessus
