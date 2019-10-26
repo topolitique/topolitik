@@ -70,3 +70,10 @@ function toggleActive(){
     this.nextElementSibling.classList.toggle('reponse-active')
   }
 }
+
+
+function updateDonationLink(event) {
+  let amount = document.getElementById('donation-amount').value;
+  let link = `https://topo.payrexx.com/fr/vpos?amount=${amount}&currency=CHF`
+  document.getElementById('donation-link').href = link
+}

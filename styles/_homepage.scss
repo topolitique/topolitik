@@ -27,6 +27,11 @@
 	border-right-width: 1px; 
 	border-right-color: $homeBorderColor;
 }
+.homepage-section-margin.latest {
+	display: flex; 
+	flex-direction: column;
+	justify-content: space-between;
+}
 .homepage-section-title {
 	margin-left: 12pt;
 	text-align: left; 
@@ -69,6 +74,61 @@
 	display: block; 
 	padding-right: 12pt;
 	height: auto;
+}
+
+.homepage-section-donation {
+	border-style: solid;
+	border-width: 0;
+	border-top-width: 1px;
+	border-color: $homeBorderColor;
+}
+.homepage-section-donation-input {
+	display:flex;
+	flex:1;
+	padding: 12pt;
+}
+#donation-amount {
+	max-width: 5rem;
+	line-height:1.4rem;
+	border-radius: 0;
+	border-top-left-radius: 3pt;
+	border-bottom-left-radius: 3pt;
+	border-color: $inputBorderColor;
+}
+span.currency {
+	font-size: 0.8rem;
+	line-height:2.2rem;
+	padding-left: 6pt;
+	padding-right: 6pt;
+	font-weight: normal;
+	background-image: linear-gradient($inputGradientFirstColor, $inputGradientSecondColor);
+	border-style: solid;
+	border-width: 1px;
+	border-left-width: 0;
+	border-top-right-radius: 3pt;
+	border-bottom-right-radius: 3pt;
+	border-color: $inputBorderColor;
+}
+#donation-link {
+	flex:1;
+	text-align: center;
+	font-size: 0.8rem;
+	line-height:2.2rem;
+	margin-left:4pt;
+	padding-left: 12pt;
+	padding-right: 12pt;
+	font-weight: normal;
+	background: $brandColor;
+	color: white !important;
+	border-style: solid;
+	border-width: 1px;
+	border-color: $headerBorderColor;
+	text-decoration: none;
+	border-radius: 3pt;
+	transition: background .3s;
+}
+#donation-link:hover {
+	background-image: linear-gradient($brandColor, $brandGradientColor);
 }
 
 
