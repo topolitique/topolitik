@@ -1592,9 +1592,11 @@ iframe.embedded-container {
 
 /* line 1, styles/_footer.scss */
 .site-footer-container {
-  display: block; }
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
 
-/* line 4, styles/_footer.scss */
+/* line 6, styles/_footer.scss */
 .site-footer {
   background: #fdfdff;
   color: black;
@@ -1606,7 +1608,7 @@ iframe.embedded-container {
   border-top-width: 1px;
   border-color: #f6f6f8; }
 
-/* line 16, styles/_footer.scss */
+/* line 18, styles/_footer.scss */
 .site-footer-widget-area {
   background: linear-gradient(white, #fdfdff);
   border-style: solid;
@@ -1614,16 +1616,17 @@ iframe.embedded-container {
   border-top-width: 1px;
   border-color: #ebebff; }
 
-/* line 23, styles/_footer.scss */
+/* line 25, styles/_footer.scss */
 .site-footer-widget-area .layout-container .widget:nth-child(1) {
   border-left-width: 0; }
 
-/* line 26, styles/_footer.scss */
+/* line 28, styles/_footer.scss */
 .site-footer-notes {
   width: 100%;
   max-width: 400pt;
   margin: 2pt auto;
-  padding-top: 0.2rem;
+  padding-top: 0.6rem;
+  padding-bottom: 0.9rem;
   text-align: center;
   font-size: 0.9rem;
   font-family: "IBM Plex Mono", monospace;
@@ -1631,38 +1634,27 @@ iframe.embedded-container {
   flex-direction: row;
   justify-content: center; }
 
-/* line 39, styles/_footer.scss */
+/* line 42, styles/_footer.scss */
 .site-footer .colored {
   color: #C30E00; }
 
-/* line 42, styles/_footer.scss */
+/* line 45, styles/_footer.scss */
 .site-footer .hinted {
   color: #4278FF; }
 
-/* line 45, styles/_footer.scss */
-.site-footer-notes.separator {
-  margin-top: 6pt;
-  padding-top: 6pt;
-  border-style: solid;
-  border-width: 0;
-  border-top-width: 1px;
-  border-color: #f6f6f8; }
-
-/* line 53, styles/_footer.scss */
+/* line 48, styles/_footer.scss */
 .site-footer-host-logo {
   display: inline-block;
   height: 1.1rem;
   line-height: 1rem;
   padding-left: 6pt; }
 
-/* line 60, styles/_footer.scss */
+/* line 55, styles/_footer.scss */
 .site-footer-mail {
-  color: #323cff;
+  color: #4278FF;
   background-color: white;
-  padding-top: 2pt;
-  padding-left: 4pt;
-  padding-right: 4pt;
-  padding-bottom: 3pt;
+  padding-left: 6pt;
+  padding-right: 6pt;
   border-radius: 2pt; }
 
 /* line 1, styles/_homepage.scss */

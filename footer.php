@@ -15,14 +15,13 @@
 
 	<footer id="colophon" class="site-footer no-print">
 		<div class="layout-container site-footer-container">
-			<div class="site-footer-notes colored">
-				<b>TOPO</b>. Le média des étudiants genevois !
-			</div><!-- .site-footer-notes -->
-
 			<div class="site-footer-notes">
-					Contact: <span class="size-footer-mail hinted">topo@unige.ch</span>
+				Contact: <span class="site-footer-mail hinted">topo@unige.ch</span>
 			</div><!-- .site-footer-notes -->
-			<div class="site-footer-notes separator">
+			<div class="site-footer-notes">
+				<span class="colored"><b>TOPO</b>. Le média des étudiants genevois ! </span>
+			</div><!-- .site-footer-notes -->
+			<div class="site-footer-notes">
 					Hébergement: 
 					<a href="https://news.infomaniak.com/hebergement-gratuit-pour-les-etudiants/" target="_blank">
 						<img 
@@ -30,6 +29,7 @@
 							src="<?php echo get_template_directory_uri()?>/images/infomaniak_env.svg" 
 						/>
 					</a>
+					
 			</div><!-- .site-footer-notes --> 
 		</div>
 

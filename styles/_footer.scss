@@ -1,5 +1,7 @@
 .site-footer-container {
-  display: block;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 .site-footer {
 	background: rgb(253,253,255);
@@ -27,7 +29,8 @@
 	width: 100%;
 	max-width: 400pt;
 	margin: 2pt auto;
-	padding-top: 0.2rem;
+	padding-top: 0.6rem;
+	padding-bottom: 0.9rem;
 	text-align: center;
 	font-size: 0.9rem;
 	font-family: $displayMonoFont;
@@ -42,14 +45,6 @@
 .site-footer .hinted {
   color: $hintColor;
 }
-.site-footer-notes.separator {
-	margin-top: 6pt;
-	padding-top: 6pt;
-	border-style: solid;
-	border-width: 0;
-	border-top-width: 1px;
-	border-color: $homeBorderColor;
-}
 .site-footer-host-logo {
 	display: inline-block;
 	height: 1.1rem;
@@ -58,11 +53,9 @@
 }
 
 .site-footer-mail {
-	color: rgb(50, 60, 255); 
+	color: $hintColor ;
 	background-color: white; 
-	padding-top: 2pt; 
-	padding-left: 4pt;
-	padding-right: 4pt;
-	padding-bottom: 3pt;
+	padding-left: 6pt;
+	padding-right: 6pt;
 	border-radius: 2pt;
 }
