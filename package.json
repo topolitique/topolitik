@@ -4,8 +4,7 @@
   "description": "WP Theme the topolitik.ch",
   "main": "build.js",
   "scripts": {
-    "build": "node ./utils/build.js",
-    "serve": "node ./utils/serve.js"
+    "css": "node ./utils/serve.js"
   },
   "repository": {
     "type": "git",

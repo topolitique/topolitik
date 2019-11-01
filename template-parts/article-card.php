@@ -1,5 +1,5 @@
-
-<article class="article-card" id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php get_the_permalink() ?>">
+<?php $archive_type = get_query_var('archive_type'); ?>
+<article class="article-card <?php echo $archive_type; ?>" id="post-<?php the_ID(); ?>" <?php post_class(); ?> href="<?php get_the_permalink() ?>">
   
   <?php
     $postid = get_the_ID(); // TODO : remove ?

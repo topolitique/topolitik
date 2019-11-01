@@ -1705,9 +1705,10 @@ iframe.embedded-container {
   font-size: 12pt;
   font-weight: 400;
   margin-top: 0pt;
-  margin-bottom: 4pt; }
+  margin-bottom: 4pt;
+  margin-right: 24pt; }
 
-/* line 50, styles/_homepage.scss */
+/* line 51, styles/_homepage.scss */
 .homepage-section-margin a {
   display: block;
   margin-left: 12pt;
@@ -1715,7 +1716,7 @@ iframe.embedded-container {
   font-size: 12pt;
   color: #DB1000; }
 
-/* line 58, styles/_homepage.scss */
+/* line 59, styles/_homepage.scss */
 .homepage-section-content {
   flex: 1;
   align-self: stretch;
@@ -1723,14 +1724,14 @@ iframe.embedded-container {
   flex-direction: row;
   padding: 12pt; }
 
-/* line 65, styles/_homepage.scss */
+/* line 66, styles/_homepage.scss */
 .homepage-section-content-last-articles {
   flex: 1;
   display: block;
   height: auto;
   min-width: 256pt; }
 
-/* line 71, styles/_homepage.scss */
+/* line 72, styles/_homepage.scss */
 .homepage-section-content-first-articles {
   flex: 1;
   min-width: 60%;
@@ -1738,20 +1739,20 @@ iframe.embedded-container {
   padding-right: 12pt;
   height: auto; }
 
-/* line 79, styles/_homepage.scss */
+/* line 80, styles/_homepage.scss */
 .homepage-section-donation {
   border-style: solid;
   border-width: 0;
   border-top-width: 1px;
   border-color: #f6f6f8; }
 
-/* line 85, styles/_homepage.scss */
+/* line 86, styles/_homepage.scss */
 .homepage-section-donation-input {
   display: flex;
   flex: 1;
   padding: 12pt; }
 
-/* line 90, styles/_homepage.scss */
+/* line 91, styles/_homepage.scss */
 #donation-amount {
   max-width: 5rem;
   line-height: 1.4rem;
@@ -1760,7 +1761,7 @@ iframe.embedded-container {
   border-bottom-left-radius: 3pt;
   border-color: #d7d7d7; }
 
-/* line 98, styles/_homepage.scss */
+/* line 99, styles/_homepage.scss */
 span.currency {
   font-size: 0.8rem;
   line-height: 2.2rem;
@@ -1773,9 +1774,10 @@ span.currency {
   border-left-width: 0;
   border-top-right-radius: 3pt;
   border-bottom-right-radius: 3pt;
-  border-color: #d7d7d7; }
+  border-color: #d7d7d7;
+  user-select: none; }
 
-/* line 112, styles/_homepage.scss */
+/* line 114, styles/_homepage.scss */
 #donation-link {
   flex: 1;
   text-align: center;
@@ -1794,19 +1796,19 @@ span.currency {
   border-radius: 3pt;
   transition: background .3s; }
 
-/* line 130, styles/_homepage.scss */
+/* line 132, styles/_homepage.scss */
 #donation-link:hover {
   background-image: linear-gradient(#C30E00, #cf3125); }
 
-/* line 135, styles/_homepage.scss */
-.article-card {
+/* line 137, styles/_homepage.scss */
+.article-card.home {
   display: block;
   position: relative;
   flex: 1;
   margin-bottom: 12pt;
   overflow: hidden; }
 
-/* line 143, styles/_homepage.scss */
+/* line 145, styles/_homepage.scss */
 .article-card-thumbnail {
   display: block;
   margin: 0;
@@ -1817,13 +1819,13 @@ span.currency {
   background-repeat: no-repeat;
   background-size: cover; }
 
-/* line 155, styles/_homepage.scss */
+/* line 157, styles/_homepage.scss */
 .article-card-kicker-container {
   margin: 0;
   margin-bottom: 3pt;
   padding: 0; }
 
-/* line 160, styles/_homepage.scss */
+/* line 162, styles/_homepage.scss */
 .article-card-kicker {
   text-decoration: none;
   background: #C30E00;
@@ -1843,7 +1845,7 @@ span.currency {
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone; }
 
-/* line 179, styles/_homepage.scss */
+/* line 181, styles/_homepage.scss */
 .article-card-title {
   /* style */
   text-decoration: none;
@@ -1867,11 +1869,11 @@ span.currency {
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone; }
 
-/* line 205, styles/_homepage.scss */
+/* line 207, styles/_homepage.scss */
 .article-card-abstract {
   display: none; }
 
-/* line 209, styles/_homepage.scss */
+/* line 211, styles/_homepage.scss */
 .article-card-meta {
   margin-top: 8pt;
   height: 40pt;
@@ -1879,7 +1881,7 @@ span.currency {
   vertical-align: middle;
   text-align: left; }
 
-/* line 217, styles/_homepage.scss */
+/* line 219, styles/_homepage.scss */
 .article-card-meta .avatar {
   width: 40pt;
   height: 40pt;
@@ -1891,7 +1893,7 @@ span.currency {
   margin-right: 8pt;
   border-radius: 50%; }
 
-/* line 230, styles/_homepage.scss */
+/* line 232, styles/_homepage.scss */
 .article-card-author-text {
   display: inline;
   float: left;
@@ -1901,13 +1903,13 @@ span.currency {
   font-size: 14pt;
   color: white; }
 
-/* line 239, styles/_homepage.scss */
+/* line 241, styles/_homepage.scss */
 .article-card-author-text .author {
   color: inherit !important;
   text-decoration: none;
   font-weight: 500; }
 
-/* line 244, styles/_homepage.scss */
+/* line 246, styles/_homepage.scss */
 .article-card-author-text .entry-date {
   color: #C30E00;
   opacity: .8;
@@ -1915,20 +1917,20 @@ span.currency {
   font-weight: 300; }
 
 /* First post in section (featured post) */
-/* line 252, styles/_homepage.scss */
+/* line 254, styles/_homepage.scss */
 .article-card:nth-child(1) {
   height: 450px;
   min-width: 60%;
   box-shadow: none;
   transition: box-shadow .3s; }
 
-/* line 259, styles/_homepage.scss */
+/* line 261, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-thumbnail {
   position: absolute;
   width: 100%;
   height: 100%; }
 
-/* line 265, styles/_homepage.scss */
+/* line 267, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-text {
   position: absolute;
   bottom: 0px;
@@ -1938,23 +1940,23 @@ span.currency {
   background-color: transparent;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)); }
 
-/* line 275, styles/_homepage.scss */
+/* line 277, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-text a {
   text-decoration: none; }
 
-/* line 278, styles/_homepage.scss */
+/* line 280, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-author-text {
   text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3); }
 
-/* line 282, styles/_homepage.scss */
+/* line 284, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-author-text .entry-date {
   color: white; }
 
-/* line 285, styles/_homepage.scss */
+/* line 287, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-meta {
   margin-top: 0pt; }
 
-/* line 289, styles/_homepage.scss */
+/* line 291, styles/_homepage.scss */
 .article-card:nth-child(1) .article-card-abstract {
   margin: 0;
   margin-top: 8pt;
@@ -1968,35 +1970,35 @@ span.currency {
   max-height: 0pt;
   transition: max-height 1s; }
 
-/* line 303, styles/_homepage.scss */
+/* line 305, styles/_homepage.scss */
 .article-card:nth-child(1):hover {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2); }
 
-/* line 307, styles/_homepage.scss */
+/* line 309, styles/_homepage.scss */
 .article-card:nth-child(1):hover .article-card-abstract {
   max-height: 400pt; }
 
 /* Second post in section */
-/* line 312, styles/_homepage.scss */
+/* line 314, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) {
   height: 250px; }
 
-/* line 315, styles/_homepage.scss */
+/* line 317, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-thumbnail {
   position: absolute;
   width: 100%;
   height: 100%; }
 
-/* line 320, styles/_homepage.scss */
+/* line 322, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-kicker {
   font-size: 11pt; }
 
-/* line 323, styles/_homepage.scss */
+/* line 325, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-title {
   font-size: 16pt;
   line-height: 2rem; }
 
-/* line 327, styles/_homepage.scss */
+/* line 329, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-meta {
   height: 0pt;
   margin: 0pt;
@@ -2004,28 +2006,28 @@ span.currency {
   overflow: hidden;
   transition: height .3s; }
 
-/* line 334, styles/_homepage.scss */
+/* line 336, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-abstract {
   display: none; }
 
-/* line 337, styles/_homepage.scss */
+/* line 339, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-meta .avatar {
   height: 28pt;
   width: 28pt; }
 
-/* line 341, styles/_homepage.scss */
+/* line 343, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1) .article-card-author-text {
   height: 28pt;
   line-height: 28pt;
   font-size: 12pt; }
 
-/* line 347, styles/_homepage.scss */
+/* line 349, styles/_homepage.scss */
 .homepage-section-content-last-articles .article-card:nth-child(1):hover .article-card-meta {
   height: 28pt;
   padding: 0pt; }
 
 /* Thrird post in section */
-/* line 354, styles/_homepage.scss */
+/* line 356, styles/_homepage.scss */
 .article-card:nth-child(n + 2) {
   position: relative;
   display: flex;
@@ -2038,20 +2040,20 @@ span.currency {
   background-color: transparent;
   transition: background-color .1s; }
 
-/* line 367, styles/_homepage.scss */
+/* line 369, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-thumbnail {
   width: 128px;
   min-width: 128px;
   height: 80px;
   transition: width .4s; }
 
-/* line 373, styles/_homepage.scss */
+/* line 375, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-text {
   float: left;
   margin: 0;
   padding: 0; }
 
-/* line 378, styles/_homepage.scss */
+/* line 380, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-kicker {
   flex: 1;
   font-size: 9pt;
@@ -2063,7 +2065,7 @@ span.currency {
   color: #C30E00 !important;
   background-color: transparent; }
 
-/* line 390, styles/_homepage.scss */
+/* line 392, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-title {
   flex: 1;
   font-size: 14pt;
@@ -2074,20 +2076,20 @@ span.currency {
   line-height: 1.6rem;
   background: transparent; }
 
-/* line 400, styles/_homepage.scss */
+/* line 402, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-meta {
   height: 21pt;
   margin-top: 4pt;
   margin-left: 8pt;
   margin-bottom: 4pt; }
 
-/* line 406, styles/_homepage.scss */
+/* line 408, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-meta .avatar {
   width: 21pt;
   height: 21pt;
   margin-right: 6pt; }
 
-/* line 411, styles/_homepage.scss */
+/* line 413, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-author-text {
   height: 21pt;
   line-height: 21pt;
@@ -2095,59 +2097,59 @@ span.currency {
   color: black;
   margin-left: 0pt; }
 
-/* line 418, styles/_homepage.scss */
+/* line 420, styles/_homepage.scss */
 .article-card:nth-child(n + 2) .article-card-author-text a {
   text-decoration: none; }
 
-/* line 422, styles/_homepage.scss */
+/* line 424, styles/_homepage.scss */
 .article-card:nth-child(n + 2):hover {
   background-color: #fafaf8; }
 
-/* line 425, styles/_homepage.scss */
+/* line 427, styles/_homepage.scss */
 .article-card:nth-child(n + 2):hover .article-card-abstract {
   display: none; }
 
-/* line 430, styles/_homepage.scss */
+/* line 432, styles/_homepage.scss */
 .section-container {
   width: 100%;
   max-width: 1400px;
   margin: 0 auto; }
 
 @media screen and (max-width: 1040px) {
-  /* line 437, styles/_homepage.scss */
+  /* line 439, styles/_homepage.scss */
   .homepage-section {
     flex-direction: column;
     align-content: stretch; }
-  /* line 441, styles/_homepage.scss */
+  /* line 443, styles/_homepage.scss */
   .homepage-section-margin {
     width: 100%; }
-  /* line 444, styles/_homepage.scss */
+  /* line 446, styles/_homepage.scss */
   .homepage-section-content {
     flex-wrap: wrap; }
-  /* line 447, styles/_homepage.scss */
+  /* line 449, styles/_homepage.scss */
   .homepage-section-content-last-articles {
     padding: 0pt; }
-  /* line 450, styles/_homepage.scss */
+  /* line 452, styles/_homepage.scss */
   .homepage-section-content-first-articles {
     padding: 0; }
-  /* line 453, styles/_homepage.scss */
+  /* line 455, styles/_homepage.scss */
   .homepage-section-description {
     display: none; }
-  /* line 456, styles/_homepage.scss */
+  /* line 458, styles/_homepage.scss */
   .article-card {
     margin-right: 12pt; } }
 
 @media screen and (max-width: 600px) {
-  /* line 462, styles/_homepage.scss */
+  /* line 464, styles/_homepage.scss */
   .no-mobile {
     display: none; }
-  /* line 465, styles/_homepage.scss */
+  /* line 467, styles/_homepage.scss */
   .article-card {
     margin-right: 0; }
-  /* line 468, styles/_homepage.scss */
+  /* line 470, styles/_homepage.scss */
   .article-card:nth-child(1) {
     height: 280pt; }
-  /* line 471, styles/_homepage.scss */
+  /* line 473, styles/_homepage.scss */
   .article-card-author-text {
     font-size: 12pt; } }
 
@@ -2487,3 +2489,57 @@ a[rel="tag"] {
 .archive-content {
   padding-top: 12pt;
   padding-left: 12pt; }
+
+/* line 2, styles/_author.scss */
+.author-header {
+  width: 100%;
+  max-width: 420px;
+  margin: 3rem auto; }
+  /* line 7, styles/_author.scss */
+  .author-header .avatar {
+    display: block;
+    margin: 0px auto;
+    padding: 2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #f6f6f8;
+    border-radius: 50%; }
+  /* line 18, styles/_author.scss */
+  .author-header .author-name {
+    font-weight: normal;
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem; }
+  /* line 25, styles/_author.scss */
+  .author-header .author-function {
+    margin-top: 0rem;
+    font-weight: normal;
+    text-align: center;
+    font-size: 1rem; }
+  /* line 31, styles/_author.scss */
+  .author-header .author-description {
+    text-align: justify; }
+
+/* line 37, styles/_author.scss */
+.article-card.author {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  margin: 2rem auto;
+  padding: 2px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #f6f6f8;
+  border-radius: 3px;
+  overflow: hidden; }
+  /* line 50, styles/_author.scss */
+  .article-card.author .article-card-thumbnail {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px; }
+  @media screen and (min-width: 600px) {
+    /* line 59, styles/_author.scss */
+    .article-card.author .article-card-thumbnail {
+      height: 300px; } }

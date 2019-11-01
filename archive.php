@@ -23,6 +23,7 @@
 					* If you want to override this in a child theme, then include a file
 					* called content-___.php (where ___ is the Post Type name) and that will be used instead.
 					*/
+					set_query_var( 'archive_type', 'home' );
 					get_template_part( 'template-parts/article-card', get_post_type() );
 
 				endwhile;

@@ -13,7 +13,7 @@ get_header();
 						<h1 class="homepage-section-title no-mobile"><?php echo get_theme_mod('homepage_section_1_header') ?></h1>
 						<p class="homepage-section-description no-mobile"><?php echo get_theme_mod('homepage_section_1_body') ?></p>
 					</div>
-					<div class="homepage-section-donation no-mobile">
+					<!--<div class="homepage-section-donation no-mobile">
 						<h2 class="homepage-section-title">Soutien</h2>
 						<h2 class="homepage-section-description">Fièrement indépendants, nous tenons à le rester. C'est pourquoi nous demandons une petite contribution à nos chers lecteurs :)</h2>
 						<div class="homepage-section-donation-input">
@@ -21,7 +21,7 @@ get_header();
 							<span class="currency">CHF</span>
 							<a id="donation-link" href="https://topo.payrexx.com/fr/vpos?amount=5" target="_blank">Donation</a>
 						</div>
-					</div>
+					</div> -->
 				</div>
 				<div class="homepage-section-content">
 					<div class="homepage-section-content-first-articles">
@@ -44,6 +44,8 @@ get_header();
 											$isVideo = true;
 										}
 									}
+									
+									set_query_var( 'archive_type', 'home' );
 									get_template_part( 'template-parts/article-card', get_post_type() );
 
 									if ($latest_blog_posts->current_post === 1) {
