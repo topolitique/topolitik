@@ -1,0 +1,242 @@
+html, body, #root, .root {
+  background: #161628;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: "IBM Plex Sans", Arial, sans-serif;
+}
+
+.backgroundImage {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.header-container {
+  filter: blur(0px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 128pt;
+  padding-left: 48pt;
+  padding-right: 48pt;
+  margin-top: 12pt;
+  transition: height 0.4s ease-out;
+}
+
+.header-container.with-words {
+  height: 48pt;
+}
+
+.logo-container {
+  flex: 0;
+  width: 128pt;
+  height: 49pt;
+  padding-left: 9pt;
+  padding-right: 9pt;
+  margin-right: 10pt;
+  align-items: center;
+  background: #C30E00;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #9b0404;
+  border-radius: 3pt;
+}
+
+.logo-container .logo {
+  margin-top: 10pt;
+}
+
+.searchbar-container {
+  flex: 1;
+  height: 48pt;
+  padding: 0;
+}
+
+.searchbar {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e2e2e4;
+  border-radius: 3pt;
+  height: 48pt;
+  font-size: 32pt;
+  padding: 0 0pt 0pt 6pt;
+  font-weight: lighter;
+  width: 31rem;
+  color: #C30E00;
+}
+
+.search-status-container {
+  height: 48pt;
+  width: 48pt;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-status {
+  display: block;
+  width: 12pt;
+  height: 12pt;
+  border-radius: 50%;
+  margin: 0 auto;
+  background: #C30E00;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #e2e2e4;
+}
+
+.search-status.none {
+  border-color: transparent;
+  background: transparent;
+}
+
+.search-status.ok {
+  border-color: #e2e2e4;
+  background: #28e63c;
+}
+
+.search-status.error {
+  border-color: #e2e2e4;
+  background: #f33636;
+}
+
+.search-status.waiting {
+  border-color: transparent;
+  background: #e2e2e4;
+  width: 16pt;
+  height: 16pt;
+}
+
+.loading-dingling {
+  animation: Rotate 0.5s infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes Rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+.articles {
+  padding: 0;
+  padding-left: 130pt;
+  padding-bottom: 256pt;
+  margin-top: 12pt;
+  display: block;
+  position: relative;
+  overflow: auto;
+}
+
+.article {
+  text-decoration: none;
+  color: inherit;
+  background: white;
+  margin-left: 12pt;
+  margin-bottom: 12pt;
+  width: 32rem;
+  display: block;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.article-top-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.article-thumbnail {
+  width: 100px;
+  height: auto;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.3s linear;
+}
+
+.article-headline-container {
+  padding: 6pt;
+  flex: 1;
+}
+
+.article-kicker {
+  font-family: "IBM Plex Mono", monospace;
+  color: #C30E00;
+  text-transform: lowercase;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.article-headline {
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+
+.article-authors {
+  display: flex;
+  height: 32pt;
+  border-style: solid;
+  border-width: 0;
+  border-top-width: 1px;
+  border-color: #e2e2e4;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.article-author {
+  height: 32pt;
+  padding-left: 6pt;
+  padding-right: 6pt;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-style: solid;
+  border-width: 0;
+  border-left-width: 1px;
+  border-color: #e2e2e4;
+}
+
+.article-author:nth-child(1) {
+  border-left-width: 0;
+}
+
+.author-avatar {
+  display: block;
+  width: 24pt;
+  height: 24pt;
+  background: gray;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.author-name {
+  padding: 0;
+  margin: 0;
+  padding-left: 4pt;
+  font-size: 9pt;
+}
+
+.article.featured .article-top-container {
+  flex-direction: column;
+}
+
+.article.featured .article-thumbnail {
+  height: 300px;
+  width: 100%;
+}
