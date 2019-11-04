@@ -98,14 +98,9 @@
 											</div>
 										</div>
 
-									<?php if (get_theme_mod('header_smallbanner_image') !== '' ): ?>
-										<style type="text/css">
-											#header-smallbanner-advert { background-color: <?php echo get_theme_mod('header_smallbanner_bg', 'transparent'); ?> !important; }
-										</style>
-										<a id="header-smallbanner-advert" class="no-print" href="<?php echo esc_url(get_theme_mod('header_smallbanner_link', '#')); ?>" target="_blank">
-												<img class="header-image no-print" src="<?php echo esc_url(get_theme_mod('header_smallbanner_image')); ?>">
-										</a>
-									<?php endif ?>
+									<a class="site-header-search" href="https://topolitique.ch/beta/search">
+										<svg width="100%" height="100%" viewBox="0 0 64 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"><path d="M37.013,41.265c-3.88,2.982 -8.736,4.755 -14.003,4.755c-12.7,0 -23.01,-10.31 -23.01,-23.01c0,-12.7 10.31,-23.01 23.01,-23.01c12.7,0 23.01,10.31 23.01,23.01c0,5.267 -1.773,10.123 -4.755,14.003c0,0 17.841,17.842 21.914,21.915c0.218,0.218 0.34,0.513 0.34,0.821c0,0.308 -0.122,0.603 -0.34,0.821c-0.751,0.751 -1.858,1.858 -2.609,2.609c-0.218,0.218 -0.513,0.34 -0.821,0.34c-0.308,0 -0.603,-0.122 -0.821,-0.34c-4.073,-4.073 -21.915,-21.914 -21.915,-21.914Zm-14.003,-35.468c9.5,0 17.213,7.713 17.213,17.213c0,9.5 -7.713,17.213 -17.213,17.213c-9.5,0 -17.213,-7.713 -17.213,-17.213c0,-9.5 7.713,-17.213 17.213,-17.213Z" style="fill:#fff;"/></svg>
+									</a>
 
                   <div class="site-header-navigation-button unem" id="site-header-navigation-button" onclick="toggleMenu();">
                     <svg width="100%" height="100%" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">

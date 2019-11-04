@@ -21,7 +21,6 @@
 .homepage-section-margin {
 	background-color: rgb(254,254,255);
 	width: 300px;
-	padding-bottom: 12pt;
 	border-style: solid;
 	border-width: 0px;
 	border-right-width: 1px; 
@@ -131,6 +130,18 @@ span.currency {
 }
 #donation-link:hover {
 	background-image: linear-gradient($brandColor, $brandGradientColor);
+}
+
+#donation-name, #donation-surname, #donation-email {
+	margin-left: 12pt;
+	margin-right: 12pt;
+	margin-top: 6pt;
+	padding-top: 4pt;
+	padding-bottom: 4pt;
+	border-color: $inputBorderColor;
+	display: block;
+	width: auto;
+	min-width: 196pt;
 }
 
 

@@ -74,6 +74,10 @@ function toggleActive(){
 
 function updateDonationLink(event) {
   let amount = document.getElementById('donation-amount').value;
-  let link = `https://topo.payrexx.com/fr/vpos?amount=${amount}&currency=CHF`
+  let name = document.getElementById('donation-name').value;
+  let surname = document.getElementById('donation-surname').value;
+  let email = document.getElementById('donation-email').value;
+
+  let link = `https://topo.payrexx.com/fr/vpos?amount=${amount}&currency=CHF&contact_forename=${name}&contact_surname=${surname}&contact_email=${email}`
   document.getElementById('donation-link').href = link
 }

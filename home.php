@@ -13,15 +13,19 @@ get_header();
 						<h1 class="homepage-section-title no-mobile"><?php echo get_theme_mod('homepage_section_1_header') ?></h1>
 						<p class="homepage-section-description no-mobile"><?php echo get_theme_mod('homepage_section_1_body') ?></p>
 					</div>
-					<!--<div class="homepage-section-donation no-mobile">
+					<div class="homepage-section-donation no-mobile">
 						<h2 class="homepage-section-title">Soutien</h2>
-						<h2 class="homepage-section-description">Fièrement indépendants, nous tenons à le rester. C'est pourquoi nous demandons une petite contribution à nos chers lecteurs :)</h2>
+						<input type="text" placeholder="Prénom" onchange="updateDonationLink()" id="donation-name" />
+						<input type="text" placeholder="Nom"  onchange="updateDonationLink()" id="donation-surname" />
+						<input type="email" placeholder="E-mail"  onchange="updateDonationLink()" id="donation-email" />
+
 						<div class="homepage-section-donation-input">
 							<input type="number" id="donation-amount" onchange="updateDonationLink()" placeholder="5.00" value="5.00" step="0.50" min="0">
 							<span class="currency">CHF</span>
 							<a id="donation-link" href="https://topo.payrexx.com/fr/vpos?amount=5" target="_blank">Donation</a>
 						</div>
-					</div> -->
+					</div>
+
 				</div>
 				<div class="homepage-section-content">
 					<div class="homepage-section-content-first-articles">

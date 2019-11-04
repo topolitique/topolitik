@@ -201,11 +201,15 @@
   flex:0;
   display: none;
   cursor: pointer;
-  min-width: 64pt;
+  min-width: 36pt;
   height: 64pt;
   margin: 9pt; 
   transform: rotate(0deg);
   transition: transform .5s;
+}
+.site-header-navigation-button svg {
+  width: 64px;
+  height: 64px;
 }
 .site-header-navigation-button:focus {
   background-color: blue;
@@ -213,6 +217,22 @@
 .site-header-navigation-button.menu {
   transform: rotate(45deg);
 }
+
+.site-header-search {
+  width: 56px;
+  margin-right: 6pt;
+  display: flex;
+  flex-direction: column;
+  align-content: center;;
+}
+.site-header-search svg {
+  flex: 1;
+  width: 38px;
+  height: 38px;
+  padding-left: 12pt;
+  padding-right: 12pt;
+}
+
 .site-header-categories {
   border-style: solid;
   border-width: 0px;
@@ -270,6 +290,7 @@
 
 
 
+
 .site-header-categories div {
   display: flex;
   flex: 1;
@@ -300,7 +321,10 @@
     display: none;
   }
   .site-header-navigation-button {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .site-header-about-links {
     display: none;
