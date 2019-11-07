@@ -513,7 +513,7 @@ a:hover, a:active {
 .widget {
   display: block;
   flex: 1;
-  min-width: 200px;
+  /*min-width: 120px;*/
   margin: 0;
   padding-left: 6pt;
   padding-top: 0pt;
@@ -1618,9 +1618,10 @@ iframe.embedded-container {
 .site-footer-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
-/* line 6, styles/_footer.scss */
+/* line 7, styles/_footer.scss */
 .site-footer {
   background: #fdfdff;
   color: black;
@@ -1632,7 +1633,7 @@ iframe.embedded-container {
   border-top-width: 1px;
   border-color: #f6f6f8; }
 
-/* line 18, styles/_footer.scss */
+/* line 19, styles/_footer.scss */
 .site-footer-widget-area {
   background: linear-gradient(white, #fdfdff);
   border-style: solid;
@@ -1640,15 +1641,18 @@ iframe.embedded-container {
   border-top-width: 1px;
   border-color: #ebebff; }
 
-/* line 25, styles/_footer.scss */
+/* line 26, styles/_footer.scss */
+.site-footer-widget-area .layout-container {
+  flex-wrap: wrap; }
+
+/* line 29, styles/_footer.scss */
 .site-footer-widget-area .layout-container .widget:nth-child(1) {
   border-left-width: 0; }
 
-/* line 28, styles/_footer.scss */
+/* line 33, styles/_footer.scss */
 .site-footer-notes {
-  width: 100%;
-  max-width: 400pt;
-  margin: 2pt auto;
+  flex: 1;
+  min-width: 200px;
   padding-top: 0.6rem;
   padding-bottom: 0.9rem;
   text-align: center;
@@ -1658,22 +1662,22 @@ iframe.embedded-container {
   flex-direction: row;
   justify-content: center; }
 
-/* line 42, styles/_footer.scss */
+/* line 46, styles/_footer.scss */
 .site-footer .colored {
   color: #C30E00; }
 
-/* line 45, styles/_footer.scss */
+/* line 49, styles/_footer.scss */
 .site-footer .hinted {
   color: #4278FF; }
 
-/* line 48, styles/_footer.scss */
+/* line 52, styles/_footer.scss */
 .site-footer-host-logo {
   display: inline-block;
   height: 1.1rem;
   line-height: 1rem;
   padding-left: 6pt; }
 
-/* line 55, styles/_footer.scss */
+/* line 59, styles/_footer.scss */
 .site-footer-mail {
   color: #4278FF;
   background-color: white;
