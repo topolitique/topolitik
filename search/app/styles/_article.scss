@@ -109,3 +109,16 @@
   height: 300px;
   width: 100%
 }
+
+@media screen and (max-width: 770px) {
+  .articles {
+    padding: 0;
+  }
+  .article {
+    width: auto;
+    margin: 4pt;
+    margin-left: 6pt;
+    margin-top: 0pt;
+    padding: 0;
+  }
+}

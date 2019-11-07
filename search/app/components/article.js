@@ -13,8 +13,6 @@ const Article = ({
   className,
   data,
 }) => {
-  console.log(data)
-
   let authors = [];
   if (data.coauthors) {
     authors = data.coauthors.map(coauthor => {

@@ -26,8 +26,8 @@ const App = () => {
       .then(response => {
         let imgs = []
         for (let index = 0; index < response.length; index++) {
-          const img = response[index].guid.rendered;
-          imgs.push(img)
+          const img = response[index].source_url;
+          imgs.push(img);
         }
         let index = Math.floor(Math.random() * (imgs.length - 1)) + 1;
         setImage(imgs[index])

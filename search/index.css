@@ -17,7 +17,7 @@ html, body, #root, .root {
   position: fixed;
   width: 100%;
   height: 100%;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .header-container {
@@ -239,4 +239,56 @@ html, body, #root, .root {
 .article.featured .article-thumbnail {
   height: 300px;
   width: 100%;
+}
+
+@media screen and (max-width: 770px) {
+  .articles {
+    padding: 0;
+  }
+
+  .article {
+    width: auto;
+    margin: 4pt;
+    margin-left: 6pt;
+    margin-top: 0pt;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 770px) {
+  html, body, #root, .root {
+    background-color: #e6e6e6;
+  }
+
+  .backgroundImage {
+    display: none;
+  }
+
+  .header-container {
+    height: 80%;
+    padding-left: 6pt;
+    padding-right: 6pt;
+    margin-top: 6pt;
+  }
+
+  .header-container.with-words {
+    height: 50pt;
+    min-height: 50pt;
+  }
+
+  .logo-container {
+    margin-right: 2pt;
+  }
+
+  .searchbar-container {
+    height: 50pt;
+  }
+
+  .searchbar {
+    width: calc(100% - 6pt);
+    height: 50pt;
+  }
+
+  .search-status-container {
+    display: none;
+  }
 }

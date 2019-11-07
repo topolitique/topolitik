@@ -1,6 +1,6 @@
 
 
-const apiURL = `https://topolitique.ch/beta/wp-json/wp/v2/`;
+const apiURL = `https://topolitique.ch/wp-json/wp/v2/`;
 
 export const mediaURL = `${apiURL}media?type=attachment&per_page=20`
 export const queryURL = `${apiURL}posts`
