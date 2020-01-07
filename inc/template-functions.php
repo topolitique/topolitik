@@ -78,7 +78,7 @@ function topolitik_init_global_values() {
 		endwhile;
 	endif;
 }
-add_action( 'wp', 'topolitik_init_global_values' );
+add_action( 'template_redirect', 'topolitik_init_global_values' ); // changed from 'wp' to 'template_redirect', only when post is rendered
 
 function topolitik_meta_tags() {
 	global $thumbnail, $abstract;
@@ -109,7 +109,7 @@ add_action( 'wp_head', 'topolitik_meta_tags' );
 function apre_init_meta(){
 	add_meta_box('ref_list', 'Références', 'apre_render_ref_list', 'post', 'normal', 'high');
 	add_meta_box('guest_author_function', 'Fonction', 'apre_render_guest_author_function', 'guest-author');
-	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'kicker'); // remplaçé 'kicker' en 'post' ci-dessous
+	// add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'kicker'); // remplaçé 'kicker' en 'post' ci-dessous
 	add_meta_box('kicker', 'Kicker', 'apto_render_kicker', 'post', 'normal', 'high'); 
 }
 add_action('admin_init', 'apre_init_meta');
@@ -144,7 +144,7 @@ function apre_save_ref_list($post_id){ // $post-id est géré par wordpress
 	if (!isset($meta_value)): // Vérification qu'il y a bien un champs dédié // Manière détournée pour s'assurer que ça n'apparaît que dans la création des auteurs invités
 	   return false; 
 	endif;
-
+	
 	if(get_post_meta($post_id, $meta_key)): // Si la meta existe déjà, on actualise la meta
 		update_post_meta($post_id, $meta_key, $meta_value);
 	elseif ($meta_value === ''): // Si la valeur du champs est nulle, on supprime la meta
@@ -153,7 +153,53 @@ function apre_save_ref_list($post_id){ // $post-id est géré par wordpress
 		add_post_meta($post_id, $meta_key, $meta_value);
 	endif;
 }
-add_action('save_post', 'apre_save_ref_list');
+add_action('save_post', 'apre_save_ref_list', 10, 1);
+
+/**
+ * Custom Field: Kicker
+ */
+function apto_render_kicker(){
+	global $post;
+	$post_id = (int)$post->ID;
+	$meta_value = get_post_meta($post_id, 'kicker', true);
+	// TODO: exporter le style dans css
+	?>
+		 <div class="meta-box-item-content">
+			<input type="text" name="apto_kicker" id="apto_kicker" value="<?php echo $meta_value; ?>" >
+		 </div>
+	<?php
+}
+ 
+ function apre_save_kicker($post_id){
+	# vardump($_POST);
+	isset($_POST['apto_kicker']) ? $meta_value = $_POST['apto_kicker'] : $meta_value = '';
+	$meta_key = 'kicker';
+ 
+	if (!isset($meta_value)):
+		return false; 
+	endif;
+ 
+	if(get_post_meta($post_id, $meta_key)):
+		update_post_meta($post_id, $meta_key, $meta_value);
+	elseif ($meta_value === ''):
+		delete_post_meta($post_id, $meta_key);
+	else:
+		add_post_meta($post_id, $meta_key, $meta_value);
+	endif;
+}
+add_action('save_post', 'apre_save_kicker', 10, 1);
+
+/**
+ * Fix meta removals when post is scheduled 
+ * Solution : don't save the post, it has already
+ * been saved. Only change it's status
+ */
+function scheduled_to_published($post ) {
+	// ONLY change the post's status, don't (re)save it !!! (wtf...)
+	remove_action('save_post', 'apre_save_ref_list');
+	remove_action('save_post', 'apre_save_kicker');
+}
+add_action(  'future_to_publish',  'scheduled_to_published', 9, 1);
 
 
 /**
@@ -189,42 +235,6 @@ function apre_render_guest_author_function(){
 	endif;
 }
 add_action('save_post', 'apre_save_guest_author_function');
-
-
-/**
- * Custom Field: Kicker
- */
-function apto_render_kicker(){
-	global $post;
-	$post_id = (int)$post->ID;
-	$meta_value = get_post_meta($post_id, 'kicker', true);
-	// TODO: exporter le style dans css
-	?>
-		 <div class="meta-box-item-content">
-			<input type="text" name="apto_kicker" id="apto_kicker" value="<?php echo $meta_value; ?>" >
-		 </div>
-	<?php
-}
- 
- function apre_save_kicker($post_id){
-	# vardump($_POST);
-	isset($_POST['apto_kicker']) ? $meta_value = $_POST['apto_kicker'] : $meta_value = '';
-	$meta_key = 'kicker';
- 
-	if (!isset($meta_value)):
-		return false; 
-	endif;
- 
-	if(get_post_meta($post_id, $meta_key)):
-		update_post_meta($post_id, $meta_key, $meta_value);
-	elseif ($meta_value === ''):
-		delete_post_meta($post_id, $meta_key);
-	else:
-		add_post_meta($post_id, $meta_key, $meta_value);
-	endif;
-}
-add_action('save_post', 'apre_save_kicker');
-
 
 /**
  * Custom Post Type: Topo TV

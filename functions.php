@@ -309,7 +309,7 @@ function wp_infinitepaginate(){
 add_action('wp_ajax_infinite_scroll', 'wp_infinitepaginate'); // for logged in user
 add_action('wp_ajax_nopriv_infinite_scroll', 'wp_infinitepaginate'); // if user not logged in
 
-add_action('wp_print_scripts', 'no_autosave');
 function no_autosave() {
  wp_deregister_script('autosave');
 }
+add_action('wp_print_scripts', 'no_autosave');
