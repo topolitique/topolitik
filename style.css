@@ -1957,20 +1957,20 @@ span.currency {
 
 /* First post in section (featured post) */
 /* line 265, styles/_homepage.scss */
-.article-card:nth-child(1) {
+.homepage-section .article-card:nth-child(1) {
   height: 450px;
   min-width: 60%;
   box-shadow: none;
   transition: box-shadow .3s; }
 
 /* line 272, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-thumbnail {
+.homepage-section .article-card:nth-child(1) .article-card-thumbnail {
   position: absolute;
   width: 100%;
   height: 100%; }
 
 /* line 278, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-text {
+.homepage-section .article-card:nth-child(1) .article-card-text {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -1980,23 +1980,23 @@ span.currency {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6)); }
 
 /* line 288, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-text a {
+.homepage-section .article-card:nth-child(1) .article-card-text a {
   text-decoration: none; }
 
 /* line 291, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-author-text {
+.homepage-section .article-card:nth-child(1) .article-card-author-text {
   text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3); }
 
 /* line 295, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-author-text .entry-date {
+.homepage-section .article-card:nth-child(1) .article-card-author-text .entry-date {
   color: white; }
 
 /* line 298, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-meta {
+.homepage-section .article-card:nth-child(1) .article-card-meta {
   margin-top: 0pt; }
 
 /* line 302, styles/_homepage.scss */
-.article-card:nth-child(1) .article-card-abstract {
+.homepage-section .article-card:nth-child(1) .article-card-abstract {
   margin: 0;
   margin-top: 8pt;
   margin-bottom: 4pt;
@@ -2010,11 +2010,11 @@ span.currency {
   transition: max-height 1s; }
 
 /* line 316, styles/_homepage.scss */
-.article-card:nth-child(1):hover {
+.homepage-section .article-card:nth-child(1):hover {
   box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.2); }
 
 /* line 320, styles/_homepage.scss */
-.article-card:nth-child(1):hover .article-card-abstract {
+.homepage-section .article-card:nth-child(1):hover .article-card-abstract {
   max-height: 400pt; }
 
 /* Second post in section */
@@ -2185,12 +2185,20 @@ span.currency {
   /* line 478, styles/_homepage.scss */
   .article-card {
     margin-right: 0; }
-  /* line 481, styles/_homepage.scss */
+  /* line 482, styles/_homepage.scss */
   .article-card:nth-child(1) {
     height: 280pt; }
-  /* line 484, styles/_homepage.scss */
+  /* line 485, styles/_homepage.scss */
   .article-card-author-text {
-    font-size: 12pt; } }
+    font-size: 12pt; }
+  /* line 489, styles/_homepage.scss */
+  .homepage-section .article-card:nth-child(n+2) .article-card-thumbnail {
+    display: none; }
+  /* line 493, styles/_homepage.scss */
+  .homepage-section .article-card:nth-child(n+2) .article-card-text {
+    border-width: 0;
+    border-bottom-width: 1px;
+    border-color: #646464; } }
 
 /* line 5, styles/_article.scss */
 .article-headline-container {
@@ -2524,6 +2532,97 @@ a[rel="tag"] {
   .article-thumbnail-container {
     background-attachment: initial; } }
 
+/* line 3, styles/_dossier.scss */
+.sticky-margin-container {
+  z-index: 1;
+  display: block; }
+
+/* line 8, styles/_dossier.scss */
+.sticky-margin-container.float > div {
+  position: fixed;
+  top: 70px; }
+
+/* line 13, styles/_dossier.scss */
+.home-dossier-container {
+  float: left;
+  margin-right: 5pt; }
+
+/* line 18, styles/_dossier.scss */
+.dossier_header {
+  background-color: #1e1e1e;
+  background-size: cover;
+  background-position: center;
+  width: 292px;
+  min-height: 460px;
+  /* A4 ratio */
+  padding: 4px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  transition: all .4s; }
+
+/* line 31, styles/_dossier.scss */
+.sticky-margin-container.float .dossier_header {
+  border-radius: 4px;
+  overflow: hidden;
+  padding: 0pt;
+  margin: 4px; }
+
+/* line 39, styles/_dossier.scss */
+.dossier_header .kicker {
+  font-family: "IBM Plex Mono", monospace;
+  flex: 1;
+  color: #C30E00;
+  width: auto;
+  font-size: 0.8rem;
+  padding-left: 6px;
+  padding-bottom: 4px; }
+
+/* line 49, styles/_dossier.scss */
+.dossier_header .title {
+  font-family: "IBM Plex Sans", Helvetica, sans-serif;
+  font-weight: 500;
+  background-color: white;
+  color: black;
+  /* spacing */
+  padding-top: 2pt;
+  padding-bottom: 2pt;
+  margin: 0pt;
+  display: inline;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  border-radius: 3px;
+  margin-top: 12px;
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 2rem;
+  line-height: 2.5rem; }
+
+/* line 70, styles/_dossier.scss */
+.dossier_header .title * {
+  color: inherit;
+  text-decoration: none; }
+
+/* line 75, styles/_dossier.scss */
+.sticky-margin-container.float .dossier_header .title {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+/* line 80, styles/_dossier.scss */
+.dossier_header .description {
+  font-family: "IBM Plex Mono", monospace;
+  color: white;
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 2px;
+  font-size: 0.9rem; }
+
+/* line 90, styles/_dossier.scss */
+.dossier_header .description a {
+  color: inherit;
+  text-decoration: none; }
+
 /* line 1, styles/_archive.scss */
 .archive-content {
   padding-top: 12pt;
@@ -2568,7 +2667,7 @@ a[rel="tag"] {
   padding: 2px;
   border-style: solid;
   border-width: 1px;
-  border-color: #f6f6f8;
+  border-color: #50505a;
   border-radius: 3px;
   overflow: hidden; }
   /* line 50, styles/_author.scss */

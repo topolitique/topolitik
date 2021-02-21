@@ -85,6 +85,8 @@ if ( ! function_exists( 'topolitik_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		add_image_size( 'dossier', 420, 594, true );
 	}
 endif;
 add_action( 'after_setup_theme', 'topolitik_setup' );

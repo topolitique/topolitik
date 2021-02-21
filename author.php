@@ -33,7 +33,11 @@ get_header();
 								<h2 class="author-name"><?php echo $newauthor; ?></h2>
 								<p class="author-function"><?php echo $function ?></p>
 								<?php the_archive_description( '<p class="author-description">', '</p>' ); ?>
-								<p class="author-url"><?php echo esc_url( $archive_link ); ?></p>
+								<p class="author-url">
+									<a href="<?php echo esc_url( $archive_link );?>" target="_blank">
+										<?php echo esc_url( $archive_link ); ?>
+									</a>
+								</p>
 								<?php
 						}
   				}

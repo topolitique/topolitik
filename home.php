@@ -24,18 +24,6 @@ get_header();
 						<h1 class="homepage-section-title no-mobile"><?php echo get_theme_mod('homepage_section_1_header') ?></h1>
 						<p class="homepage-section-description no-mobile"><?php echo get_theme_mod('homepage_section_1_body') ?></p>
 					</div>
-					<div class="homepage-section-donation no-mobile">
-						<h2 class="homepage-section-title">Soutien</h2>
-						<input type="text" placeholder="Prénom" onchange="updateDonationLink()" id="donation-name" />
-						<input type="text" placeholder="Nom"  onchange="updateDonationLink()" id="donation-surname" />
-						<input type="email" placeholder="E-mail"  onchange="updateDonationLink()" id="donation-email" />
-
-						<div class="homepage-section-donation-input">
-							<input type="number" id="donation-amount" onchange="updateDonationLink()" placeholder="5.00" value="5.00" step="0.50" min="0">
-							<span class="currency">CHF</span>
-							<a id="donation-link" href="https://topo.payrexx.com/fr/vpos?amount=5" target="_blank">Donation</a>
-						</div>
-					</div>
 
 				</div>
 				<div class="homepage-section-content">
@@ -77,6 +65,45 @@ get_header();
 		</div><!-- .section-container -->
 		<!-- NEW Section 1 -->
 		
+
+		<!-- NEW Section 2 - Dossiers -->
+		<div class="layout-container">
+			<div class="homepage-section">
+				<div class="homepage-section-margin latest">
+					<div class="homepage-section-latest-presentation">
+						<h1 class="homepage-section-title no-mobile">Dossiers</h1>
+						<p class="homepage-section-description no-mobile">
+							Explorez nos series d'articles concoctés rien que pour vous.
+						</p>
+					</div>
+
+				</div>
+				<div class="homepage-section-content">
+					<div class="homepage-section-content-first-articles">
+						<?php
+							$dossiers = new WP_Query(array(
+								'posts_per_page' => 5,
+								'post_type' => 'dossier',
+								'orderby' => 'post_date', // Order by date
+							));
+
+							if ( $dossiers->have_posts() ) {
+								while ( $dossiers->have_posts() ) {
+									$dossiers->the_post();
+									?> 
+									<div class="home-dossier-container">
+										<?php get_template_part( 'template-parts/dossier-card' ); ?>
+									</div>
+									<?php
+								}
+							}
+						?>
+					</div><!-- .homepage-section-content-last-articles -->
+				</div><!-- .homepage-section-content -->
+			</div><!-- .homepage-section -->
+		</div><!-- .section-container -->
+		<!-- NEW Section 2 -->
+
 		<!-- NEW Sections 2 to 5 -->
 		<?php 
 

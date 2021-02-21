@@ -10,7 +10,7 @@ function toggleMenu() {
 function printWelcomeMessage() {
   console.log("\n\n%cBonjour, bienvenue sur le site de TOPO",'font-weight: bold;');
   console.log("%cUn problème ? Contactez-nous à topo@unige.ch ", 'color: #C30E00; font-weight: bold;');
-  console.log("%cou contactez les web master: Mark Spurgeon (markspurgeon96@hotmail.com) et Alexandre Petot. ", 'color: #C30E00')
+  console.log("%cou contactez les web master: Mark Spurgeon (mark.spurgeon@protonmail.com)", 'color: #C30E00')
 }
 
 ( function( $ ) {
@@ -20,12 +20,21 @@ function printWelcomeMessage() {
     var total = 200;
 
     $(window).scroll(function(){
+      if ($(window).scrollTop() > 100 ) {
+        $('div.sticky-margin-container').addClass('float');
+      } else {
+        $('div.sticky-margin-container').removeClass('float');
+      };
+
       if ($(window).scrollTop() == $(document).height() - $(window).height()){
        if (count > total){
-         return false;
+          // add this data to html
+          return false;
        } else{
           console.log('Reached bottom of page.');
-          loadArticle(count);
+          if (window.location.href.includes('category')) {
+            loadArticle(count);
+          }
        }
        count++;
       }
@@ -39,14 +48,11 @@ function printWelcomeMessage() {
         prefix = "beta/"
       }
 
-      console.log('Requesting articles');
-
       $.ajax({
         url: `/${prefix}wp-admin/admin-ajax.php`,
         type:'POST',
         data: "action=infinite_scroll&page_no="+ pageNumber + '&loop_file=template-parts%2Farchive-loop',
         success: function (html) {
-          console.log(`Loading ${count} articles.`);
           $('li#inifiniteLoader').hide('1000');
           $("#archive-content").append(html);
         },
