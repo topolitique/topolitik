@@ -2557,71 +2557,107 @@ a[rel="tag"] {
   /* A4 ratio */
   padding: 4px;
   margin: 0;
+  position: relative;
   display: flex;
   flex-direction: column;
   transition: all .4s; }
 
-/* line 31, styles/_dossier.scss */
+/* line 32, styles/_dossier.scss */
+.dossier_header .container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: all .4s;
+  z-index: 100; }
+
+/* line 40, styles/_dossier.scss */
 .sticky-margin-container.float .dossier_header {
   border-radius: 4px;
   overflow: hidden;
   padding: 0pt;
   margin: 4px; }
 
-/* line 39, styles/_dossier.scss */
+/* line 47, styles/_dossier.scss */
+.dossier_header .background {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.45));
+  z-index: 1; }
+
+/* line 58, styles/_dossier.scss */
 .dossier_header .kicker {
   font-family: "IBM Plex Mono", monospace;
   flex: 1;
   color: #C30E00;
+  background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
   width: auto;
   font-size: 0.8rem;
   padding-left: 6px;
   padding-bottom: 4px; }
 
-/* line 49, styles/_dossier.scss */
+/* line 69, styles/_dossier.scss */
 .dossier_header .title {
   font-family: "IBM Plex Sans", Helvetica, sans-serif;
   font-weight: 500;
-  background-color: white;
-  color: black;
+  color: white;
   /* spacing */
-  padding-top: 2pt;
-  padding-bottom: 2pt;
-  margin: 0pt;
   display: inline;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
   border-radius: 3px;
-  margin-top: 12px;
+  padding-top: 2pt;
+  padding-bottom: 2pt;
+  margin: 0pt;
   padding-left: 2px;
   padding-right: 2px;
   font-size: 2rem;
-  line-height: 2.5rem; }
+  line-height: 2rem;
+  z-index: 10; }
 
-/* line 70, styles/_dossier.scss */
+/* line 89, styles/_dossier.scss */
 .dossier_header .title * {
   color: inherit;
   text-decoration: none; }
 
-/* line 75, styles/_dossier.scss */
+/* line 94, styles/_dossier.scss */
 .sticky-margin-container.float .dossier_header .title {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
 
-/* line 80, styles/_dossier.scss */
+/* line 99, styles/_dossier.scss */
 .dossier_header .description {
   font-family: "IBM Plex Mono", monospace;
+  font-style: italic;
   color: white;
-  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.7);
-  padding-left: 6px;
-  padding-right: 6px;
+  margin-top: 0;
+  padding-left: 5px;
+  padding-right: 5px;
   padding-bottom: 2px;
   font-size: 0.9rem; }
 
-/* line 90, styles/_dossier.scss */
+/* line 110, styles/_dossier.scss */
 .dossier_header .description a {
   color: inherit;
   text-decoration: none; }
+
+@media screen and (max-width: 600px) {
+  /* line 117, styles/_dossier.scss */
+  .dossier_header {
+    width: 120px;
+    height: 194px;
+    min-height: 0 !important;
+    font-size: 0.6rem; }
+  /* line 123, styles/_dossier.scss */
+  .dossier_header .title {
+    font-size: 1rem;
+    line-height: 1rem; }
+  /* line 127, styles/_dossier.scss */
+  .dossier_header .description {
+    display: none; } }
 
 /* line 1, styles/_archive.scss */
 .archive-content {

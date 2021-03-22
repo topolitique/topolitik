@@ -32,19 +32,23 @@
 
 	<!-- Matomo -->
 	<script type="text/javascript">
-		var _paq = window._paq || [];
-		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-		_paq.push(['trackPageView']);
-		_paq.push(['enableLinkTracking']);
-		(function() {
-			var u="//stats.topolitique.news/";
-			_paq.push(['setTrackerUrl', u+'piwik.php']);
-			_paq.push(['setSiteId', '2']);
-			var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-			g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
-		})();
+		var _paq = window._paq = window._paq || [];
+			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
+			(function() {
+				var u="//stats.topolitique.ch/";
+				_paq.push(['setTrackerUrl', u+'matomo.php']);
+				_paq.push(['setSiteId', '2']);
+				var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+				g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+			})();
 	</script>
 	<!-- End Matomo Code -->
+	<!-- Matomo Image Tracker-->
+	<img referrerpolicy="no-referrer-when-downgrade" src="https://stats.topolitique.ch/matomo.php?idsite=2&amp;rec=1" style="border:0" alt="" />
+	<!-- End Matomo -->
+
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -125,8 +129,6 @@
             </div>
         </div>
       </header>
-
-	<?php echo get_theme_mod('header_bigbanner_image') ?>
 
 	<!-- special events header -->
 	<?php if (get_theme_mod('header_bigbanner_image') !== null ): ?>
